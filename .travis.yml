@@ -1,0 +1,5 @@
+language: ruby
+rvm:
+  - 2.1.4
+before_script:
+  - psql -c 'create database abhnation_test;' -U postgres
