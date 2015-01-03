@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="/stylesheets/app.css"/>
   <link href='http://fonts.googleapis.com/css?family=Cinzel:700,400' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= csrf_meta_tags %>
@@ -241,10 +240,22 @@
 
     <!-- Main Content -->
     <div class="large-10 medium-9 small-9 columns" role="content">
+
+      <%- flash.each do |key, value| -%>
+      <div class="success label">
+        <%= value %>
+      </div>
+      <%- end -%>
+
       <%= yield %>
 
-      <%= js :libs %>
-      <%= js :application %>
+      <%= javascript_include_tag 'application' %>
+      <%= javascript_tag do %>
+        $(function(){
+        $(document).foundation();
+        });
+      <% end %>
+
     </div>
   </div>
 
@@ -266,13 +277,5 @@
       </div>
     </div>
   </footer>
-
-  <!-- JS -->
-  <script src="/js/vendor/jquery.js"></script>
-  <script src="/js/vendor/fastclick.js"></script>
-  <script src="/js/foundation.min.js"></script>
-  <script>
-    $(document).foundation();
-  </script>
 </body>
 </html>

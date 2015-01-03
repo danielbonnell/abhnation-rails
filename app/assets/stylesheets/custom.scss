@@ -1,11 +1,18 @@
+<<<<<<< HEAD
 @import "app/stylesheets/foundation_and_overrides";
 
+=======
+>>>>>>> transfer_statis_assets
 aside {
   color: $grey;
 }
 
 .avatar {
+<<<<<<< HEAD
   content: url("app/assets/images/avatar.png");
+=======
+  content: url("avatar.png");
+>>>>>>> transfer_statis_assets
   font-size: 16px;
   height: 9.375em;
   width: 9.375em;
@@ -23,9 +30,15 @@ aside {
   overflow: hidden;
   vertical-align: bottom;
   background: $royal-blue;
+<<<<<<< HEAD
   background-image: url("app/assets/images/Lamhirh(1).png"),
                     url("app/assets/images/planet.png"),
                     url("app/assets/images/header.jpg");
+=======
+  background-image: url("Lamhirh(1).png"),
+                    url("planet.png"),
+                    url("header.jpg");
+>>>>>>> transfer_statis_assets
   background-repeat: no-repeat;
   background-position: right bottom, -30em -6em, center;
   background-size: contain, 70em, auto;
@@ -54,6 +67,7 @@ aside {
 }
 
 @media only screen and (max-width: lower-bound($medium-range)) {
+  @import "navbar";
 
   article {
     h3 {
