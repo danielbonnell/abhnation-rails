@@ -48,11 +48,12 @@ gem 'launchy', group: [:development, :test]
 gem 'factory_girl', group: [:development, :test]
 gem 'valid_attribute', group: [:development, :test]
 gem 'shoulda-matchers', group: [:development, :test], require: false
-gem 'devise'
+# gem 'devise'
 gem 'foundation-rails'
-gem 'kaminari'
-gem 'simple_form'
-gem 'carrierwave'
-gem 'omniauth'
+# gem 'kaminari'
+# gem 'simple_form'
+# gem 'carrierwave'
+# gem 'omniauth'
 gem 'better_errors', group: [:development]
 gem 'coveralls', require: false
+gem 'rails_12factor', group: [:production]
