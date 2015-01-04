@@ -1,0 +1,12 @@
+<div class="col-md-6 col-md-offset-6">
+  <div class="row">
+    <div class="panel-heading">
+      <ul class="pricing-table">
+        <li class="title">My Account</li>
+        <li class="bullet-item"><%= @user.email %></li>
+        <li class="bullet-item"><%= avatar %></li>
+        <li class="cta-button"><%= link_to 'Edit My Account', edit_user_registration_path, class: 'button round' %></li>
+      </ul>
+    </div>
+  </div>
+</div>

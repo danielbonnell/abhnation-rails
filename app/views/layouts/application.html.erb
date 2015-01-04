@@ -220,10 +220,20 @@
   <div class="row">
     <!-- Side Bar -->
     <aside class="large-2 medium-3 small-3 columns">
-      <h5>ACIDSTEALTH</h5>
       <ul class="side-bar">
-        <li><span class="avatar"></span></li>
+        <%- if current_user -%>
+        <li>
+          <h5>USERNAME</h5>
+        </li>
+        <li class="avatar"><%= avatar %></li>
+        <li><%= link_to "My Account", user_path(current_user) %></li>
+        <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+        <%- else -%>
+        <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+        <li><%= link_to 'Sign In', new_user_session_path %></li>
+        <%- end -%>
       </ul>
+
       <ul class="side-bar">
         <li>Something</li>
         <li>Something else</li>
