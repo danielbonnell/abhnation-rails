@@ -1,7 +1,7 @@
 # The Abh Nation
-[![Build Status](https://travis-ci.org/danielbonnell/git_that_wifi.svg?branch=DB_1_view_page_details)](https://travis-ci.org/danielbonnell/git_that_wifi)
-[![Code Climate](https://codeclimate.com/github/danielbonnell/git_that_wifi.png)](https://codeclimate.com/github/danielbonnell/git_that_wifi)
-[![Coverage Status](https://coveralls.io/repos/danielbonnell/git_that_wifi/badge.png)](https://coveralls.io/r/danielbonnell/git_that_wifi)
+[![Build Status](https://travis-ci.org/danielbonnell/abhnation-rails.svg?branch=master)](https://travis-ci.org/danielbonnell/abhnation-rails)
+[![Code Climate](https://codeclimate.com/github/danielbonnell/abhnation-rails.png)](https://codeclimate.com/github/danielbonnell/abhnation-rails)
+[![Coverage Status](https://coveralls.io/repos/danielbonnell/abhnation-rails/badge.png)](https://coveralls.io/r/danielbonnell/abhnation-rails)
 
 ## About the Project
 This is a semi-interactive mockup for the front-end of my breakable toy (final project for Launch Academy). The end product will be a refreshed version of the [original site](http://www.abhnation.com/) (sans a splash page), which was first launched on October 2nd, 2004. Development of The Abh Nation formally ceased on April 20th, 2009.
@@ -12,7 +12,7 @@ The site is currently live on [Heroku](http://abhnation.herokuapp.com/).
 Currently implemented features:
 * 1. Users can register, log in, edit their profile, and log out.
 
-Additional features will be added to this list as they are implemented. 
+Additional features will be added to this list as they are implemented.
 
 ## Goals
 The primary goals of this project are to:
