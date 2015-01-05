@@ -2,11 +2,11 @@ module Helpers
   module Registration
     def register_user(username, email)
       visit new_user_registration_path
-      save_and_open_page
-      fill_in 'Username', with: username
-      fill_in 'Email', with: email
-      fill_in 'Password', with: 'password'
-      fill_in 'Password confirmation', with: 'password'
+      byebug
+      fill_in 'user[username]', with: username
+      fill_in 'user[email]', with: email
+      fill_in 'user[password]', with: 'password'
+      fill_in 'user[password_confirmation]', with: 'password'
 
       click_button 'Register'
     end

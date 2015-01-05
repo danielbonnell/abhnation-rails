@@ -1,6 +1,6 @@
-require 'rails_helper'
+require "rails_helper"
 
-feature 'user registers', %Q{
+feature "user registers", %Q{
   As a user, I want to register an account, so that I can view restricted content.
   Acceptance Criteria:
   * [X] - I have an option to register an account
@@ -12,26 +12,27 @@ feature 'user registers', %Q{
   } do
 
 
-  username = "Lafiel_Abriel"
-  email = "lafiel.abriel@abhnation.com"
 
-  scenario 'provide valid registration information' do
+  scenario "provide valid registration information" do
     visit new_user_registration_path
 
+    username = "Lafiel_Abriel"
+    email = "lafiel.abriel@abhnation.com"
+    
     register_user(username, email)
 
-    expect(page).to have_content('Welcome! You have signed up successfully.')
+    expect(page).to have_content("You have registered successfully.")
     expect(page).to have_content(username)
     expect(page).to have_content(email)
-    expect(page).to have_content('Log Out')
+    expect(page).to have_content("Log Out")
   end
 
-  scenario 'provide invalid registration information' do
+  scenario "provide invalid registration information" do
     visit new_user_registration_path
 
-    click_button 'Register'
+    click_button "Register"
 
-    expect(page).to have_content("can't be blank")
-    expect(page).to_not have_content('Log Out')
+    expect(page).to have_content("Username can't be blank")
+    expect(page).to_not have_content("Log Out")
   end
 end
