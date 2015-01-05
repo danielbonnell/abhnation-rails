@@ -1,13 +1,13 @@
 User Stories for The Abh Nation
 ====
-## USER CRUD OPS: HOME PAGE
+#### USER CRUD OPS: HOME PAGE
 
 As a user, I want to see the main page, so that I can navigate through the site.
 Acceptance Criteria:
 * [ ] - I see the title of the website.
 * [ ] - I see the top bar nav menu.
 
-## USER CRUD OPS: REGISTER, LOG IN, LOG OUT
+#### USER CRUD OPS: REGISTER, LOG IN, LOG OUT
 
 As a user, I want to register an account, so that I can view restricted content.
 Acceptance Criteria:
@@ -25,7 +25,7 @@ Acceptance Criteria:
 * [ ] - I see my avatar if I am logged in.
 * [ ] - I have an option to edit my profile if I am logged in.
 
-## USER CRUD OPS: EDIT PROFILE AND AVATAR
+#### USER CRUD OPS: EDIT PROFILE AND AVATAR
 
 As an authenticated user, I want to log out, so that I others can’t access my account.
 Acceptance Criteria:
@@ -70,7 +70,7 @@ Acceptance Criteria:
 * [ ] - I see an error if the file size of the image I supplied is too large.
 * [ ] - I see the image I supplied as my new avatar.
 
-## USER CRUD OPS: REGISTER AND LOG IN WITH SOCIAL MEDIA
+#### USER CRUD OPS: REGISTER AND LOG IN WITH SOCIAL MEDIA
 
 As a user, I want to register an account using my Google account, so that I don’t have to remember another login.
 Acceptance Criteria:
@@ -108,7 +108,7 @@ As a user, I want to log in using my Twitter account, so that I don’t have to 
 Acceptance Criteria:
 * [ ] - I can log in with Twitter.
 
-## USER CRUD OPS: VIEW ARTICLES
+#### USER CRUD OPS: VIEW ARTICLES
 
 As a user, I want to view articles, so that I can learn more.
 Acceptance Criteria:
@@ -135,7 +135,7 @@ Acceptance Criteria:
 * [ ] - If I am not logged in or don’t have admin access, I can’t see a link to the admin panel in the side bar.
 * [ ] - If I am not logged in or don’t have admin access, I get a 404 error when visiting the admin namespace.
 
-## ADMIN CRUD OPS: MODIFY USERS
+#### ADMIN CRUD OPS: MODIFY USERS
 
 As an admin, I want to view a list of all users, so that I can see who is using the site.
 Acceptance Criteria:
@@ -155,7 +155,7 @@ Acceptance Criteria:
 * [ ] - I can add a new user account.
 * [ ] - I will not be required to confirm the email address of the new account.
 
-## ADMIN CRUD OPS: MODIFY CATEGORIES
+#### ADMIN CRUD OPS: MODIFY CATEGORIES
 
 As an admin, I want to view a list of all categories and subcategories, so that I can see what type of content the site has.
 Acceptance Criteria:
@@ -192,7 +192,7 @@ Acceptance Criteria:
 * [ ] - I see an error if the specified name is already taken.
 * [ ] - I see an error if I fail to specify a parent category.
 
-## ADMIN CRUD OPS: MODIFY ARTICLES
+#### ADMIN CRUD OPS: MODIFY ARTICLES
 
 As an admin, I want to view a list of articles, so that I see what content the site has.
 Acceptance Criteria:
@@ -236,7 +236,7 @@ Acceptance Criteria:
 * [ ] - I see an error if the image file size is too large.
 * [ ] - I see an error if the file is not a valid format (jpg, png, gif).~~
 
-## ADMIN CRUD OPS: MODIFY IMAGE GALLERIES
+#### ADMIN CRUD OPS: MODIFY IMAGE GALLERIES
 
 As an admin, I want to view a list of image galleries, so that I can see what galleries the site has.
 Acceptance Criteria:
@@ -284,7 +284,7 @@ Acceptance Criteria:
 * [ ] - I see an error if an image file size is too large.
 * [ ] - I see the newly uploaded images in the gallery.~~
 
-## ADMIN CRUD OPS: RESTRICTING ACCESS
+#### ADMIN CRUD OPS: RESTRICTING ACCESS
 
 As an admin, I want to restrict access to articles to authenticated users, so that I can keep select content private.
 Acceptance Criteria:
