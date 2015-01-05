@@ -2,7 +2,7 @@ module Helpers
   module Registration
     def register_user(username, email)
       visit new_user_registration_path
-      byebug
+      
       fill_in 'user[username]', with: username
       fill_in 'user[email]', with: email
       fill_in 'user[password]', with: 'password'
