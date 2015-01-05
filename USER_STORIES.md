@@ -127,7 +127,7 @@ Acceptance Criteria:
 * [ ] - I can close the image viewer.
 * [ ] - If there are multiple images in the same article, I can page through them in an image viewer.
 
-ADMIN CRUD OPS: ADMIN PANEL
+#### ADMIN CRUD OPS: ADMIN PANEL
 
 As an admin, I want to view the admin panel, so that I can see what tools are available to me.
 Acceptance Criteria:
