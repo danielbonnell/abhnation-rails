@@ -58,3 +58,4 @@ gem 'foundation-rails'
 gem 'better_errors', group: [:development]
 gem 'coveralls', require: false
 gem 'rails_12factor', group: [:production]
+gem 'pry-rails', group: [:development, :test]

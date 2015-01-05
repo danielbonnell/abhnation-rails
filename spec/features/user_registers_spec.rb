@@ -18,7 +18,7 @@ feature "user registers", %Q{
 
     username = "Lafiel_Abriel"
     email = "lafiel.abriel@abhnation.com"
-    
+
     register_user(username, email)
 
     expect(page).to have_content("You have registered successfully.")
