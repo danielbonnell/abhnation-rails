@@ -29,7 +29,7 @@ feature 'user registers', %Q{
   scenario 'provide invalid registration information' do
     visit new_user_registration_path
 
-    click_button 'Log in'
+    click_button 'Register'
 
     expect(page).to have_content("can't be blank")
     expect(page).to_not have_content('Log Out')
