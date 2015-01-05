@@ -14,8 +14,8 @@ Acceptance Criteria:
 * [ ] - I have an option to register an account
 * [ ] - I must supply a username, email, and password.
 * [ ] - I am redirected to my account overview upon successful registration.
-* [ ] - I must confirm my email address.
-* [ ] - If I don’t confirm my email address within 24 hours, my account will be deleted.
+* [ ] - ~~I must confirm my email address.~~
+* [ ] - ~~If I don’t confirm my email address within 24 hours, my account will be deleted.~~
 * [ ] - I see an error message if my registration credentials are invalid.
 
 As a user, I want to log in, so that I can view restricted content.
@@ -45,8 +45,8 @@ As an authenticated user, I want to edit my email, so that I can continue using 
 Acceptance Criteria:
 * [ ] - I can update my email address.
 * [ ] - I see an error if my new email address is invalid.
-* [ ] - I must confirm my email address.
-* [ ] - If I don’t confirm my email address within 24 hours, it will not be saved.
+* [ ] - ~~I must confirm my email address.~~
+* [ ] - ~~If I don’t confirm my email address within 24 hours, it will not be saved.~~
 
 As an authenticated user, I want to opt out of using a custom avatar, because I don’t want to distinguish myself from other users.
 Acceptance Criteria:
