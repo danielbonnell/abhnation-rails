@@ -227,14 +227,14 @@ As an admin, I want to delete an article, so that I can keep the site up to date
 Acceptance Criteria:
 * [ ] - I can delete an article from the site.
 
-~~As an admin, I want to upload images to include in the text of an article, so that I can increase the value of the article.
-Acceptance Criteria:
-* [ ] - I can upload an image file from my computer to the site.
-* [ ] - I can choose to display the full-sized image in the article text.
-* [ ] - I can choose to include a thumbnail of the image in the article text.
-* [ ] - I can select the size of the thumbnail.
-* [ ] - I see an error if the image file size is too large.
-* [ ] - I see an error if the file is not a valid format (jpg, png, gif).~~
+~~As an admin, I want to upload images to include in the text of an article, so that I can increase the value of the article.~~
+~~Acceptance Criteria:~~
+* [ ] - ~~I can upload an image file from my computer to the site.~~
+* [ ] - ~~I can choose to display the full-sized image in the article text.~~
+* [ ] - ~~I can choose to include a thumbnail of the image in the article text.~~
+* [ ] - ~~I can select the size of the thumbnail.~~
+* [ ] - ~~I see an error if the image file size is too large.~~
+* [ ] - ~~I see an error if the file is not a valid format (jpg, png, gif).~~
 
 #### ADMIN CRUD OPS: MODIFY IMAGE GALLERIES
 
@@ -277,12 +277,12 @@ Acceptance Criteria:
 * [ ] - I can order the images in the gallery by file name or upload time.
 * [ ] - I see the images in the right order.
 
-~~As an admin, I want to batch upload images to a gallery, so that I can be more efficient.
-Acceptance Criteria:
-* [ ] - When adding images to a gallery, I can batch upload images.
-* [ ] - I see an error if an image file type is invalid (jpg, gif, png).
-* [ ] - I see an error if an image file size is too large.
-* [ ] - I see the newly uploaded images in the gallery.~~
+~~As an admin, I want to batch upload images to a gallery, so that I can be more efficient.~~
+~~Acceptance Criteria:~~
+* [ ] - ~~When adding images to a gallery, I can batch upload images.~~
+* [ ] - ~~I see an error if an image file type is invalid (jpg, gif, png).~~
+* [ ] - ~~I see an error if an image file size is too large.~~
+* [ ] - ~~I see the newly uploaded images in the gallery.~~
 
 #### ADMIN CRUD OPS: RESTRICTING ACCESS
 
