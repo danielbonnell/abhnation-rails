@@ -5,8 +5,8 @@ feature 'user signs in', %Q{
   Acceptance Criteria:
   * [X] - I have an option to log in.
   * [X] - I see an error message if my log in credentials are invalid.
-  * [ ] - I see my avatar if I am logged in.
-  * [ ] - I have an option to edit my profile if I am logged in.
+  * [X] - I see my avatar if I am logged in.
+  * [X] - I have an option to edit my profile if I am logged in.
   } do
 
   let(:user) do
