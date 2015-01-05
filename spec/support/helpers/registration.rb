@@ -4,12 +4,13 @@ module Helpers
       visit new_user_session_path
 
       within "#new_user" do
+        save_and_open_page
         fill_in 'Username', with: username
         fill_in 'Email', with: email
         fill_in 'Password', with: 'password'
         fill_in 'Password confirmation', with: 'password'
 
-        click_button 'Log in'
+        click_button 'Register'
       end
     end
   end
