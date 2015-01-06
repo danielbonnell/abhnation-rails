@@ -16,6 +16,6 @@ class ApplicationController < ActionController::Base
   ]
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:sign_up) << @acceptable_params
+    devise_parameter_sanitizer.for(:sign_up) << [:email, :username, :first_name, :last_name, :age, :website, :password, :password_confirmation, :current_password]
   end
 end
