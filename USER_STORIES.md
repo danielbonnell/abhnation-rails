@@ -4,47 +4,47 @@ User Stories for The Abh Nation
 
 As a user, I want to see the main page, so that I can navigate through the site.
 Acceptance Criteria:
-* [ ] - I see the title of the website.
-* [ ] - I see the top bar nav menu.
+* [X] - I see the title of the website.
+* [X] - I see the top bar nav menu.
 
 #### USER CRUD OPS: REGISTER, LOG IN, LOG OUT
 
 As a user, I want to register an account, so that I can view restricted content.
 Acceptance Criteria:
-* [ ] - I have an option to register an account
-* [ ] - I must supply a username, email, and password.
-* [ ] - I am redirected to my account overview upon successful registration.
+* [X] - I have an option to register an account
+* [X] - I must supply a username, email, and password.
+* [X] - I am redirected to my account overview upon successful registration.
 * [ ] - ~~I must confirm my email address.~~
 * [ ] - ~~If I don’t confirm my email address within 24 hours, my account will be deleted.~~
-* [ ] - I see an error message if my registration credentials are invalid.
+* [X] - I see an error message if my registration credentials are invalid.
 
 As a user, I want to log in, so that I can view restricted content.
 Acceptance Criteria:
-* [ ] - I have an option to log in.
-* [ ] - I see an error message if my log in credentials are invalid.
-* [ ] - I see my avatar if I am logged in.
-* [ ] - I have an option to edit my profile if I am logged in.
+* [X] - I have an option to log in.
+* [X] - I see an error message if my log in credentials are invalid.
+* [X] - I see my avatar if I am logged in.
+* [X] - I have an option to edit my profile if I am logged in.
 
 #### USER CRUD OPS: EDIT PROFILE AND AVATAR
 
 As an authenticated user, I want to log out, so that I others can’t access my account.
 Acceptance Criteria:
-* [ ] - I have an option to log out.
-* [ ] - I no longer see my avatar if I am logged out.
-* [ ] - I no longer have an option to edit my profile if I am logged out.
-* [ ] - I no longer have an option to sign out if I am logged out.
+* [X] - I have an option to log out.
+* [X] - I no longer see my avatar if I am logged out.
+* [X] - I no longer have an option to edit my profile if I am logged out.
+* [X] - I no longer have an option to sign out if I am logged out.
 
 As an authenticated user, I want to edit my profile, so that I can distinguish myself from other users.
 Acceptance Criteria:
-* [ ] - I can update my name.
-* [ ] - I can update my location.
-* [ ] - I can update my age.
-* [ ] - I can update my website.
+* [X] - I can update my name.
+* [X] - I can update my location.
+* [X] - I can update my age.
+* [X] - I can update my website.
 
-As an authenticated user, I want to edit my email, so that I can continue using my account when I get a new emai address.
+As an authenticated user, I want to edit my email, so that I can continue using my account when I get a new email address.
 Acceptance Criteria:
-* [ ] - I can update my email address.
-* [ ] - I see an error if my new email address is invalid.
+* [X] - I can update my email address.
+* [X] - I see an error if my new email address is invalid.
 * [ ] - ~~I must confirm my email address.~~
 * [ ] - ~~If I don’t confirm my email address within 24 hours, it will not be saved.~~
 
