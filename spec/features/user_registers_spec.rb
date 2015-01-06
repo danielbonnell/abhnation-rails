@@ -23,7 +23,6 @@ feature "user registers", %Q{
 
     expect(page).to have_content("You have registered successfully.")
     expect(page).to have_content(username)
-    expect(page).to have_content(email)
     expect(page).to have_content("Log Out")
   end
 
