@@ -5,11 +5,20 @@ class UsersController < ApplicationController
 
   protected
 
+  @acceptable_params = [
+    :email,
+    :username,
+    :first_name,
+    :last_name,
+    :age,
+    :website
+  ]
+
   def sign_up_params
-    devise_parameter_sanitizer.sanitize(:sign_up) << :username
+    devise_parameter_sanitizer.for(:sign_up) << @acceptable_params
   end
 
   def account_update_params
-    devise_parameter_sanitizer.sanitize(:account_update) << :username
+    devise_parameter_sanitizer.for(:account_update) << @acceptable_params
   end
 end
