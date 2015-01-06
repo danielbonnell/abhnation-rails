@@ -2,25 +2,25 @@
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
-
+  <% console %>
   <div class="field">
     <%= f.label :first_name %><br />
-    <%= f.text_field :first_name, autofocus: true %>
+    <%= f.text_field :first_name, autofocus: true, :value => current_user.first_name %>
   </div>
 
   <div class="field">
     <%= f.label :last_name %><br />
-    <%= f.text_field :last_name, autofocus: true %>
+    <%= f.text_field :last_name, autofocus: true, :value => current_user.last_name %>
   </div>
 
   <div class="field">
     <%= f.label :age %><br />
-    <%= f.text_field :age, autofocus: true %>
+    <%= f.text_field :age, autofocus: true, :value => current_user.age %>
   </div>
 
   <div class="field">
     <%= f.label :website %><br />
-    <%= f.text_field :website, autofocus: true %>
+    <%= f.text_field :website, autofocus: true, :value => current_user.website %>
   </div>
 
   <div class="field">
