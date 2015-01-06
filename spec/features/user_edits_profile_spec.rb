@@ -25,10 +25,18 @@ feature 'user edits profile', %Q{
     click_button "Update"
 
     expect(page).to have_content("Your account has been updated successfully.")
-    expect(page).to have_content(user.first_name)
-    expect(page).to have_content(user.last_name)
-    expect(page).to have_content(user.age)
-    expect(page).to have_content(user.website)
+  end
+
+  scenario 'user views edits they just created' do
+    log_in_as(user)
+    visit edit_user_registration_path(user)
+
+    within(:css, "form#edit_user") do
+      find_field("user[first_name]").value.should eq user.first_name
+      find_field("user[last_name]").value.should eq user.last_name
+      find_field("user[age]").value.should eq user.age
+      find_field("user[website]").value.should eq user.website
+    end
   end
 
   scenario 'user enters invalid age' do
