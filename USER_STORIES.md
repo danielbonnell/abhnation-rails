@@ -2,8 +2,13 @@ User Stories for The Abh Nation
 ====
 #### USER CRUD OPS: HOME PAGE
 
-As a user, I want to see the main page, so that I can navigate through the site.
+```no-highlight
+As a user
+I want to see the main page
+So that I can navigate through the site.
+```
 Acceptance Criteria:
+
 * [ ] - I see the title of the website.
 * [ ] - I see the top bar nav menu.
 
