@@ -32,10 +32,10 @@ feature 'user edits profile', %Q{
     visit edit_user_registration_path(user)
 
     within(:css, "form#edit_user") do
-      find_field("user[first_name]").value.should eq user.first_name
-      find_field("user[last_name]").value.should eq user.last_name
-      find_field("user[age]").value.should eq user.age
-      find_field("user[website]").value.should eq user.website
+      expect(find_field("user[first_name]")).to have_content user.first_name
+      expect(find_field("user[last_name]")).to have_content user.last_name
+      expect(find_field("user[age]")).to have_content user.age
+      expect(find_field("user[website]")).to have_content user.website
     end
   end
 

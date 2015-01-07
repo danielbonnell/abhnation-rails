@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  mount_uploader :avatar, AvatarUploader
+
   include Gravtastic
   gravtastic
   # Include default devise modules. Others available are:
