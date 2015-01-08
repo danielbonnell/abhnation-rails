@@ -14,4 +14,11 @@ class User < ActiveRecord::Base
   validates :website, :allow_blank => true,
     format: { with: URI.regexp },
     if: Proc.new { |a| a.website.present? }
+  validate :avatar_size_validation
+
+  private
+
+  def avatar_size_validation
+    errors[:avatar] << "should be less than 1 MB" if avatar.size > 1.megabytes
+  end
 end

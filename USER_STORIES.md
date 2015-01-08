@@ -65,10 +65,10 @@ Acceptance Criteria:
 
 As an authenticated user, I want to upload an image for my avatar, so that I can distinguish myself from other users.
 Acceptance Criteria:
-* [ ] - I have an option to upload an image from my computer as my avatar.
-* [ ] - I see an error if the file I supplied is not a valid image format (jpg, gif, png).
-* [ ] - I see an error if the file size of the image I supplied is too large.
-* [ ] - I see the image I supplied as my new avatar.
+* [X] - I have an option to upload an image from my computer as my avatar.
+* [X] - I see an error if the file I supplied is not a valid image format (jpg, gif, png).
+* [X] - I see an error if the file size of the image I supplied is too large.
+* [X] - I see the image I supplied as my new avatar.
 
 #### USER CRUD OPS: REGISTER AND LOG IN WITH SOCIAL MEDIA
 
