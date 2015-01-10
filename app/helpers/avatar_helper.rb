@@ -1,6 +1,6 @@
 module AvatarHelper
   def avatar
-    unless current_user.avatar.nil?
+    unless current_user.avatar.url.nil?
       image_tag current_user.avatar,
       alt: "#{current_user.username}'s Avatar"
     else
