@@ -46,4 +46,17 @@ feature "user edits avatar", %{
 
     expect(page).to have_content "Avatar should be less than 1 MB"
   end
+
+  scenario "user deletes uploaded avatar" do
+    log_in_as(user)
+
+    visit edit_user_registration_path(user)
+    check "user[remove_avatar]"
+    fill_in "user[current_password]", with: user.password
+    click_button "Update"
+
+    expect(page).to_not have_selector(
+    "img[alt=\"#{user.username}'s Avatar\"]"
+    )
+  end
 end
