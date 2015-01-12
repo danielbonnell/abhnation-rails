@@ -9,9 +9,8 @@ module AvatarHelper
       alt: "#{current_user.username}'s Avatar",
       size: "#{size}"
     else
-      image_tag current_user.gravatar_url,
-      alt: "#{current_user.username}'s Gravatar",
-      size: "#{size}"
+      image_tag current_user.gravatar_url(size: size),
+      alt: "#{current_user.username}'s Gravatar"
     end
   end
 end
