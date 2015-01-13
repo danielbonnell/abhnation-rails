@@ -67,44 +67,6 @@ Acceptance Criteria:
 * [X] - I see an error if the file size of the image I supplied is too large.
 * [X] - I see the image I supplied as my new avatar.
 
-#### USER CRUD OPS: REGISTER AND LOG IN WITH SOCIAL MEDIA
-
-As a user, I want to register an account using my Google account, so that I don’t have to remember another login.
-Acceptance Criteria:
-* [ ] - I can register an account using Google.
-* [ ] - I will be required to select a username.
-* [ ] - I will see an error if my registration credentials are invalid.
-* [ ] - I will see my account profile if I have successfully registered.
-* [ ] - I will not be required to confirm my email address.
-
-As a user, I want to register an account using my Facebook account, so that I don’t have to remember another login.
-Acceptance Criteria:
-* [ ] - I can register an account using Facebook.
-* [ ] - I will be required to select a username.
-* [ ] - I will see an error if my registration credentials are invalid.
-* [ ] - I will see my account profile if I have successfully registered.
-* [ ] - I will not be required to confirm my email address.
-
-As a user, I want to register an account using my Twitter account, so that I don’t have to remember another login.
-Acceptance Criteria:
-* [ ] - I can register an account using Twitter.
-* [ ] - I will be required to select a username.
-* [ ] - I will see an error if my registration credentials are invalid.
-* [ ] - I will see my account profile if I have successfully registered.
-* [ ] - I will not be required to confirm my email address.
-
-As a user, I want to log in using my Google account, so that I don’t have to remember another login.
-Acceptance Criteria:
-* [ ] - I can log in with Google.
-
-As a user, I want to log in using my Facebook account, so that I don’t have to remember another login.
-Acceptance Criteria:
-* [ ] - I can log in with Facebook.
-
-As a user, I want to log in using my Twitter account, so that I don’t have to remember another login.
-Acceptance Criteria:
-* [ ] - I can log in with Twitter.
-
 #### USER CRUD OPS: VIEW ARTICLES
 
 As a user, I want to view articles, so that I can learn more.
