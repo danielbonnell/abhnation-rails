@@ -10,7 +10,6 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :development, :test do
-  gem 'byebug'
   gem 'web-console', '~> 2.0'
   gem 'spring'
   gem 'rspec-rails'
@@ -22,13 +21,18 @@ group :development, :test do
   gem 'pry-rails'
 end
 
-gem 'better_errors', group: :development
-gem 'rails_12factor', group: :production
-gem 'coveralls', require: false
+group :development do
+  gem 'better_errors'
+end
 
+group :production do
+  gem 'rails_12factor'
+end
+
+gem 'coveralls', require: false
+gem 'foundation-rails'
 gem 'devise'
 gem 'gravtastic'
-gem 'foundation-rails'
 gem 'carrierwave'
 # gem 'kaminari'
 # gem 'simple_form'
