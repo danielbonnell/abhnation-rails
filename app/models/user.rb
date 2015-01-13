@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :articles
+  # has_many :galleries
   has_many :categories
   has_many :subcategories
 

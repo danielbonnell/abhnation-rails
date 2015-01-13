@@ -8,12 +8,14 @@ feature 'user views article', %Q{
   * [X] - I can see the title, category or subcategory, text, and author (if included) of an article if I have authenticated.
   } do
 
-  let(:article) do
-    FactoryGirl.create(:article)
-  end
-
   scenario 'after authenticating' do
-    log_in_as(article.user)
+    user = FactoryGirl.create(:user)
+    category = FactoryGirl.create(:category, user: user)
+    subcategory = FactoryGirl.create(:subcategory, category: category, user: user)
+    categorization = FactoryGirl.create(:categorization, category: category, subcategory: subcategory)
+    article = FactoryGirl.create(:article, categorization: categorization, user: user)
+
+    log_in_as(user)
     visit article_path(article)
 
     within(:css, "body > div:nth-child(2) > ul") do
@@ -35,6 +37,12 @@ feature 'user views article', %Q{
   end
 
   scenario 'without authenticating' do
+    user = FactoryGirl.create(:user)
+    category = FactoryGirl.create(:category, user: user)
+    subcategory = FactoryGirl.create(:subcategory, category: category, user: user)
+    categorization = FactoryGirl.create(:categorization, category: category, subcategory: subcategory)
+    article = FactoryGirl.create(:article, categorization: categorization, user: user)
+
     visit article_path(article)
 
     expect(page).to have_content("The Abh Nation")
