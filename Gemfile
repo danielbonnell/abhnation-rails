@@ -19,6 +19,7 @@ group :development, :test do
   gem 'valid_attribute'
   gem 'shoulda-matchers'
   gem 'pry-rails'
+  gem 'faker'
 end
 
 group :development do
@@ -34,5 +35,6 @@ gem 'foundation-rails'
 gem 'devise'
 gem 'gravtastic'
 gem 'carrierwave'
+gem 'gretel'
 # gem 'kaminari'
 # gem 'simple_form'
