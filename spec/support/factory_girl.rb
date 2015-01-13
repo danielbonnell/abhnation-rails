@@ -13,6 +13,10 @@ FactoryGirl.define do
     sequence(:slug) { |n| "Article #{n}"}
     text Faker::Lorem.words(100).join(' ')
     user
+    categorization
+  end
+
+  factory :categorization do
     category
     subcategory
   end
@@ -24,8 +28,8 @@ FactoryGirl.define do
 
   factory :subcategory do
     sequence(:name) { |n| "Subcategory ##{n}"}
-    category
     user
+    category
   end
 
   sequence :username do |n|
