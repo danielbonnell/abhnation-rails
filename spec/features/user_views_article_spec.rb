@@ -15,7 +15,7 @@ feature 'user views article', %{
 
   scenario 'without authenticating' do
     visit article_path(article)
-save_and_open_page
+
     within(:css, "body > div:nth-child(2) > ul") do
       expect(page).to have_content(article.subcategory.name)
       expect(page).to have_content(article.category.name)
