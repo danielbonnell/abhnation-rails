@@ -8,16 +8,25 @@ feature 'user views article', %Q{
   * [X] - I can see the title, category or subcategory, text, and author (if included) of an article if I have authenticated.
   } do
 
-  let(:article) do
-    FactoryGirl.create(:article)
+  let(:category) do
+    FactoryGirl.create(:category)
   end
-  
+
+  let(:subcategory) do
+    FactoryGirl.create(:category, parent_id: category.id)
+  end
+
+  let(:article) do
+    FactoryGirl.create(:article, category: subcategory)
+  end
+
   scenario 'after authenticating' do
     log_in_as(article.user)
     visit article_path(article)
+    subcat = Category.find(article.category.parent_id).name
 
     within(:css, "body > div:nth-child(2) > ul") do
-      expect(page).to have_content(article.subcategory.name)
+      expect(page).to have_content(subcat)
       expect(page).to have_content(article.category.name)
     end
 
@@ -28,9 +37,9 @@ feature 'user views article', %Q{
     end
 
     within(:css, "body > div.row.collapse > nav > section > ul") do
-      expect(page).to have_content(article.slug)
       expect(page).to have_content(article.category.name)
-      expect(page).to have_content(article.subcategory.name)
+      expect(page).to have_content(subcat)
+      expect(page).to have_content(article.slug)
     end
   end
 

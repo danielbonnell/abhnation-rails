@@ -4,6 +4,5 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :edit, :put]
 
   resources :categories, only: [:show, :index]
-  resources :subcategories, only: [:show, :index]
   resources :articles, only: [:show, :index]
 end

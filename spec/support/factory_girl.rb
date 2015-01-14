@@ -9,27 +9,17 @@ FactoryGirl.define do
   end
 
   factory :article do
-    sequence(:title) { |n| "Knowledge base article ##{n}"}
+    sequence(:title) { |n| "Knowledge base article ##{n}" }
     sequence(:slug) { |n| "Article #{n}"}
     text Faker::Lorem.words(100).join(' ')
     user
-    categorization
-  end
-
-  factory :categorization do
     category
-    subcategory
   end
 
   factory :category do
-    sequence(:name) { |n| "Category ##{n}"}
+    sequence(:name) { |n| "Category ##{n}" }
+    parent_id nil
     user
-  end
-
-  factory :subcategory do
-    sequence(:name) { |n| "Subcategory ##{n}"}
-    user
-    category
   end
 
   sequence :username do |n|

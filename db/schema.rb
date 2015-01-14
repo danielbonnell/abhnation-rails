@@ -11,37 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150113204444) do
+ActiveRecord::Schema.define(version: 20150114162947) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "articles", force: :cascade do |t|
-    t.string   "title",                         null: false
-    t.string   "slug",                          null: false
-    t.string   "text",                          null: false
-    t.integer  "user_id",                       null: false
+    t.string   "title",                   null: false
+    t.string   "slug",                    null: false
+    t.string   "text",                    null: false
+    t.integer  "user_id",                 null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "categorization_id", default: 1, null: false
+    t.integer  "category_id", default: 1, null: false
   end
 
   create_table "categories", force: :cascade do |t|
-    t.string  "name",    null: false
-    t.integer "user_id", null: false
-  end
-
-  create_table "categorizations", force: :cascade do |t|
-    t.integer  "category_id"
-    t.integer  "subcategory_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "subcategories", force: :cascade do |t|
-    t.string  "name",        null: false
-    t.integer "user_id",     null: false
-    t.integer "category_id", null: false
+    t.string  "name",      null: false
+    t.integer "user_id",   null: false
+    t.integer "parent_id"
   end
 
   create_table "users", force: :cascade do |t|

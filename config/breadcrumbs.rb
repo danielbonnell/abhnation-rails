@@ -3,21 +3,15 @@ crumb :root do
 end
 
 crumb :category do
-  link "Categories", categories_path
-end
+  article = Article.find(params[:id])
 
-crumb :category do |category|
-  link category.name, category
-  parent :categories
-end
+  if !article.category.parent_id.nil?
+    parent = article.category.parent_id
+    parent = Category.find(parent).name
+    link parent, categories_path
+  end
 
-crumb :subcategories do
-  link Article.find(params[:id]).subcategory.name, subcategories_path
-end
-
-crumb :subcategory do |subcategory|
-  link subcategory.name, subcategory
-  parent :subcategories
+  link article.category.name, categories_path
 end
 
 crumb :articles do
@@ -26,7 +20,7 @@ end
 
 crumb :article do |article|
   link article.title, article
-  parent :articles
+  parent :category
 end
 
 # If you want to split your breadcrumbs configuration over multiple files, you
