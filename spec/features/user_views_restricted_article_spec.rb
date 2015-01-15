@@ -46,7 +46,17 @@ feature 'user views article', %Q{
   scenario 'without authenticating' do
     visit article_path(article)
 
-    expect(page).to have_content("The Abh Nation")
-    expect(page).to have_content("404: Not Found")
+    within(:css, "body > div:nth-child(2) > ul") do
+      expect(page).to have_content(article.slug)
+    end
+
+    within(:css, "body > div:nth-child(3) > div") do
+      expect(page).to have_content(article.title)
+      expect(page).to have_content(article.text)
+    end
+
+    within(:css, "body > div.row.collapse > nav > section > ul") do
+      expect(page).to have_content(article.slug)
+    end
   end
 end

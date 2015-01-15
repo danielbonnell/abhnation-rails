@@ -71,13 +71,14 @@ Acceptance Criteria:
 
 As a user, I want to view articles, so that I can learn more.
 Acceptance Criteria:
-* [ ] - I can see the title, category or subcategory, text, and author (if included) of an article.
+* [X] - I can see the title, category or subcategory, text, and author (if included) of an article.
+* [X] - I can see the title, category, and subcategory of an article in the nav bar.
 
 As an authenticated user, I want to view restricted articles, so that I can learn more.
 Acceptance Criteria:
-* [ ] - I can’t see a link to the article in the nav bar unless I have authenticated.
-* [ ] - If I navigate to the path of the article I see a 404 error unless I have authenticated.
-* [ ] - I can see the title, category or subcategory, text, and author (if included) of an article if I have authenticated.
+* [X] - I can’t see a link to the article in the nav bar unless I have authenticated.
+* [X] - If I navigate to the path of the article I see a 404 error unless I have authenticated.
+* [X] - I can see the title, category or subcategory, text, and author (if included) of an article if I have authenticated.
 
 As a user, I want view a larger version of an image from an article, so that I can see the details more clearly.
 Acceptance Criteria:

@@ -19,7 +19,7 @@ crumb :articles do
 end
 
 crumb :article do |article|
-  link article.title, article
+  link article.slug, article
   parent :category
 end
 
