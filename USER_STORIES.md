@@ -87,6 +87,29 @@ Acceptance Criteria:
 * [ ] - I can close the image viewer.
 * [ ] - If there are multiple images in the same article, I can page through them in an image viewer.
 
+#### USER CRUD OPS: VIEW CATEGORIES
+
+As a user, I want to view a list of everything within a category, so that I can have an overview of the content of that category.
+Acceptance Criteria:
+* [ ] - I can see a list of all articles within a category.
+* [ ] - I can see a list of all galleries within a category.
+* [ ] - I can see a list of all subcategories within a category.
+* [ ] - I can see a list of all articles within each subcategory listed.
+* [ ] - I can see a list of all galleries within each subcategory listed.
+
+As a user, I want to view a list of everything within a subcategory, so that I can have an overview of the content of that subcategory.
+Acceptance Criteria:
+* [ ] - I can see a list of all articles within a subcategory.
+* [ ] - I can see a list of all galleries within a subcategory.
+
+#### USER CRUD OPS: VIEW PROFILE
+
+As a user, I want to view the public profiles of other users, so that I can see what kind of users the site has.
+Acceptance Criteria:
+* [ ] - I can view the public profile of any user if I am logged in.
+* [ ] - I can view my own public profile if I am logged in.
+* [ ] - I cannot view the public profile of any user if I am not logged in.
+
 #### ADMIN CRUD OPS: ADMIN PANEL
 
 As an admin, I want to view the admin panel, so that I can see what tools are available to me.
