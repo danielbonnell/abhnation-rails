@@ -1,4 +1,35 @@
 <ul class="right">
   <li class="divider"></li>
-  <%= show_navbar %>
+  <%- categories.each do |category| -%>
+    <li class="has-dropdown">
+      <%= link_to category.name, category_path(category) %>
+      <!-- begin category -->
+      <ul class="dropdown">
+        <li class="title back js-generated">
+          <h5><a href="javascript:void(0)">Back</a></h5>
+          <%= link_to category.name, category_path(category) %>
+        </li>
+        <%- category.subcategories.each do |subcategory| -%>
+          <li class="has-dropdown">
+            <%= link_to subcategory.name, category_path(subcategory) %>
+            <ul class="dropdown">
+              <li class="title back js-generated">
+                <h5><a href="javascript:void(0)">Back</a></h5>
+              </li>
+              <%- subcategory.articles.each do |article| -%>
+                <li>
+                  <%= link_to article.slug, article_path(article) %>
+                </li>
+              <%- end -%>
+            </ul>
+          </li>
+          <%- category.articles.each do |article| -%>
+            <li>
+              <%= link_to article.slug, article_path(article) %>
+            </li>
+          <%- end -%>
+        <%- end -%>
+      </ul>
+    </li>
+  <%- end -%>
 </ul>

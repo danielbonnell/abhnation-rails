@@ -26,7 +26,7 @@ end
 5.times do |n|
   subcat = Category.create!(
     name: "Subcategory ##{n}",
-    parent_id: Category.first.id,
+    parent_id: Category.first.id + n,
     user_id: User.last.id
   )
 

@@ -24,7 +24,7 @@
 
       <!-- Right Side Nav Links -->
       <section class="top-bar-section">
-        <%= render partial: '/layouts/navbar' %>
+        <%= render partial: '/layouts/navbar', locals: {categories: Category.cat_parents } %>
       </section>
     </nav>
 
