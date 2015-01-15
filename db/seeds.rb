@@ -8,30 +8,32 @@
   )
 
   Category.create!(
-    name: Faker::Lorem.characters(10),
+    name: "Category #A#{n}",
     user_id: User.last.id
   )
 
-  Article.create!(
-    title: Faker::Lorem.characters(10),
-    slug: "Article #{n}",
-    text: Faker::Lorem.words(100),
-    category_id: Category.last.id,
-    user_id: User.last.id
-  )
+  3.times do |m|
+    Article.create!(
+      title: "Article Title #A#{n}#{m}",
+      slug: "Article #A#{n}#{m}",
+      text: Faker::Lorem.words(100),
+      category_id: Category.last.id,
+      user_id: User.last.id
+    )
+  end
 end
 
 5.times do |n|
   subcat = Category.create!(
-    name: Faker::Lorem.characters(10),
+    name: "Subcategory ##{n}",
     parent_id: Category.first.id,
     user_id: User.last.id
   )
 
   5.times do |m|
     Article.create!(
-      title: Faker::Lorem.characters(10),
-      slug: "Subcat Art. #{n}#{m}",
+      title: "Subcategory Article ##{n}#{m}",
+      slug: "Subcat Art. ##{n}#{m}",
       text: Faker::Lorem.words(100),
       category_id: subcat.id,
       user_id: User.last.id
