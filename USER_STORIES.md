@@ -67,55 +67,18 @@ Acceptance Criteria:
 * [X] - I see an error if the file size of the image I supplied is too large.
 * [X] - I see the image I supplied as my new avatar.
 
-#### USER CRUD OPS: REGISTER AND LOG IN WITH SOCIAL MEDIA
-
-As a user, I want to register an account using my Google account, so that I don’t have to remember another login.
-Acceptance Criteria:
-* [ ] - I can register an account using Google.
-* [ ] - I will be required to select a username.
-* [ ] - I will see an error if my registration credentials are invalid.
-* [ ] - I will see my account profile if I have successfully registered.
-* [ ] - I will not be required to confirm my email address.
-
-As a user, I want to register an account using my Facebook account, so that I don’t have to remember another login.
-Acceptance Criteria:
-* [ ] - I can register an account using Facebook.
-* [ ] - I will be required to select a username.
-* [ ] - I will see an error if my registration credentials are invalid.
-* [ ] - I will see my account profile if I have successfully registered.
-* [ ] - I will not be required to confirm my email address.
-
-As a user, I want to register an account using my Twitter account, so that I don’t have to remember another login.
-Acceptance Criteria:
-* [ ] - I can register an account using Twitter.
-* [ ] - I will be required to select a username.
-* [ ] - I will see an error if my registration credentials are invalid.
-* [ ] - I will see my account profile if I have successfully registered.
-* [ ] - I will not be required to confirm my email address.
-
-As a user, I want to log in using my Google account, so that I don’t have to remember another login.
-Acceptance Criteria:
-* [ ] - I can log in with Google.
-
-As a user, I want to log in using my Facebook account, so that I don’t have to remember another login.
-Acceptance Criteria:
-* [ ] - I can log in with Facebook.
-
-As a user, I want to log in using my Twitter account, so that I don’t have to remember another login.
-Acceptance Criteria:
-* [ ] - I can log in with Twitter.
-
 #### USER CRUD OPS: VIEW ARTICLES
 
 As a user, I want to view articles, so that I can learn more.
 Acceptance Criteria:
-* [ ] - I can see the title, category or subcategory, text, and author (if included) of an article.
+* [X] - I can see the title, category or subcategory, text, and author (if included) of an article.
+* [X] - I can see the title, category, and subcategory of an article in the nav bar.
 
 As an authenticated user, I want to view restricted articles, so that I can learn more.
 Acceptance Criteria:
-* [ ] - I can’t see a link to the article in the nav bar unless I have authenticated.
-* [ ] - If I navigate to the path of the article I see a 404 error unless I have authenticated.
-* [ ] - I can see the title, category or subcategory, text, and author (if included) of an article if I have authenticated.
+* [X] - I can’t see a link to the article in the nav bar unless I have authenticated.
+* [X] - If I navigate to the path of the article I see a 404 error unless I have authenticated.
+* [X] - I can see the title, category or subcategory, text, and author (if included) of an article if I have authenticated.
 
 As a user, I want view a larger version of an image from an article, so that I can see the details more clearly.
 Acceptance Criteria:
@@ -123,6 +86,29 @@ Acceptance Criteria:
 * [ ] - I can see just the image file itself in a new tab or window.
 * [ ] - I can close the image viewer.
 * [ ] - If there are multiple images in the same article, I can page through them in an image viewer.
+
+#### USER CRUD OPS: VIEW CATEGORIES
+
+As a user, I want to view a list of everything within a category, so that I can have an overview of the content of that category.
+Acceptance Criteria:
+* [ ] - I can see a list of all articles within a category.
+* [ ] - I can see a list of all galleries within a category.
+* [ ] - I can see a list of all subcategories within a category.
+* [ ] - I can see a list of all articles within each subcategory listed.
+* [ ] - I can see a list of all galleries within each subcategory listed.
+
+As a user, I want to view a list of everything within a subcategory, so that I can have an overview of the content of that subcategory.
+Acceptance Criteria:
+* [ ] - I can see a list of all articles within a subcategory.
+* [ ] - I can see a list of all galleries within a subcategory.
+
+#### USER CRUD OPS: VIEW PROFILE
+
+As a user, I want to view the public profiles of other users, so that I can see what kind of users the site has.
+Acceptance Criteria:
+* [ ] - I can view the public profile of any user if I am logged in.
+* [ ] - I can view my own public profile if I am logged in.
+* [ ] - I cannot view the public profile of any user if I am not logged in.
 
 #### ADMIN CRUD OPS: ADMIN PANEL
 
