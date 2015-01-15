@@ -3,6 +3,7 @@ module NavbarHelper
     output = []
     Category.where("parent_id is NULL").each do |category|
       subcategories = Category.where("parent_id = ?", category.id)
+      articles = Article.where(category_id: category.id)
       output << %{
         <li class=\"has-dropdown\">
           #{link_to category.name, category_path(category)}
@@ -14,26 +15,32 @@ module NavbarHelper
       }
 
       subcategories.each do |subcategory|
+        articles = Article.where(category_id: subcategory.id)
         output << %{
-              <li>
+              <li class="has-dropdown">
                 #{link_to subcategory.name, category_path(subcategory)}
-              </li>
                 <ul class=\"dropdown\">
                   <li class=\"title back js-generated\">
                     <h5><a href=\"javascript:void(0)\">Back</a></h5>
                   </li>
         }
-        subcategories.each do |subcat|
+        articles.each do |article|
           output << %{
-                    #{articles = Article.where(category_id: subcat.id)}
+                  <li>
+                    #{link_to article.slug, article_path(article)}
+                  </li>
           }
-          articles.each do |article|
-            output << "#{link_to article.slug, article_path(article)}"
-          end
         end
         output << %{
                 </ul>
               </li>
+        }
+      end
+      articles.each do |article|
+        output << %{
+                <li>
+                  #{link_to article.slug, article_path(article)}
+                </li>
         }
       end
       output << %{
