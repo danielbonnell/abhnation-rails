@@ -13,12 +13,22 @@ feature 'user views homepage', %Q{
 
   scenario 'without authenticating' do
     visit '/'
+
+    within(:css, "body > div:nth-child(2) > ul") do
+      expect(page).to have_content("The Abh Nation")
+    end
+
     expect(page).to have_content('The Abh Nation')
   end
 
   scenario 'with authenticating' do
     log_in_as(user)
     visit '/'
+
+    within(:css, "body > div:nth-child(2) > ul") do
+      expect(page).to have_content("The Abh Nation")
+    end
+
     expect(page).to have_content('The Abh Nation')
   end
 end

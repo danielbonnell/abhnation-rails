@@ -91,10 +91,10 @@ Acceptance Criteria:
 
 As a user, I want to view a list of everything within a category, so that I can have an overview of the content of that category.
 Acceptance Criteria:
-* [ ] - I can see a list of all articles within a category.
+* [X] - I can see a list of all articles within a category.
 * [ ] - I can see a list of all galleries within a category.
-* [ ] - I can see a list of all subcategories within a category.
-* [ ] - I can see a list of all articles within each subcategory listed.
+* [X] - I can see a list of all subcategories within a category.
+* [X] - I can see a list of all articles within each subcategory listed.
 * [ ] - I can see a list of all galleries within each subcategory listed.
 
 As a user, I want to view a list of everything within a subcategory, so that I can have an overview of the content of that subcategory.

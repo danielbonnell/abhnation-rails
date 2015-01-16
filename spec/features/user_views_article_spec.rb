@@ -21,8 +21,8 @@ feature 'user views article', %{
     FactoryGirl.create(:article, category: subcategory)
   end
 
-  scenario 'without authenticating' do
-    visit article_path(article)
+  scenario 'user views article' do
+    visit [category, article]
     subcat = Category.find(article.category.parent_id).name
 
     within(:css, "body > div:nth-child(2) > ul") do

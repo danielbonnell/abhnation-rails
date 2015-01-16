@@ -9,7 +9,20 @@ aside {
   border-radius: 0;
 }
 
- h1, h2, h3, h4,h5, h6 {
+body > div:nth-child(2) > ul > li:not(:last-child) > a:hover {
+  color: $silver;
+}
+
+.cinzel {
+  font-family: $font-family-title;
+  font-size: 0.9em;
+}
+
+.cinzelbold {
+  font-family: $font-family-cinzelbold;
+}
+
+h1, h2, h3, h4,h5, h6 {
   color: $grey;
   font-weight: $font-weight-bold;
   font-family: $font-family-title;

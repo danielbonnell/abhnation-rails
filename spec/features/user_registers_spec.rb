@@ -16,6 +16,11 @@ feature "user registers", %Q{
   scenario "provide valid registration information" do
     visit new_user_registration_path
 
+    within(:css, "body > div:nth-child(2) > ul") do
+      expect(page).to have_content("Register")
+    end
+
+
     username = "Lafiel_Abriel"
     email = "lafiel.abriel@abhnation.com"
 

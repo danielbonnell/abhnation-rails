@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { registrations: 'registrations' }
   resources :users, only: [:show, :edit, :put, :index]
 
-  resources :categories, only: [:show, :index]
-  resources :articles, only: [:show, :index]
+  resources :categories, only: [:show, :index] do
+    resources :articles, only: [:show, :index]
+  end
 end

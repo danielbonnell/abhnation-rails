@@ -2,24 +2,34 @@ crumb :root do
   link "The Abh Nation", root_path
 end
 
-crumb :category do
-  article = Article.find(params[:id])
+crumb :categories do
+  link Category.find(params[:id]).name, categories_path
+end
 
-  if !article.category.parent_id.nil?
-    parent = article.category.parent_id
-    parent = Category.find(parent).name
-    link parent, categories_path
+crumb :category do |category|
+  # Check if category is a parent or child
+  if params[:category_id]
+    # If params[:category_id] is present, category is a child
+    category = Category.find(params[:category_id])
+  else
+    # If params[:category_id] is not present, category is a parent
+    category = Category.find(params[:id])
   end
 
-  link article.category.name, categories_path
+  # Set parent category is category is a child
+  if defined?(category.parent) && !category.parent.nil?
+    link category.parent.name, category_path(category.parent)
+  end
+
+  link category.name, category
 end
 
 crumb :articles do
-  link Article.find(params[:id]).category.name, articles_path
+  link Article.find(params[:id]).category.name, category_articles_path
 end
 
 crumb :article do |article|
-  link article.slug, article
+  link article.slug, [article.category, article]
   parent :category
 end
 

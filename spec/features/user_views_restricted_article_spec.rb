@@ -22,7 +22,7 @@ feature 'user views article', %Q{
 
   scenario 'after authenticating' do
     log_in_as(article.user)
-    visit article_path(article)
+    visit [category, article]
     subcat = Category.find(article.category.parent_id).name
 
     within(:css, "body > div:nth-child(2) > ul") do
@@ -44,7 +44,7 @@ feature 'user views article', %Q{
   end
 
   scenario 'without authenticating' do
-    visit article_path(article)
+    visit [category, article]
 
     within(:css, "body > div:nth-child(2) > ul") do
       expect(page).to have_content(article.slug)

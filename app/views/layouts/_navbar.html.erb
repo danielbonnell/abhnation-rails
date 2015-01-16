@@ -17,14 +17,14 @@
               </li>
               <%- subcategory.articles.each do |article| -%>
                 <li>
-                  <%= link_to article.slug, article_path(article) %>
+                  <%= link_to article.slug, [subcategory,article] %>
                 </li>
               <%- end -%>
             </ul>
           </li>
           <%- category.articles.each do |article| -%>
             <li>
-              <%= link_to article.slug, article_path(article) %>
+              <%= link_to article.slug, [category,article] %>
             </li>
           <%- end -%>
         <%- end -%>
