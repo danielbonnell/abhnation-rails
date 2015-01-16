@@ -2,8 +2,10 @@
   <div class="large-12 columns">
     <ul class="pricing-table">
       <li class="title"><%= @user.username %></li>
-      <li class="bullet-item"><%= avatar %></li>
-      <li class="cta-button"><%= link_to 'Edit My Account', edit_user_registration_path, class: 'button round' %></li>
+      <li class="bullet-item"><%= avatar(User.find(params[:id]) || current_user) %></li>
+      <%- if current_user == User.find(params[:id]) -%>
+        <li class="cta-button"><%= link_to 'Edit My Account', edit_user_registration_path, class: 'button round' %></li>
+      <%- end -%>
     </ul>
   </div>
 </div>

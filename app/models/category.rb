@@ -9,7 +9,7 @@ class Category < ActiveRecord::Base
     foreign_key: 'parent_id',
     class_name: 'Category'
 
-  validates :name, presence: true, uniqueness: true, length: { in: 3..15 }
+  validates :name, presence: true, uniqueness: true, length: { in: 3..16 }
 
   validate :only_one_level_deep
   validates :parent_id,

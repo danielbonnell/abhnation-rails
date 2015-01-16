@@ -1,16 +1,16 @@
 module AvatarHelper
-  def avatar(size = 150)
-    if !current_user.avatar_link.nil? && !current_user.avatar_link.empty?
-      image_tag current_user.avatar_link,
-      alt: "#{current_user.username}'s Avatar (linked)",
+  def avatar(user_type, size = 150)
+    if !user_type.avatar_link.nil? && !user_type.avatar_link.empty?
+      image_tag user_type.avatar_link,
+      alt: "#{user_type.username}'s Avatar (linked)",
       size: "#{size}"
-    elsif !current_user.avatar.url.nil?
-      image_tag current_user.avatar.url,
-      alt: "#{current_user.username}'s Avatar",
+    elsif !user_type.avatar.url.nil?
+      image_tag user_type.avatar.url,
+      alt: "#{user_type.username}'s Avatar",
       size: "#{size}"
     else
-      image_tag current_user.gravatar_url(size: size),
-      alt: "#{current_user.username}'s Gravatar"
+      image_tag user_type.gravatar_url(size: size),
+      alt: "#{user_type.username}'s Gravatar"
     end
   end
 end

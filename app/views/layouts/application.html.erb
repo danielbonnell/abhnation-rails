@@ -48,7 +48,7 @@
         <li>
           <h5><%= current_user.username %></h5>
         </li>
-        <li class="avatar"><%= avatar %></li>
+        <li class="avatar"><%= avatar(current_user || User.find(params[:id])) %></li>
         <li><%= link_to "My Account", user_path(current_user) %></li>
         <li><%= link_to 'Log Out', destroy_user_session_path, method: :delete %></li>
         <%- else -%>
