@@ -1,0 +1,46 @@
+<% breadcrumb :category, @category %>
+<article>
+  <h3><%= link_to @category.name, @category %></h3>
+  <div class="row">
+    <div class="large-12 medium-12 small-12 columns">
+      <% if @category.parent.nil? %>
+        <h6>Knowledge Base Listings</h6>
+        <ul class="small-block-grid-4">
+          <% @subcategories.order("name ASC").each do |subcategory| %>
+            <li>
+              <h6><%= link_to subcategory.name, subcategory %></h5>
+                <ul>
+                  <% subcategory.articles.order("slug ASC").each do |article| %>
+                    <li class="cinzel">
+                      <%= link_to article.slug, [subcategory, article] %>
+                    </li>
+                  <% end %>
+                </ul>
+              </li>
+            <% end %>
+          </li>
+        </ul>
+      <% else %>
+        <h6>Knowledge Base Listings</h6>
+        <ul class="small-block-grid-1">
+          <% @category.articles.order("slug ASC").each do |article| %>
+            <li>
+              <ul>
+                <li>
+                  <h6><%= link_to article.title, [@category, article] %></h6>
+                </li>
+                <li>
+                  <ul>
+                    <li class="cinzel">
+                      <%= article.text.split[0..20].join(' ') %>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          <% end %>
+        </ul>
+      <% end %>
+    </div>
+  </div>
+</article>

@@ -1,6 +1,7 @@
 class Article < ActiveRecord::Base
   belongs_to :user
   belongs_to :category
+  belongs_to :subcategory
 
   validates :title, presence: true, uniqueness: true, length: { in: 3..100 }
   validates :slug, presence: true, uniqueness: true, length: { in: 3..16 }

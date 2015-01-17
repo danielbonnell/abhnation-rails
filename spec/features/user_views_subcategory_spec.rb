@@ -1,12 +1,11 @@
 require 'rails_helper'
 
 feature 'user views article', %{
-  As a user, I want to view articles, so that I can learn more.
+  As a user, I want to view a list of everything within a subcategory, so that
+  I can have an overview of the content of that subcategory.
   Acceptance Criteria:
-  * [X] - I can see the title, category or subcategory, text, and author
-          (if included) of an article.
-  * [X] - I can see the title, category, and subcategory of an article in the
-          nav bar.
+  * [X] - I can see a list of all articles within a subcategory.
+  * [ ] - I can see a list of all galleries within a subcategory.
   } do
 
   let(:category) do
@@ -17,26 +16,25 @@ feature 'user views article', %{
     FactoryGirl.create(:category, name: "Subcat", parent: category)
   end
 
-  let(:article) do
+  let(:subcat_article) do
     FactoryGirl.create(:article, category: subcategory)
   end
 
-  scenario 'user views article' do
-    visit category_article_path(subcategory,article)
+  scenario 'user views subcategory' do
+    visit category_path(subcategory)
 
     within(:css, "body > div:nth-child(2) > ul") do
-      expect(page).to have_content(subcategory.name)
       expect(page).to have_content(category.name)
     end
 
     first(:css, "body > div:nth-child(3) > div *") do
-      expect(page).to have_content(article.title)
-      expect(page).to have_content(article.text)
-      expect(page).to have_content(article.user.username)
+      expect(page).to have_content(subcat_article.slug)
+      expect(page).to have_content(subcategory.name)
     end
 
     # within(:css, "body > div.row.collapse > nav > section > ul") do
     #   expect(page).to have_content(category.name)
+    #   expect(page).to have_content(subcat_article.slug)
     #   expect(page).to have_content(subcategory.name)
     #   expect(page).to have_content(article.slug)
     # end

@@ -17,6 +17,10 @@ feature 'user edits profile', %Q{
     log_in_as(user)
     visit edit_user_registration_path(user)
 
+    within(:css, "body > div:nth-child(2) > ul") do
+      expect(page).to have_content("Edit Profile")
+    end
+
     fill_in "user[first_name]", with: "Lafiel"
     fill_in "user[last_name]", with: "Abriel"
     fill_in "user[age]", with: "23"
@@ -30,6 +34,10 @@ feature 'user edits profile', %Q{
   scenario 'user views edits they just created' do
     log_in_as(user)
     visit edit_user_registration_path(user)
+
+    within(:css, "body > div:nth-child(2) > ul") do
+      expect(page).to have_content(user.username)
+    end
 
     within(:css, "form#edit_user") do
       expect(find_field("user[first_name]")).to have_content user.first_name

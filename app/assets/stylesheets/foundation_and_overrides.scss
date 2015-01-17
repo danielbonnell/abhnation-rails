@@ -130,6 +130,7 @@ $font-family-serif: "Georgia", "Cambria", "Times New Roman", "Times", serif;
 $font-family-monospace: "Consolas", "Liberation Mono", "Courier", monospace;
 $font-family-logo: "ringbearermedium", "cinzelbold", "Garamond", serif;
 $font-family-title: "cinzelregular", "Garamond", "Palatino", serif;
+$font-family-cinzelbold: "cinzelbold", "Garamond", "Palatino", serif;
 
 // We use these to define default font weights
 $font-weight-normal: normal !default;
@@ -140,7 +141,7 @@ $font-weight-bold: bold !default;
 // $snow        : #F9F9F9;
 // $vapor       : #F6F6F6;
 // $white-smoke : #F5F5F5;
-// $silver      : #EFEFEF;
+$silver      : #EFEFEF;
 // $smoke       : #EEEEEE;
 // $gainsboro   : #DDDDDD;
 // $iron        : #CCCCCC;
@@ -162,12 +163,12 @@ $breadcrumbs-orange  : #E18500;
 $topbar-dropdown     : #EDE5BB;
 
 // We use these as default colors throughout
-// $primary-color: #008CBA;
-// $secondary-color: #e7e7e7;
-// $alert-color: #f04124;
-// $success-color: #43AC6A;
-// $warning-color: #f08a24;
-// $info-color: #a0d3e8;
+$primary-color: #008CBA;
+$secondary-color: #e7e7e7;
+$alert-color: #f04124;
+$success-color: #43AC6A;
+$warning-color: #f08a24;
+$info-color: #a0d3e8;
 
 // We use these to control various global styles
 $body-bg: $grey;
@@ -749,25 +750,25 @@ $crumb-slash: "\25ba";
 // 13. Inline Lists
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
-// $include-html-inline-list-classes: $include-html-classes;
+$include-html-inline-list-classes: $include-html-classes;
 
 // We use this to control the margins and padding of the inline list.
-// $inline-list-top-margin: 0;
-// $inline-list-opposite-margin: 0;
-// $inline-list-bottom-margin: rem-calc(17);
-// $inline-list-default-float-margin: rem-calc(-22);
-// $inline-list-default-float-list-margin: rem-calc(22);
+$inline-list-top-margin: 0;
+$inline-list-opposite-margin: 0;
+$inline-list-bottom-margin: rem-calc(17);
+$inline-list-default-float-margin: rem-calc(-22);
+$inline-list-default-float-list-margin: rem-calc(22);
 
-// $inline-list-padding: 0;
+$inline-list-padding: 0;
 
 // We use this to control the overflow of the inline list.
-// $inline-list-overflow: hidden;
+$inline-list-overflow: hidden;
 
 // We use this to control the list items
-// $inline-list-display: block;
+$inline-list-display: block;
 
 // We use this to control any elements within list items
-// $inline-list-children-display: block;
+$inline-list-children-display: block;
 
 // 14. Joyride
 // - - - - - - - - - - - - - - - - - - - - - - - - -
