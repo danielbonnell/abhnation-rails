@@ -23,8 +23,9 @@ feature 'user signs in', %Q{
 
     expect(page).to have_content('Logged in successfully')
     expect(page).to have_content(user.username)
-    expect(page).to have_content('My Account')
     expect(page).to have_selector('li.avatar')
+    expect(page).to have_content('View Account')
+    expect(page).to have_content('Edit Account')
     expect(page).to have_content('Log Out')
   end
 
