@@ -1,3 +1,20 @@
+#account {
+  background-color: rgba(0,140,186,0.08);
+  border: 2px solid rgba(0,140,186,0.2);
+  border-radius: 5px;
+}
+
+#admin {
+  background-color: rgba(188, 0, 0, 0.1);
+  border: 2px solid rgba(188, 0, 0, 0.4);
+  border-radius: 5px;
+}
+
+#admin > ul > li > h6 > a,
+#admin > ul > li > h6 > a:hover {
+  color: $grey;
+}
+
 aside {
   color: $grey;
 }

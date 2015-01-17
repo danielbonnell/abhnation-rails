@@ -12,7 +12,7 @@
   <!-- Header Image and Left Side Nav Links -->
 
   <div class="row collapse">
-    <nav class="top-bar large-12 medium-12 small-12 columns" data-topbar role="navigation" data-options="is_hover:true">
+    <nav class="top-bar large-24 medium-24 small-24 columns" data-topbar role="navigation" data-options="is_hover:true">
       <ul class="title-area">
         <li class="name">
           <h1>
@@ -29,7 +29,7 @@
     </nav>
 
     <!-- Header Foreground Image -->
-    <div class="large-12 medium-12 small-12 columns header-logo">
+    <div class="large-24 medium-24 small-24 columns header-logo">
       <div class="header-logo-text">The Abh <br />Nation</div>
     </div>
   </div>
@@ -42,38 +42,48 @@
   <!-- Body -->
   <div class="row">
     <!-- Side Bar -->
-    <aside class="large-2 medium-3 small-3 columns">
-      <ul class="side-bar">
-        <%- if current_user -%>
-        <li>
-          <h5><%= current_user.username %></h5>
-        </li>
-        <li class="avatar"><%= avatar(current_user || User.find(params[:id])) %></li>
-        <li><%= link_to "My Account", user_path(current_user) %></li>
-        <li><%= link_to 'Log Out', destroy_user_session_path, method: :delete %></li>
-        <%- else -%>
-        <li><%= link_to 'Log In', new_user_session_path %></li>
-        <li><%= link_to 'Register', new_user_registration_path %></li>
-        <%- end -%>
-      </ul>
+    <aside class="large-5 medium-5 small-5 columns">
+      <br />
+      <div class="row">
+        <div class="large-22 large-offset-2 columns" id="account">
+          <ul class="side-bar">
+            <%- if current_user -%>
+            <li>
+              <h5><%= current_user.username %></h5>
+            </li>
+            <li class="avatar"><%= avatar(current_user || User.find(params[:id])) %></li>
+            <li>
+              <br />
+              <h6>User Controls</h6>
+            </li>
+            <li><%= link_to "View Account", user_path(current_user) %></li>
+            <li><%= link_to 'Edit Account', edit_user_registration_path %></li>
+            <li><%= link_to 'Log Out', destroy_user_session_path, method: :delete %></li>
+            <%- else -%>
+            <li><%= link_to 'Log In', new_user_session_path %></li>
+            <li><%= link_to 'Register', new_user_registration_path %></li>
+            <%- end -%>
+          </ul>
+        </div>
+      </div>
 
-      <ul class="side-bar">
-        <li>Something</li>
-        <li>Something else</li>
-        <li>Blah</li>
-        <li>Etc.</li>
-        <li>...</li>
-      </ul>
-      <div class="panel">
-        <h5>Featured</h5>
-        <p>Some random text here.</p>
-        <a href="#">Read More →</a>
+      <br />
+      <div class="row">
+        <div class="large-22 large-offset-2 columns" id="admin">
+          <ul class="side-bar">
+            <%- if current_user -%>
+            <li>
+              <h6><%= link_to 'Admin Panel', '/' %></h6>
+            </li>
+            <%- end -%>
+          </ul>
+        </div>
       </div>
     </aside>
 
     <!-- Main Content -->
-    <div class="large-10 medium-9 small-9 columns" role="content">
-
+    <div class="large-17 large-offset-1 medium-17 medium-offset-1 small-17 small-offset-1 columns" role="content">
+      <br />
       <%- flash.each do |key, value| -%>
         <div class="success label">
           <%= value %>
@@ -90,16 +100,20 @@
       <% end %>
 
     </div>
+    <div class="large-1 medium-1 small-1 columns" role="content">
+      <div class="row">
+      </div>
+    </div>
   </div>
 
   <!-- Footer -->
   <footer class="row">
-    <div class="large-12 medium-12 small-12 columns"><hr/>
+    <div class="large-24 medium-24 small-24 columns"><hr/>
       <div class="row">
-        <div class="large-6 medium-6 small-6 columns">
+        <div class="large-12 medium-12 small-12 columns">
           <p>© Copyright 2014 Daniel Bonnell</p>
         </div>
-        <div class="large-6 medium-6 small-6 columns">
+        <div class="large-12 medium-12 small-12 columns">
           <ul class="inline-list right">
             <li><a href="#">Link 1</a></li>
             <li><a href="#">Link 2</a></li>

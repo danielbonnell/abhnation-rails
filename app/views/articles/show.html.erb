@@ -1,9 +1,9 @@
 <% breadcrumb :article, @article %>
 <article>
   <h3><%= link_to @article.title, [@article.category, @article] %></h3>
-  <h6>Written by <%= link_to @article.user.username, user_path(@article.user) %> on <%= @article.created_at %>.</h6>
+  <h6>Written by <%= link_to @article.user.username, user_path(@article.user) %> on <%= @article.created_at.strftime("%b %d, %Y") %>.</h6>
   <div class="row">
-    <div class="large-12 medium-12 small-12 columns">
+    <div class="large-24 medium-24 small-24 columns">
       <%= @article.text %>
     </div>
   </div>
