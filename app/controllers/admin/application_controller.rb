@@ -5,7 +5,7 @@ module Admin
     layout 'admin/layouts/application'
 
     protect_from_forgery with: :exception
-    helper :avatar, :devise
+    helper :avatar, :devise, :admin
 
     protected
 

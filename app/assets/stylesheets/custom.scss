@@ -1,6 +1,11 @@
 #account {
-  background-color: rgba(0,140,186,0.08);
-  border: 2px solid rgba(0,140,186,0.2);
+  background-color: rgba(70, 79, 113, 0.4);
+  border: 1px solid $grey;
+  border-radius: 5px;
+}
+
+#account img {
+  border: 1px solid $grey;
   border-radius: 5px;
 }
 
@@ -9,8 +14,8 @@
 }
 
 #account > div > ul > li > div input.upload {
-  border: 2px solid rgba(0,140,186,0.2);
-  background-color: rgba(0,140,186,0.08);
+  border: 1px solid $grey;
+  background-color: transparent;
   height: 35px;
 }
 
@@ -23,8 +28,8 @@ input[type=checkbox] {
 }
 
 [type=checkbox] + label {
-  border: 2px solid rgba(0,140,186,0.2);
-  background-color: rgba(0,140,186,0.08);
+  border: 1px solid $grey;
+  background-color: rgba(70, 79, 113, 0.4);
   height: 17px;
   width: 17px;
   display: inline-block;
@@ -32,30 +37,64 @@ input[type=checkbox] {
 
 [type=checkbox]:checked + label {
   display: inline-block;
-  background-color: rgba(188, 0, 0, 0.2);
-  border: 2px solid rgba(188, 0, 0, 0.6);
+  background-color: rgba(188, 0, 0, 0.3);
+  border: 1px solid $grey;
 }
 
 #flash-success {
   background-color: rgba(0, 188, 2, 0.08);
-  border: 2px solid rgba(0, 188, 2, 0.2);
+  border: 2px solid rgba(0, 188, 2, 0.4);
   border-radius: 5px;
 }
 
-#admin {
-  background-color: rgba(188, 0, 0, 0.1);
-  border: 2px solid rgba(188, 0, 0, 0.4);
+#admin-access {
+  background-color: rgba(70, 79, 113, 0.4);
+  border: 2px solid $burgandy;
   border-radius: 5px;
   text-align: center;
 }
 
+#admin {
+  background-color: rgba(70, 79, 113, 0.4);
+  border: 2px solid $burgandy;
+  border-radius: 5px;
+}
+
 #admin > ul > li > h6 > a,
-#admin > ul > li > h6 > a:hover {
+#admin > ul > li > h6 > a:hover,
+#admin-access > ul > li > h6 > a,
+#admin-access > ul > li > h6 > a:hover {
+  color: $grey;
+}
+
+div .admin-stats {
+  background-color: rgba(70, 79, 113, 0.4);
+  border: 2px solid $burgandy;
+  border-radius: 5px;
+  color: $grey;
+}
+
+.admin-stats > div > ul > li > h6 > a,
+.admin-stats > div > ul > li > h6 > a:hover {
   color: $grey;
 }
 
 aside {
   color: $grey;
+}
+
+aside a,
+aside a:active,
+aside a:visited,
+#account a,
+#account a:active,
+#account a:visited {
+  color: $grey
+}
+
+aside a:hover,
+#account a:hover {
+  color: $silver
 }
 
 .avatar {
@@ -72,10 +111,10 @@ body > div:nth-child(2) > ul > li:not(:last-child) > a:hover {
 .button-override {
   font-size: 0.9em;
   font-family: $font-family-title;
-  color: $primary-color;
+  color: $grey;
   margin-bottom: 1em;
-  border: 2px solid rgba(0,140,186,0.2);
-  background-color: rgba(0,140,186,0.08);
+  background-color: rgba(70, 79, 113, 0.4);
+  border: 1px solid $grey;
 }
 
 .cinzel {
