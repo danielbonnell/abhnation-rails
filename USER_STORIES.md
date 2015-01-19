@@ -99,7 +99,7 @@ Acceptance Criteria:
 
 As a user, I want to view a list of everything within a subcategory, so that I can have an overview of the content of that subcategory.
 Acceptance Criteria:
-* [ ] - I can see a list of all articles within a subcategory.
+* [X] - I can see a list of all articles within a subcategory.
 * [ ] - I can see a list of all galleries within a subcategory.
 
 #### USER CRUD OPS: VIEW PROFILE

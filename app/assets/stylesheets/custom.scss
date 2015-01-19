@@ -4,6 +4,44 @@
   border-radius: 5px;
 }
 
+#account > div > ul > li > div > label {
+  font-family: $font-family-title;
+}
+
+#account > div > ul > li > div input.upload {
+  border: 2px solid rgba(0,140,186,0.2);
+  background-color: rgba(0,140,186,0.08);
+  height: 35px;
+}
+
+#account > h5 {
+  text-align: center;
+}
+
+input[type=checkbox] {
+  display: none;
+}
+
+[type=checkbox] + label {
+  border: 2px solid rgba(0,140,186,0.2);
+  background-color: rgba(0,140,186,0.08);
+  height: 17px;
+  width: 17px;
+  display: inline-block;
+}
+
+[type=checkbox]:checked + label {
+  display: inline-block;
+  background-color: rgba(188, 0, 0, 0.2);
+  border: 2px solid rgba(188, 0, 0, 0.6);
+}
+
+#flash-success {
+  background-color: rgba(0, 188, 2, 0.08);
+  border: 2px solid rgba(0, 188, 2, 0.2);
+  border-radius: 5px;
+}
+
 #admin {
   background-color: rgba(188, 0, 0, 0.1);
   border: 2px solid rgba(188, 0, 0, 0.4);
@@ -28,6 +66,15 @@ aside {
 
 body > div:nth-child(2) > ul > li:not(:last-child) > a:hover {
   color: $silver;
+}
+
+.button-override {
+  font-size: 0.9em;
+  font-family: $font-family-title;
+  color: $primary-color;
+  margin-bottom: 1em;
+  border: 2px solid rgba(0,140,186,0.2);
+  background-color: rgba(0,140,186,0.08);
 }
 
 .cinzel {

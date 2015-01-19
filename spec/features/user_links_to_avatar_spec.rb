@@ -21,13 +21,13 @@ feature "user edits avatar", %{
       log_in_as(user)
 
       visit edit_user_registration_path(user)
-      fill_in "user[avatar_link]", with: "#{base}Naurh-Avatar_[150x150].png"
-      fill_in "user[current_password]", with: user.password
-      click_button "Update"
+      fill_in "user[remote_avatar_url]", with: "#{base}RAFIRU-2.jpg"
+      first('#account > div:nth-child(4) > div').click_button "Update"
 
       visit user_path(user)
+      
       expect(page).to have_selector(
-        "img[alt=\"#{user.username}'s Avatar (linked)\"]"
+        "img[alt=\"#{user.username}'s Avatar\"]"
       )
     end
 
@@ -59,8 +59,8 @@ feature "user edits avatar", %{
 
       visit edit_user_registration_path(user)
       check "user[remove_avatar]"
-      fill_in "user[current_password]", with: user.password
-      click_button "Update"
+      first('#account > div:nth-child(4) > div').click_button "Update"
+
 
       expect(page).to_not have_selector(
         "img[alt=\"#{user.username}'s Avatar\"]"

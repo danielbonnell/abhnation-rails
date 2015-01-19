@@ -18,8 +18,7 @@ feature 'user edits email', %Q{
       visit edit_user_registration_path(user)
 
       fill_in "user[email]", with: "lamhirh.ablairsec@abhnation.com"
-      fill_in "user[current_password]", with: user.password
-      click_button "Update"
+      first('#account > div:nth-child(4) > div').click_button "Update"
 
       expect(page).to have_content("Your account has been updated successfully.")
     end

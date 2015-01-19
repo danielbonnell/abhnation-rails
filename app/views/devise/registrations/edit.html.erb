@@ -1,80 +1,116 @@
 <% breadcrumb :user, @user %>
 <% breadcrumb :edit_user, @user %>
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-<%= devise_error_messages! %>
 
 <div class="row">
-  <div class="large-6 large-offset-3 columns">
-    <ul class="pricing-table">
-      <li class="title"><%= @user.username %></li>
-      <li class="bullet-item">
-        <%= avatar(current_user || User.find(params[:id]), 150) %>
-        <div class="field">
-          <%= f.label :avatar %><br />
-          <%= f.file_field :avatar, autofocus: true, :data => { :max_file_size => 1.megabytes} %>
-          <%= f.label "Delete uploaded avatar" %><br />
-          <%= f.check_box :remove_avatar %>
+  <div class="large-24 medium-24 small-24 columns">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <% if devise_error_messages! != "" %>
+        <div class="row" id="admin">
+          <div class="large-24 columns">
+            <%= devise_error_messages! %>
+          </div>
         </div>
-        <div class="field">
-          <%= f.label :avatar_link %><br />
-          <%= f.text_field :avatar_link, autofocus: true, :data => { :max_file_size => 1.megabytes} %>
-        </div>
-      </li>
-      <li class="bullet-item">
-        <div class="field">
-          <%= f.label :first_name %><br />
-          <%= f.text_field :first_name, autofocus: true, :value => current_user.first_name %>
+      <br />
+      <% end %>
+
+      <div class="row" id="account">
+        <h5>Update Profile</h5>
+        <br />
+        <div class="large-12 medium-12 small-24 columns">
+          <ul>
+            <li>
+              <div class="field">
+                <%= f.label :avatar, "Current Avatar" %><br />
+                <%= avatar(current_user, 150) %>
+                <br />
+                <br />
+                <%= f.label :avatar, "Upload from computer" %>
+                <%= f.file_field :avatar, :data => { :max_file_size => 1.megabytes}, class: "upload" %>
+                <br />
+                <br />
+                <%= f.label :remote_avatar_url, "Upload from internet (url)" %>
+                <%= f.text_field :remote_avatar_url, :data => { :max_file_size => 1.megabytes} %>
+                <%= f.check_box :remove_avatar %>
+                <%= f.label :remove_avatar, "<span></span>".html_safe %> <span class="cinzel">Delete Avatar?</span>
+              </div>
+            </li>
+          </ul>
         </div>
 
-        <div class="field">
-          <%= f.label :last_name %><br />
-          <%= f.text_field :last_name, autofocus: true, :value => current_user.last_name %>
-        </div>
+        <div class="large-12 medium-12 small-24 columns">
+          <ul>
+            <li>
+              <div class="field">
+                <%= f.label :first_name %><br />
+                <%= f.text_field :first_name, :value => current_user.first_name %>
+              </div>
 
-        <div class="field">
-          <%= f.label :age %><br />
-          <%= f.text_field :age, autofocus: true, :value => current_user.age %>
-        </div>
+              <div class="field">
+                <%= f.label :last_name %><br />
+                <%= f.text_field :last_name, :value => current_user.last_name %>
+              </div>
 
-        <div class="field">
-          <%= f.label :website %><br />
-          <%= f.text_field :website, autofocus: true, :value => current_user.website %>
-        </div>
+              <div class="field">
+                <%= f.label :age %><br />
+                <%= f.text_field :age, :value => current_user.age %>
+              </div>
 
-        <div class="field">
-          <%= f.label :email %><br />
-          <%= f.email_field :email, autofocus: true %>
+              <div class="field">
+                <%= f.label :website %><br />
+                <%= f.text_field :website, :value => current_user.website %>
+              </div>
+            </li>
+          </ul>
+          <div>
+            <%= f.submit "Update", class: "button-override" %>
+          </div>
         </div>
+      </div>
+    <% end %>
 
-        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-        <% end %>
-      </li>
-      <li class="bullet-item">
-        <div class="field">
-          <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-          <%= f.password_field :password, autocomplete: "off" %>
-        </div>
+    <br />
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <div class="row" id="account">
+        <h5>Update Email and Password</h5>
+        <br />
+        <div class="large-12 medium-12 small-24 columns">
+          <ul>
+            <li>
+              <div class="field">
+                <%= f.label :email %><br />
+                <%= f.email_field :email %>
+              </div>
 
-        <div class="field">
-          <%= f.label :password_confirmation %><br />
-          <%= f.password_field :password_confirmation, autocomplete: "off" %>
+              <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+              <% end %>
+
+              <div class="field">
+                <%= f.label :current_password %> <i>(required)</i><br />
+                <%= f.password_field :current_password, autocomplete: "off" %>
+              </div>
+            </li>
+          </ul>
         </div>
-      </li>
-      <li class="bullet-item">
-        <div class="field">
-          <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-          <%= f.password_field :current_password, autocomplete: "off" %>
+        <div class="large-12 medium-12 small-24 columns">
+          <ul>
+            <li>
+              <div class="field">
+                <%= f.label :password %> <i>(set a new password)</i><br />
+                <%= f.password_field :password, autocomplete: "off" %>
+              </div>
+
+              <div class="field">
+                <%= f.label :password_confirmation %><br />
+                <%= f.password_field :password_confirmation, autocomplete: "off" %>
+              </div>
+            </li>
+          </ul>
+          <div>
+            <%= f.submit "Update", class: "button-override" %>
+          </div>
         </div>
-      </li>
-      <li class="bullet-item">
-        <div class="actions">
-          <%= f.submit "Update" %>
-        </div>
-      </li>
-    </ul>
+      </div>
+    <% end %>
   </div>
 </div>
-<% end %>
