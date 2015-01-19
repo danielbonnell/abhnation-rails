@@ -84,11 +84,15 @@
     <!-- Main Content -->
     <div class="large-17 large-offset-1 medium-17 medium-offset-1 small-17 small-offset-1 columns" role="content">
       <br />
-      <%- flash.each do |key, value| -%>
-        <div class="success label">
-          <%= value %>
+      <% if !flash.empty? %>
+        <div class="row">
+          <div class="large-24 medium-24 small-24 columns" id="flash-success">
+            <%- flash.each do |key, value| -%>
+              <%= value %>
+            <%- end -%>
+          </div>
         </div>
-      <%- end -%>
+      <% end %>
 
       <%= yield %>
 

@@ -36,10 +36,10 @@ feature 'user views article', %{
       expect(page).to have_content(article.slug)
     end
 
-    # within(:css, "body > div.row.collapse > nav > section > ul") do
+    # within(:css, "body > div:nth-child(1) > nav > section > ul") do
     #   expect(page).to have_content(category.name)
-      # expect(page).to have_content(subcategory.name)
-      # expect(page).to have_content(article.slug)
+    #   expect(page).to have_content(subcategory.name)
+    #   expect(page).to have_content(article.slug)
     # end
   end
 end

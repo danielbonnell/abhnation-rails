@@ -18,8 +18,7 @@ feature "user edits avatar", %{
 
     visit edit_user_registration_path(user)
     attach_file('user[avatar]', File.join(Rails.root, 'spec/data/Lafiel_summer_avatar.jpg'))
-    fill_in "user[current_password]", with: user.password
-    click_button "Update"
+    first('#account > div:nth-child(4) > div').click_button "Update"
 
     visit user_path(user)
     expect(page).to have_selector("img[alt=\"#{user.username}'s Avatar\"]")
@@ -30,8 +29,7 @@ feature "user edits avatar", %{
 
     visit edit_user_registration_path(user)
     attach_file('user[avatar]', File.join(Rails.root, 'spec/data/invalid_format.bmp'))
-    fill_in "user[current_password]", with: user.password
-    click_button "Update"
+    first('#account > div:nth-child(4) > div').click_button "Update"
 
     expect(page).to have_content "You are not allowed to upload \"bmp\" files"
   end
@@ -41,8 +39,7 @@ feature "user edits avatar", %{
 
     visit edit_user_registration_path(user)
     attach_file('user[avatar]', File.join(Rails.root, 'spec/data/too_large.png'))
-    fill_in "user[current_password]", with: user.password
-    click_button "Update"
+    first('#account > div:nth-child(4) > div').click_button "Update"
 
     expect(page).to have_content "Avatar should be less than 1 MB"
   end
@@ -52,8 +49,7 @@ feature "user edits avatar", %{
 
     visit edit_user_registration_path(user)
     check "user[remove_avatar]"
-    fill_in "user[current_password]", with: user.password
-    click_button "Update"
+    first('#account > div:nth-child(4) > div').click_button "Update"
 
     expect(page).to_not have_selector(
     "img[alt=\"#{user.username}'s Avatar\"]"
