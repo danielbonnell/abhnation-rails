@@ -1,0 +1,26 @@
+<article>
+  <div class="row admin-stats">
+    <div class="large-24 medium-24 small-24 columns articles-admin">
+      <h6>Articles</h6>
+      <ul>
+        <% @articles.each_with_index do |article, index| %>
+          <li class="category-gradient">
+            <h5>
+              <%= link_to article.title, "#" %>
+              <span>
+                <a href="#"><i class="fa fa-edit"></i></a>
+                <a href="#"><i class="fa fa-remove"></i></a>
+                <% if index != 0 %>
+                  <a href="#"><i class="fa fa-arrow-up"></i></a>
+                <% end %>
+                <% if index != @articles.length - 1 %>
+                  <a href="#"><i class="fa fa-arrow-down"></i></a>
+                <% end %>
+              </span>
+            </h5>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</article>
