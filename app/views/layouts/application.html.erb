@@ -71,7 +71,7 @@
       <div class="row">
         <div class="large-22 large-offset-2 columns" id="admin">
           <ul class="side-bar">
-            <%- if current_user.admin? -%>
+            <%- if current_user && current_user.admin? -%>
             <li>
               <h6><%= link_to 'Control Center', admin_root_path %></h6>
             </li>
