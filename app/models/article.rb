@@ -1,4 +1,6 @@
 class Article < ActiveRecord::Base
+  paginates_per 10
+  max_paginates_per 50
   belongs_to :user
   belongs_to :category
   belongs_to :subcategory

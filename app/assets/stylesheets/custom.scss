@@ -155,6 +155,13 @@ body > div:nth-child(2) > ul > li:not(:last-child) > a:hover {
   padding: 0 0.2em 0 0.2em;
 }
 
+.articles-admin > h5 > span {
+  float: right;
+  display: inline-block;
+  font-size: 1em;
+  color: $grey;
+}
+
 .articles-admin > ul > li > h5 > span {
   float: right;
   display: inline-block;
@@ -179,7 +186,7 @@ body > div:nth-child(2) > ul > li:not(:last-child) > a:hover {
   color: $grey;
 }
 
-.categories-admin * a:hover,
+.articles-admin * a:hover,
 .categories-admin * a:hover {
   color: $silver;
 }

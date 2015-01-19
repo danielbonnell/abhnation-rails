@@ -1,7 +1,7 @@
 module Admin
   class ArticlesController < ApplicationController
     def index
-      @articles = Article.all
+      @articles = Article.all.order("title ASC").page params[:page]
     end
 
     def edit
@@ -29,7 +29,14 @@ module Admin
     private
 
     def article_params
-      params.require(:review).permit(:title, :slug, :text, :category_id, :user_id)
+      params.require(:review).permit(
+        :title,
+        :slug,
+        :text,
+        :category_id,
+        :user_id,
+        :page
+      )
     end
   end
 end
