@@ -10,10 +10,8 @@ Rails.application.routes.draw do
   namespace :admin do
     root 'homes#index'
 
-    resources :users
-    resources :articles
-    resources :categories do
-      resources :articles
-    end
+    resources :users, only: [:index, :edit, :update, :destroy]
+    resources :articles, only: [:index, :edit, :update, :destroy]
+    resources :categories, only: [:index, :edit, :update, :destroy]
   end
 end

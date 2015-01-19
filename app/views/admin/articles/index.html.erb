@@ -6,7 +6,7 @@
         <% @articles.each_with_index do |article, index| %>
           <li class="category-gradient">
             <h5>
-              <%= link_to article.title, "#" %>
+              <%= link_to article.title, edit_admin_article_path(article) %>
               <span>
                 <a href="#"><i class="fa fa-edit"></i></a>
                 <a href="#"><i class="fa fa-remove"></i></a>
