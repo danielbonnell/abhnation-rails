@@ -5,7 +5,7 @@ module Admin
     end
 
     def index
-      @article = Article.all
+      @articles = Article.all
     end
   end
 end

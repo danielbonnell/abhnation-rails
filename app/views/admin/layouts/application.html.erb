@@ -48,22 +48,37 @@
       <div class="row">
         <div class="large-22 large-offset-2 columns" id="admin">
           <ul class="side-bar">
-            <%- if current_user -%>
             <li>
               <h5><%= current_user.username %></h5>
             </li>
             <li class="avatar"><%= avatar(current_user || User.find(params[:id])) %></li>
             <li>
               <br />
-              <h6>Admin Controls</h6>
+              <h6>User Controls</h6>
             </li>
-            <li><%= link_to "View Account", user_path(current_user) %></li>
-            <li><%= link_to 'Edit Account', edit_user_registration_path %></li>
             <li><%= link_to 'Log Out', destroy_user_session_path, method: :delete %></li>
-            <%- else -%>
-            <li><%= link_to 'Log In', new_user_session_path %></li>
-            <li><%= link_to 'Register', new_user_registration_path %></li>
-            <%- end -%>
+            <li>
+              <br />
+              <h6>Current Session</h6>
+            </li>
+            <li><%= current_user.current_sign_in_at.strftime("%b %e, %l:%M %p") %></li>
+            <li>Current IP: <%= current_user.current_sign_in_ip.to_s %></li>
+            <li>
+              <br />
+              <h6>Last Session</h6>
+            </li>
+            <li><%= current_user.last_sign_in_at.strftime("%b %e, %l:%M %p") %></li>
+            <li>IP: <%= current_user.last_sign_in_ip.to_s %></li>
+          </ul>
+        </div>
+      </div>
+      <br />
+      <div class="row">
+        <div class="large-22 large-offset-2 columns" id="admin-access">
+          <ul class="side-bar">
+            <li>
+              <h6><%= link_to 'Exit', root_path %></h6>
+            </li>
           </ul>
         </div>
       </div>

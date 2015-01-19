@@ -61,10 +61,21 @@ input[type=checkbox] {
 }
 
 #admin > ul > li > h6 > a,
-#admin > ul > li > h6 > a:hover,
+#admin > ul > li > h6 > a:active,
+#admin > ul > li > h6 > a:visited,
 #admin-access > ul > li > h6 > a,
-#admin-access > ul > li > h6 > a:hover {
+#admin-access > ul > li > h6 > a:visited,
+#admin-access > ul > li > h6 > a:active,
+#admin-access > div > h3 > a,
+#admin-access > div > h3 > a:visited,
+#admin-access > div > h3 > a:active {
   color: $grey;
+}
+
+#admin > ul > li > h6 > a:hover,
+#admin-access > ul > li > h6 > a:hover,
+#admin-access > div > h3 > a:hover {
+  color: $silver;
 }
 
 div .admin-stats {
@@ -75,8 +86,13 @@ div .admin-stats {
 }
 
 .admin-stats > div > ul > li > h6 > a,
-.admin-stats > div > ul > li > h6 > a:hover {
+.admin-stats > div > ul > li > h6 > a:active,
+.admin-stats > div > ul > li > h6 > a:visited {
   color: $grey;
+}
+
+.admin-stats > div > ul > li > h6 > a:hover {
+  color: $silver;
 }
 
 aside {
@@ -105,6 +121,66 @@ aside a:hover,
 }
 
 body > div:nth-child(2) > ul > li:not(:last-child) > a:hover {
+  color: $silver;
+}
+
+.category-gradient {
+  background-image: -ms-linear-gradient(top, #3f4c73 0%, #353D61 100%);
+  background-image: -moz-linear-gradient(top, #3f4c73 0%, #353D61 100%);
+  background-image: -o-linear-gradient(top, #3f4c73 0%, #353D61 100%);
+  background-image: -webkit-gradient(linear, left top, left bottom,
+    color-stop(0, #3f4c73),
+    color-stop(1, #353D61));
+  background-image: -webkit-linear-gradient(top, #3f4c73 0%, #353D61 100%);
+  background-image: linear-gradient(to bottom, #3f4c73 0%, #353D61 100%);
+}
+
+.categories-admin > ul > li {
+  border: 2px solid $burgandy;
+  border-radius: 5px;
+  margin: 0.5em;
+  padding: 0.5em;
+  ul > li {
+    border: 2px solid $burgandy;
+    border-radius: 5px;
+    margin: 0.5em 0 0.5em 0;
+    padding: 0 0.2em 0 0.2em;
+  }
+}
+
+.articles-admin > ul > li {
+  border: 2px solid $burgandy;
+  border-radius: 5px;
+  margin: 0.5em;
+  padding: 0 0.2em 0 0.2em;
+}
+
+.articles-admin > ul > li > h5 > span {
+  float: right;
+  display: inline-block;
+  font-size: 1.2em;
+  color: $grey;
+}
+
+.categories-admin > ul > li > h5 > span,
+.categories-admin > ul > li > ul > li > h6 > span {
+  float: right;
+  display: inline-block;
+  font-size: 1.2em;
+  color: $grey;
+}
+
+.articles-admin * a,
+.articles-admin * a:visited,
+.articles-admin * a:active,
+.categories-admin * a,
+.categories-admin * a:visited,
+.categories-admin * a:active {
+  color: $grey;
+}
+
+.categories-admin * a:hover,
+.categories-admin * a:hover {
   color: $silver;
 }
 

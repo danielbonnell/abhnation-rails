@@ -7,7 +7,7 @@ module Admin
     end
 
     def index
-      @category = Category.all
+      @categories = Category.all
     end
   end
 end
