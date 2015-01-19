@@ -139,7 +139,7 @@ body > div:nth-child(2) > ul > li:not(:last-child) > a:hover {
   border: 2px solid $burgandy;
   border-radius: 5px;
   margin: 0.5em;
-  padding: 0.5em;
+  padding: 0 0.2em 0 0.2em;
   ul > li {
     border: 2px solid $burgandy;
     border-radius: 5px;
@@ -155,7 +155,8 @@ body > div:nth-child(2) > ul > li:not(:last-child) > a:hover {
   padding: 0 0.2em 0 0.2em;
 }
 
-.articles-admin > h5 > span {
+.articles-admin > h5 > span,
+.categories-admin > h5 > span {
   float: right;
   display: inline-block;
   font-size: 1em;
@@ -169,11 +170,11 @@ body > div:nth-child(2) > ul > li:not(:last-child) > a:hover {
   color: $grey;
 }
 
-.categories-admin > ul > li > h5 > span,
+.categories-admin > ul > li > h6 > span,
 .categories-admin > ul > li > ul > li > h6 > span {
   float: right;
   display: inline-block;
-  font-size: 1.2em;
+  font-size: 1em;
   color: $grey;
 }
 

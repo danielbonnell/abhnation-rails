@@ -1,4 +1,6 @@
 class Category < ActiveRecord::Base
+  paginates_per 10
+  max_paginates_per 50
   belongs_to :user
   has_many :articles
   belongs_to :parent,

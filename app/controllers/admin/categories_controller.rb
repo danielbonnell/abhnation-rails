@@ -7,7 +7,7 @@ module Admin
     end
 
     def index
-      @categories = Category.all
+      @categories = Category.all.order("name ASC").page params[:page]
     end
   end
 end
