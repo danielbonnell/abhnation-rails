@@ -3,13 +3,13 @@ class RegistrationsController < Devise::RegistrationsController
     update_params = account_update_params
     # required for settings form to submit when password is left blank
     if update_params[:password].blank?
-      [:password,:password_confirmation,:current_password].collect do
-        |p| update_params.delete(p)
+      [:password,:password_confirmation,:current_password].map do |p|
+        update_params.delete(p)
       end
     end
 
     if update_params[:password].present? && update_params[:current_password].blank?
-      [:current_password].collect{ |p| update_params.delete(p) }
+      [:current_password].map { |p| update_params.delete(p) }
     end
 
     self.resource = resource_class.to_adapter.get!(
@@ -22,7 +22,7 @@ class RegistrationsController < Devise::RegistrationsController
 
     if update_resource(resource, update_params)
       yield resource if block_given?
-      
+
       if is_flashing_format?
         flash_key = update_needs_confirmation?(resource, prev_unconfirmed_email) ?
           :update_needs_confirmation : :updated
