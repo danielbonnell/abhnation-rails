@@ -6,4 +6,12 @@ Rails.application.routes.draw do
   resources :categories, only: [:show, :index] do
     resources :articles, only: [:show, :index]
   end
+
+  namespace :admin do
+    root 'homes#index'
+
+    resources :categories do
+      resources :articles
+    end
+  end
 end
