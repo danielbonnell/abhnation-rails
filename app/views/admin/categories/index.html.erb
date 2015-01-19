@@ -1,0 +1,53 @@
+<article>
+  <div class="row admin-stats">
+    <div class="large-24 medium-24 small-24 columns categories-admin">
+      <h5>Categories
+        <span>
+          <%= paginate @categories, window: 2 %>
+        </span>
+      </h5>
+      <ul>
+        <% @categories.each_with_index do |category, index| %>
+          <li class="category-gradient">
+            <h6>
+              <%= link_to category.name, edit_admin_category_path(category) %>
+              <span>
+                <a href="#"><i class="fa fa-edit"></i></a>
+                <% if category.subcategories.empty? && category.articles.empty? %>
+                  <a href="#"><i class="fa fa-remove"></i></a>
+                <% end %>
+                <% if index != 0 %>
+                  <a href="#"><i class="fa fa-arrow-up"></i></a>
+                <% end %>
+                <% if index != category.articles.length - 1 %>
+                  <a href="#"><i class="fa fa-arrow-down"></i></a>
+                <% end %>
+              </span>
+            </h6>
+            <ul>
+              <% category.subcategories.each_with_index do |subcategory, index| %>
+                <li class="category-gradient">
+                  <h6>
+                    <%= link_to subcategory.name, edit_admin_category_path(subcategory) %>
+                    <span>
+                      <a href="#"><i class="fa fa-edit"></i></a>
+                      <% if subcategory.articles.empty? %>
+                        <a href="#"><i class="fa fa-remove"></i></a>
+                      <% end %>
+                      <% if index != 0 %>
+                        <a href="#"><i class="fa fa-arrow-up"></i></a>
+                      <% end %>
+                      <% if index != subcategory.articles.length - 1 %>
+                        <a href="#"><i class="fa fa-arrow-down"></i></a>
+                      <% end %>
+                    </span>
+                  </h6>
+                </li>
+              <% end %>
+            </ul>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</article>
