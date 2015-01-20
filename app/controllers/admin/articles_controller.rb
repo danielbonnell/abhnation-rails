@@ -11,11 +11,11 @@ module Admin
     def update
       @article = Article.find(params[:id])
 
-      if @article.update(article_params)
-        redirect_to admin_article_path(@article), notice: "Article Updated Successfully"
-      else
-        render edit_admin_article_path(@article)
-      end
+      # if @article.update(article_params)
+      #   redirect_to admin_article_path(@article), notice: "Article Updated Successfully"
+      # else
+      #   render edit_admin_article_path(@article)
+      # end
 
       respond_to do |format|
         if @article.update_attributes(article_params)

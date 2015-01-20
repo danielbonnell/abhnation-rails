@@ -288,6 +288,10 @@ h1, h2, h3, h4,h5, h6 {
 
 }
 
+body > div:nth-child(3) > div > div > div * {
+  background-color: transparent;
+}
+
 #personal-image {
   margin: 1em;
 }
