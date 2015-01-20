@@ -1,5 +1,7 @@
 <% breadcrumb :article, @article %>
 <article>
+  <h3><%= best_in_place @article, :title, url: admin_article_path(@article), as: :input, nil: "Click me to add content!", classes: 'highlight_on_success' %></h3>
+
   <h3><%= link_to @article.title, [@article.category, @article] %></h3>
   <h6>Written by <%= link_to @article.user.username, user_path(@article.user) %> on <%= @article.created_at.strftime("%b %d, %Y") %>.</h6>
   <div class="row">
@@ -8,3 +10,9 @@
     </div>
   </div>
 </article>
+
+<%= javascript_tag do %>
+  $('.best_in_place').bind("ajax:success", function () {
+    $(this).closest('tr').effect('highlight');
+  });
+<% end %>

@@ -12,9 +12,19 @@ module Admin
       @article = Article.find(params[:id])
 
       if @article.update(article_params)
-        redirect_to @article, notice: "Article Updated Successfully"
+        redirect_to admin_article_path(@article), notice: "Article Updated Successfully"
       else
         render :edit
+      end
+
+      respond_to do |format|
+        if @article.update_attributes(article_params)
+          format.html { redirect_to(admin_article_path(@article), notice: 'Article was successfully updated.') }
+          format.json { respond_with_bip(@article) }
+        else
+          format.html { render action: "edit" }
+          format.json { respond_with_bip(@article) }
+        end
       end
     end
 
@@ -29,7 +39,7 @@ module Admin
     private
 
     def article_params
-      params.require(:review).permit(
+      params.require(:article).permit(
         :title,
         :slug,
         :text,
