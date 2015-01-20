@@ -1,18 +1,67 @@
 <% breadcrumb :article, @article %>
-<article>
-  <h3><%= best_in_place @article, :title, url: admin_article_path(@article), as: :input, nil: "Click me to add content!", classes: 'highlight_on_success' %></h3>
-
-  <h3><%= link_to @article.title, [@article.category, @article] %></h3>
-  <h6>Written by <%= link_to @article.user.username, user_path(@article.user) %> on <%= @article.created_at.strftime("%b %d, %Y") %>.</h6>
-  <div class="row">
+<div class="row admin-stats">
+  <div class="large-24 medium-24 small-24 columns article-admin">
+    <ul>
+      <li>
+        <h5>Title: </h5>
+        <%= best_in_place @article,
+          :title, url: admin_article_path(@article),
+          as: :input,
+          nil: "Click me to add content!",
+          classes: 'highlight_on_success',
+          data: { slug: @article.slug },
+          ok_button: "Save",
+          ok_button_class: "button-override",
+          cancel_button: "Cancel",
+          cancel_button_class: "button-override",
+          confirm: true
+        %>
+      </li>
+      <li>
+        <h5>Slug: </h5>
+        <%= best_in_place @article,
+          :slug, url: admin_article_path(@article),
+          as: :input,
+          nil: "Click me to add content!",
+          classes: 'highlight_on_success',
+          data: { slug: @article.slug },
+          ok_button: "Save",
+          ok_button_class: "button-override",
+          cancel_button: "Cancel",
+          cancel_button_class: "button-override",
+          confirm: true
+        %>
+      </li>
+    </ul>
+    <span>
+      Written by <%= link_to @article.user.username, user_path(@article.user) %> on
+      <%= @article.created_at.strftime("%b %d, %Y") %>.
+    </span>
+    <h5>Text: </h5>
     <div class="large-24 medium-24 small-24 columns">
-      <%= @article.text %>
+      <%= best_in_place @article, :text,
+        url: admin_article_path(@article),
+        as: :textarea,
+        nil: "Click me to add content!",
+        classes: 'highlight_on_success',
+        ok_button: "Save",
+        ok_button_class: "button-override",
+        cancel_button: "Cancel",
+        cancel_button_class: "button-override",
+        sanitize: false,
+        confirm: true,
+        display_with: lambda { |v| v.html_safe }
+      %>
     </div>
   </div>
-</article>
+</div>
 
 <%= javascript_tag do %>
   $('.best_in_place').bind("ajax:success", function () {
-    $(this).closest('tr').effect('highlight');
+    $(this).closest('h3').effect('highlight');
+  });
+
+  $('.best_in_place').bind("ajax:success", function(){
+    alert('Title updated for '+$(this).data('slug'));
   });
 <% end %>

@@ -118,6 +118,7 @@ aside a:hover,
   height: 9.375em;
   width: 9.375em;
   border-radius: 0;
+  list-style: none;
 }
 
 body > div:nth-child(2) > ul > li:not(:last-child) > a:hover {
@@ -174,6 +175,15 @@ body > div:nth-child(2) > ul > li:not(:last-child) > a:hover {
 .categories-admin > ul > li > ul > li > h6 > span {
   float: right;
   display: inline-block;
+  font-size: 1em;
+  color: $grey;
+}
+
+.article-admin > ul > li > h5 {
+  display: inline-block;
+}
+
+.article-admin > ul > li {
   font-size: 1em;
   color: $grey;
 }

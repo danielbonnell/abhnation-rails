@@ -14,7 +14,7 @@ module Admin
       if @article.update(article_params)
         redirect_to admin_article_path(@article), notice: "Article Updated Successfully"
       else
-        render :edit
+        render edit_admin_article_path(@article)
       end
 
       respond_to do |format|
@@ -22,7 +22,7 @@ module Admin
           format.html { redirect_to(admin_article_path(@article), notice: 'Article was successfully updated.') }
           format.json { respond_with_bip(@article) }
         else
-          format.html { render action: "edit" }
+          format.html { render action: edit_admin_article_path(@article) }
           format.json { respond_with_bip(@article) }
         end
       end
