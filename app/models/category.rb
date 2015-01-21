@@ -22,6 +22,13 @@ class Category < ActiveRecord::Base
     where("parent_id is NULL")
   end
 
+  def dependents?
+    self.subcategories.each do |subcategory|
+      return true unless subcategory.articles.empty?
+    end
+
+    return true unless self.subcategories.empty? && self.articles.empty?
+  end
   # def subcategories
   #   Category.where(parent_id: self.id)
   # end

@@ -1,3 +1,4 @@
+<% breadcrumb :categories, @categories %>
 <article>
   <div class="row admin-stats">
     <div class="large-24 medium-24 small-24 columns categories-admin">
@@ -7,11 +8,18 @@
         </span>
       </h5>
       <ul>
-        <% @categories.each_with_index do |category, index| %>
+        <% @categories.cat_parents.each_with_index do |category, index| %>
           <li class="category-gradient">
             <h6>
-              <%= link_to category.name, edit_admin_category_path(category) %>
-              <span>
+              <%= best_in_place category,
+                :name,
+                url: admin_category_path(category),
+                as: :input,
+                place_holder: "Click me to add content!",
+                data: { name: category.name },
+                confirm: true
+              %>
+              <span id="cat-buttons">
                 <a href="#"><i class="fa fa-edit"></i></a>
                 <% if category.subcategories.empty? && category.articles.empty? %>
                   <a href="#"><i class="fa fa-remove"></i></a>
@@ -25,19 +33,26 @@
               </span>
             </h6>
             <ul>
-              <% category.subcategories.each_with_index do |subcategory, index| %>
+              <% category.subcategories.each_with_index do |subcategory, index2| %>
                 <li class="category-gradient">
                   <h6>
-                    <%= link_to subcategory.name, edit_admin_category_path(subcategory) %>
-                    <span>
+                    <%= best_in_place subcategory,
+                      :name,
+                      url: admin_category_path(subcategory),
+                      as: :input,
+                      place_holder: "Click me to add content!",
+                      data: { name: subcategory.name },
+                      confirm: true
+                    %>
+                    <span id="cat-buttons">
                       <a href="#"><i class="fa fa-edit"></i></a>
                       <% if subcategory.articles.empty? %>
-                        <a href="#"><i class="fa fa-remove"></i></a>
+                        <%= link_to "<i class=\"fa fa-remove\"></i>".html_safe, admin_category_path(subcategory), method: :delete %>
                       <% end %>
-                      <% if index != 0 %>
+                      <% if index2 != 0 %>
                         <a href="#"><i class="fa fa-arrow-up"></i></a>
                       <% end %>
-                      <% if index != subcategory.articles.length - 1 %>
+                      <% if index2 != subcategory.articles.length - 1 %>
                         <a href="#"><i class="fa fa-arrow-down"></i></a>
                       <% end %>
                     </span>
@@ -51,3 +66,13 @@
     </div>
   </div>
 </article>
+
+<%= javascript_tag do %>
+  $('.best_in_place').bind("ajax:success", function () {
+    $(this).closest('h3').effect('highlight');
+  });
+
+  $('.best_in_place').bind("ajax:success", function(){
+    alert('Name updated for '+$(this).data('name'));
+  });
+<% end %>

@@ -6,7 +6,7 @@ crumb :root do
 end
 
 crumb :categories do
-  link Category.find(params[:id]).name, categories_path
+  link "Categories", categories_path
 end
 
 crumb :category do |category|

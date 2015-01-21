@@ -171,10 +171,16 @@ body > div:nth-child(2) > ul > li:not(:last-child) > a:hover {
   color: $grey;
 }
 
-.categories-admin > ul > li > h6 > span,
-.categories-admin > ul > li > ul > li > h6 > span {
+#cat-buttons {
   float: right;
   display: inline-block;
+  font-size: 1em;
+  color: $grey;
+}
+
+.categories-admin > div > ul > li > h6 {
+  display: inline-block;
+  float: left;
   font-size: 1em;
   color: $grey;
 }
