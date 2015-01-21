@@ -178,6 +178,10 @@ body > div:nth-child(2) > ul > li:not(:last-child) > a:hover {
   color: $grey;
 }
 
+.bip-text-field {
+  max-width: 30em;
+}
+
 .categories-admin > div > ul > li > h6 {
   display: inline-block;
   float: left;

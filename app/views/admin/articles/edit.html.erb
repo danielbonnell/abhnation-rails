@@ -8,12 +8,9 @@
           :title,
           url: admin_article_path(@article),
           as: :input,
+          inner_class: "bip-text-field",
           place_holder: "Click me to add content!",
           data: { title: @article.title },
-          ok_button: "Save",
-          ok_button_class: "button-override",
-          cancel_button: "Cancel",
-          cancel_button_class: "button-override",
           confirm: true
         %>
       </li>
@@ -23,13 +20,27 @@
           :slug,
           url: admin_article_path(@article),
           as: :input,
+          inner_class: "bip-text-field",
           place_holder: "Click me to add content!",
           data: { slug: @article.slug },
+          confirm: true
+        %>
+      </li>
+      <li>
+        <h5>Category: </h5>
+        <%= best_in_place @article,
+          :category_id,
+          url: admin_article_path(@article),
+          as: :select,
+          inner_class: "bip-text-field",
+          place_holder: Category.find(1).name,
+          data: { category: @article.category_id },
           ok_button: "Save",
           ok_button_class: "button-override",
           cancel_button: "Cancel",
           cancel_button_class: "button-override",
-          confirm: true
+          confirm: true,
+          collection: Category.cat_names_dropdown
         %>
       </li>
     </ul>

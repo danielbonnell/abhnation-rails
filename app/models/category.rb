@@ -18,24 +18,29 @@ class Category < ActiveRecord::Base
     numericality: { only_integer: true },
     allow_nil: true
 
+  def self.cat_names_dropdown
+    cat_hash = {}
+    self.all.each do |category|
+      if category.parent_id.nil?
+        cat_hash[category.id] = category.name
+      else
+        cat_hash[category.id] = "└#{category.name}"
+      end
+    end
+    return cat_hash
+  end
+
   def self.cat_parents
     where("parent_id is NULL")
   end
 
   def dependents?
-    self.subcategories.each do |subcategory|
+    self.all.subcategories.each do |subcategory|
       return true unless subcategory.articles.empty?
     end
 
     return true unless self.subcategories.empty? && self.articles.empty?
   end
-  # def subcategories
-  #   Category.where(parent_id: self.id)
-  # end
-  #
-  # def articles
-  #   Article.where(category_id: self.id)
-  # end
 
   protected
   def only_one_level_deep

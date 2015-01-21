@@ -8,7 +8,7 @@
           <h5><a href="javascript:void(0)">Back</a></h5>
           <%= link_to category.name, category_path(category) %>
         </li>
-        <%- category.subcategories.each do |subcategory| -%>
+        <%- category.subcategories.order("display_index ASC").each do |subcategory| -%>
           <li class="has-dropdown">
             <%= link_to subcategory.name, category_path(subcategory) %>
             <ul class="dropdown">
