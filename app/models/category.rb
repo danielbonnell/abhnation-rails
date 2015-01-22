@@ -26,18 +26,15 @@ class Category < ActiveRecord::Base
     if self.parent.nil?
       if index_param == -1
         swap_cat = Category.find_by(parent_id: nil, display_index: self.display_index - 1)
-        # swap_cat = Category.cat_parents.where("display_index < ?", self.display_index).last
         swap_cat_index = swap_cat.display_index
         cat_index = self.display_index
         self.update(display_index: swap_cat_index)
         swap_cat.update(display_index: cat_index) unless swap_cat_index.nil?
       else
         swap_cat = Category.find_by(parent_id: nil, display_index: self.display_index + 1)
-        # swap_cat = Category.cat_parents.where("display_index > ?", self.display_index).first
         swap_cat_index = swap_cat.display_index
         cat_index = self.display_index
         self.update(display_index: self.display_index + 1)
-        # binding.pry
         swap_cat.update(display_index: swap_cat_index - 1) unless swap_cat_index.nil?
       end
     else
