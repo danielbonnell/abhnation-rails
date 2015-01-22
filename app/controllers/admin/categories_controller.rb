@@ -14,22 +14,42 @@ module Admin
 
     def update
       @category = Category.find(params[:id])
-      new_index = category_params[:display_index].to_i + 1
-      # Check if update is for display_index
-      if new_index && new_index >= @category.display_index.to_i
-        decremented_cat = Category.where("display_index < ?", new_index - 1).last
-        # Decrement display_index of previous category
-        unless decremented_cat.nil?
-          decremented_cat.update_attributes(display_index: @category.display_index.to_i)
-        end
+      # new_index = category_params[:display_index].to_i + 1
+      # # Check if update is for display_index
+      # if new_index && new_index >= @category.display_index.to_i
+      #   decremented_cat = Category.where("display_index < ?", new_index - 1).last
+      #   # Decrement display_index of previous category
+      #   unless decremented_cat.nil?
+      #     decremented_cat.update_attributes(display_index: @category.display_index.to_i)
+      #   end
+      # end
+
+      index = category_params[:display_index].to_i
+      if @category.parent.nil? && index == 1
+        prime_cat_index = @category.display_index + 1
+        swap_cat = Category.cat_parents.where("display_index <= ?", prime_cat_index + 1).first
+        swap_cat_index = swap_cat.display_index - 1
+      elsif @category.parent.nil? && index == -1
+        prime_cat_index = @category.display_index - 1
+        swap_cat = Category.cat_parents.where("display_index >= ?", prime_cat_index - 1).first
+        swap_cat_index = swap_cat.display_index + 1
+      elsif !@category.parent.nil? && index == 1
+        prime_cat_index = @category.display_index + 1
+        swap_cat = Category.where("parent_id is not NULL and display_index <= ?", prime_cat_index + 1).first
+        swap_cat_index = swap_cat.display_index - 1
+      elsif !@category.parent.nil? && index == -1
+        prime_cat_index = @category.display_index - 1
+        swap_cat = Category.where("parent_id is not NULL and display_index >= ?", prime_cat_index - 1).first
+        swap_cat_index = swap_cat.display_index + 1
+        # binding.pry
       end
 
       respond_to do |format|
-        if @category.update_attributes(display_index: new_index)
+        if @category.update_attributes(display_index: prime_cat_index) && swap_cat.update_attributes(display_index: swap_cat_index)
           format.html { redirect_to admin_categories_path, notice: "Success" }
           format.json { respond_with_bip(@category) }
         else
-          format.html { render action: edit_admin_categories_path(@category) }
+          format.html { redirect_to admin_categories_path, notice: "Failed" }
           format.json { respond_with_bip(@category) }
         end
       end

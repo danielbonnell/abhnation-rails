@@ -18,6 +18,10 @@ class Category < ActiveRecord::Base
     numericality: { only_integer: true },
     allow_nil: true
 
+  validates :display_index,
+    presence: true,
+    numericality: { only_integer: true }
+
   def self.cat_names_dropdown
     cat_hash = {}
     self.all.each do |category|
@@ -44,7 +48,7 @@ class Category < ActiveRecord::Base
 
   protected
   def only_one_level_deep
-    if self.parent && self.parent.parent_id.present?
+    if self.parent && !self.parent.parent.nil?
       self.errors.add(:parent_id, 'cannot be a subcategory')
     end
   end
