@@ -5,7 +5,7 @@ module Admin
     end
 
     def index
-      @categories = Category.all.order("name ASC").page params[:page]
+      @categories = Category.all.order("display_index ASC").page params[:page]
     end
 
     def edit
@@ -14,38 +14,19 @@ module Admin
 
     def update
       @category = Category.find(params[:id])
-      # new_index = category_params[:display_index].to_i + 1
-      # # Check if update is for display_index
-      # if new_index && new_index >= @category.display_index.to_i
-      #   decremented_cat = Category.where("display_index < ?", new_index - 1).last
-      #   # Decrement display_index of previous category
-      #   unless decremented_cat.nil?
-      #     decremented_cat.update_attributes(display_index: @category.display_index.to_i)
-      #   end
-      # end
 
-      index = category_params[:display_index].to_i
-      if @category.parent.nil? && index == 1
-        prime_cat_index = @category.display_index + 1
-        swap_cat = Category.cat_parents.where("display_index <= ?", prime_cat_index + 1).first
-        swap_cat_index = swap_cat.display_index - 1
-      elsif @category.parent.nil? && index == -1
-        prime_cat_index = @category.display_index - 1
-        swap_cat = Category.cat_parents.where("display_index >= ?", prime_cat_index - 1).first
-        swap_cat_index = swap_cat.display_index + 1
-      elsif !@category.parent.nil? && index == 1
-        prime_cat_index = @category.display_index + 1
-        swap_cat = Category.where("parent_id is not NULL and display_index <= ?", prime_cat_index + 1).first
-        swap_cat_index = swap_cat.display_index - 1
-      elsif !@category.parent.nil? && index == -1
-        prime_cat_index = @category.display_index - 1
-        swap_cat = Category.where("parent_id is not NULL and display_index >= ?", prime_cat_index - 1).first
-        swap_cat_index = swap_cat.display_index + 1
+      if params[:category][:reorder_categories] && @category.reorder(params[:category][:reorder_categories].to_i)
+        reorder_category = true
+      else
+        reorder_category = false
         # binding.pry
       end
 
       respond_to do |format|
-        if @category.update_attributes(display_index: prime_cat_index) && swap_cat.update_attributes(display_index: swap_cat_index)
+        if reorder_category
+          format.html { redirect_to admin_categories_path, notice: "Success" }
+          format.json { respond_with_bip(@category) }
+        elsif @category.update_attributes(category_params)
           format.html { redirect_to admin_categories_path, notice: "Success" }
           format.json { respond_with_bip(@category) }
         else
@@ -71,30 +52,11 @@ module Admin
       end
     end
 
-    # def up_index
-    #   @category = Category.find(params[:id])
-    #   # binding.pry
-    #   Category.where("display_index > ?", @category.display_index).first.update(display_index: @category.display_index - 1)
-    #   @category.update(display_index: @category.display_index + 1)
-    #
-    #   respond_to do |format|
-    #     if @category.update_attributes(category_params)
-    #       format.html { redirect_to(admin_categories_path(@categories), notice: 'Category was successfully updated.') }
-    #       format.json { respond_with_bip(@category) }
-    #     else
-    #       format.html { render action: edit_admin_categories_path(@category) }
-    #       format.json { respond_with_bip(@category) }
-    #     end
-    #   end
-    # end
-    #
-    # def down_index
-    # end
-
     private
 
     def category_params
       params.require(:category).permit(
+        :reorder_categories,
         :display_index,
         :name,
         :parent_id,

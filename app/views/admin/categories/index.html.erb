@@ -11,6 +11,8 @@
         <% @categories.cat_parents.order("display_index ASC").each_with_index do |category, index| %>
           <li class="category-gradient">
             <h6>
+              ID: <%= category.id %>
+              Index: <%= category.display_index %>
               <%= best_in_place category,
                 :name,
                 url: admin_category_path(category),
@@ -22,10 +24,10 @@
               %>
               <span id="cat-buttons">
                 <% if index != 0 %>
-                  <a href="#"><i class="fa fa-arrow-up"></i></a>
+                  <%= link_to "<i class=\"fa fa-arrow-up\"></i>".html_safe, admin_category_path(category, category: { reorder_categories: -1 }), method: :patch %>
                 <% end %>
                 <% if index != category.articles.length - 1 %>
-                  <a href="#"><i class="fa fa-arrow-down"></i></a>
+                  <%= link_to "<i class=\"fa fa-arrow-down\"></i>".html_safe, admin_category_path(category, category: { reorder_categories: 1 }), method: :patch %>
                 <% end %>
                 <% if category.subcategories.empty? && category.articles.empty? %>
                   <%= link_to "<i class=\"fa fa-remove\"></i>".html_safe, admin_category_path(category), method: :delete %>
@@ -49,10 +51,10 @@
                     %>
                     <span id="cat-buttons">
                       <% if index2 > 0 %>
-                        <%= link_to "<i class=\"fa fa-arrow-up\"></i>".html_safe, admin_category_path(subcategory, category: { display_index: -1 }), method: :patch %>
+                        <%= link_to "<i class=\"fa fa-arrow-up\"></i>".html_safe, admin_category_path(subcategory, category: { reorder_categories: -1 }), method: :patch %>
                       <% end %>
                       <% if index2 < category.subcategories.length - 1 %>
-                        <a href="#"><i class="fa fa-arrow-down"></i></a>
+                        <%= link_to "<i class=\"fa fa-arrow-down\"></i>".html_safe, admin_category_path(subcategory, category: { reorder_categories: 1 }), method: :patch %>
                       <% end %>
                       <% if subcategory.articles.empty? %>
                         <%= link_to "<i class=\"fa fa-remove\"></i>".html_safe, admin_category_path(subcategory), method: :delete %>
