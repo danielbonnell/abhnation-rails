@@ -14,24 +14,19 @@ module Admin
 
     def update
       @category = Category.find(params[:id])
-      new_index = category_params[:display_index]
-
+      new_index = category_params[:display_index].to_i + 1
       # Check if update is for display_index
-      if new_index && new_index > @category.display_index
-        decremented_cat = Category.where("display_index > ?", new_index).first
-
+      if new_index && new_index >= @category.display_index.to_i
+        decremented_cat = Category.where("display_index < ?", new_index - 1).last
         # Decrement display_index of previous category
-        if !decremented_cat.nil?
-          break unless decremented_cat.update_attributes(display_index: new_index - 1)
+        unless decremented_cat.nil?
+          decremented_cat.update_attributes(display_index: @category.display_index.to_i)
         end
-
-        # Increment display_index of current category
-        @category.assign_attributes(display_index: @category.display_index + 1)
       end
 
       respond_to do |format|
-        if @category.update_attributes(category_params)
-          format.html { redirect_to(admin_categories_path(@categories), notice: 'Category was successfully updated.') }
+        if @category.update_attributes(display_index: new_index)
+          format.html { redirect_to admin_categories_path, notice: "Success" }
           format.json { respond_with_bip(@category) }
         else
           format.html { render action: edit_admin_categories_path(@category) }

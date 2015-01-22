@@ -36,6 +36,7 @@
               <% category.subcategories.order("display_index ASC").each_with_index do |subcategory, index2| %>
                 <li class="category-gradient">
                   <h6>
+                    <%= subcategory.display_index %>
                     <%= best_in_place subcategory,
                       :name,
                       url: admin_category_path(subcategory),
@@ -47,7 +48,7 @@
                     %>
                     <span id="cat-buttons">
                       <% if index2 > 0 %>
-                        <%= link_to "<i class=\"fa fa-arrow-up\"></i>".html_safe, up_index_admin_category_path(subcategory), method: :post %>
+                        <%= link_to "<i class=\"fa fa-arrow-up\"></i>".html_safe, admin_category_path(subcategory, category: { display_index: subcategory.display_index.to_i - 1 }), method: :patch %>
                       <% end %>
                       <% if index2 < category.subcategories.length - 1 %>
                         <a href="#"><i class="fa fa-arrow-down"></i></a>

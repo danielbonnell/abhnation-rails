@@ -12,10 +12,6 @@ Rails.application.routes.draw do
 
     resources :users, only: [:index, :edit, :update, :destroy]
     resources :articles, only: [:index, :edit, :update, :destroy]
-    resources :categories, only: [:index, :edit, :update, :destroy] do
-      member do
-        post :up_index
-      end
-    end
+    resources :categories, only: [:index, :edit, :update, :destroy]
   end
 end
