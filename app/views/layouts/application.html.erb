@@ -67,18 +67,18 @@
         </div>
       </div>
 
-      <br />
-      <div class="row">
-        <div class="large-22 large-offset-2 columns" id="admin-access">
-          <ul class="side-bar">
-            <%- if current_user && current_user.admin? -%>
-            <li>
-              <h6><%= link_to 'Control Center', admin_root_path %></h6>
-            </li>
-            <%- end -%>
-          </ul>
+      <%- if current_user && current_user.admin? -%>
+        <br />
+        <div class="row">
+          <div class="large-22 large-offset-2 columns" id="admin-access">
+            <ul class="side-bar">
+              <li>
+                <h6><%= link_to 'Control Center', admin_root_path %></h6>
+              </li>
+            </ul>
+          </div>
         </div>
-      </div>
+      <%- end -%>
     </aside>
 
     <!-- Main Content -->
