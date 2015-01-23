@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  paginates_per 10
+  max_paginates_per 50
   has_many :articles
   # has_many :galleries
   has_many :categories

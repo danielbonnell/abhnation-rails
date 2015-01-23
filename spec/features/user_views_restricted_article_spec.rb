@@ -19,7 +19,7 @@ feature 'user views article', %Q{
   scenario 'after authenticating' do
     log_in_as(article.user)
     visit category_article_path(category,article)
-save_and_open_page
+
     within(:css, "body > div:nth-child(2) > ul") do
       expect(page).to have_content(article.category.name)
       expect(page).to have_content(article.slug)

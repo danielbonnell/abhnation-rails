@@ -1,0 +1,74 @@
+<% breadcrumb :user, @user %>
+<% breadcrumb :edit_user, @user %>
+
+<div class="row">
+  <div class="large-24 medium-24 small-24 columns">
+    <%= form_for [:admin, @user] do |f| %>
+      <div class="row" id="account">
+        <h5>Update Profile</h5>
+        <br />
+        <div class="large-12 medium-12 small-24 columns">
+          <ul>
+            <li>
+              <div class="field">
+                <%= f.label :avatar, "Current Avatar" %><br />
+                <%= avatar(@user, 150) %>
+                <br />
+                <br />
+                <%= f.label :avatar, "Upload from computer" %>
+                <%= f.file_field :avatar, :data => { :max_file_size => 1.megabytes}, class: "upload" %>
+                <br />
+                <br />
+                <%= f.label :remote_avatar_url, "Upload from internet (url)" %>
+                <%= f.text_field :remote_avatar_url, :data => { :max_file_size => 1.megabytes} %>
+                <%= f.check_box :remove_avatar %>
+                <%= f.label :remove_avatar, "<span></span>".html_safe %> <span class="cinzel">Delete Avatar?</span>
+              </div>
+
+              <div class="field">
+                <%= f.label :website %><br />
+                <%= f.text_field :website, :value => @user.website %>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="large-12 medium-12 small-24 columns">
+          <ul>
+            <li>
+              <div class="field">
+                <%= f.label :username %><br />
+                <%= f.text_field :username %>
+              </div>
+
+              <div class="field">
+                <%= f.label :email %><br />
+                <%= f.email_field :email %>
+              </div>
+
+              <div class="field">
+                <%= f.label :first_name %><br />
+                <%= f.text_field :first_name, :value => @user.first_name %>
+              </div>
+
+              <div class="field">
+                <%= f.label :last_name %><br />
+                <%= f.text_field :last_name, :value => @user.last_name %>
+              </div>
+
+              <div class="field">
+                <%= f.label :age %><br />
+                <%= f.text_field :age, :value => @user.age %>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="large-24 medium-24 small-24 columns">
+          <div>
+            <%= f.submit "Update", class: "button-override" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
