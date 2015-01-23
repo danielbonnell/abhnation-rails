@@ -1,3 +1,4 @@
+<% breadcrumb :articles, @articles %>
 <article>
   <div class="row admin-stats">
     <div class="large-24 medium-24 small-24 columns articles-admin">
@@ -6,6 +7,9 @@
           <%= paginate @articles, window: 2 %>
         </span>
       </h5>
+      <span>
+        <%= link_to "New Article", new_admin_article_path, class: "button-override" %>
+      </span>
       <ul>
         <% @articles.each_with_index do |article, index| %>
           <li class="category-gradient">
