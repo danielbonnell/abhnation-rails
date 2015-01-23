@@ -1,9 +1,12 @@
 crumb :root do
   link "The Abh Nation", root_path
+  if request.path.split('/').include?('admin') && current_user.admin?
+    link "CIC", admin_root_path
+  end
 end
 
 crumb :categories do
-  link Category.find(params[:id]).name, categories_path
+  link "Categories", categories_path
 end
 
 crumb :category do |category|

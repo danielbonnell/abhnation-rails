@@ -1,0 +1,50 @@
+<% breadcrumb :user, @user %>
+<div class="row">
+  <div class="large-24 columns">
+    <div class="row" id="account">
+      <div class="large-7 columns">
+        <ul class="medium-block-grid-1">
+          <li>
+            <h5><%= @user.username %></h5>
+          </li>
+          <li>
+            <%= avatar(User.find(params[:id]) || current_user) %>
+          </li>
+          <li>
+            <%= @user.first_name %> <%= @user.last_name %>
+          </li>
+          <li>
+            Joined: <%= @user.created_at.strftime("%b %d, %Y") %>
+          </li>
+          <li>
+            Website: <%= link_to @user.website, @user.website %>
+          </li>
+        </ul>
+      </div>
+      <div class="large-17 columns">
+        <div id="personal-image">
+          <%= image_tag "http://placehold.it/450x350&text=[Personal Image(450x350)]" %>
+        </div>
+      </div>
+    </div>
+
+    <br />
+    <div class="row" id="account">
+      <div class="large-24 columns">
+        <h5>Recent Articles</h5>
+        <ul class="large-block-grid-1">
+          <% @user.articles.order("title ASC").limit(5).each do |article| %>
+            <li>
+              <h6><%= link_to article.title, [article.category,article] %></h5>
+              <ul>
+                <li>
+                  <p><%= article.text.split[0..25].join(' ') %></p>
+                </li>
+              </ul>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

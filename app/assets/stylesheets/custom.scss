@@ -1,6 +1,11 @@
 #account {
-  background-color: rgba(0,140,186,0.08);
-  border: 2px solid rgba(0,140,186,0.2);
+  background-color: rgba(70, 79, 113, 0.4);
+  border: 1px solid $grey;
+  border-radius: 5px;
+}
+
+#account img {
+  border: 1px solid $grey;
   border-radius: 5px;
 }
 
@@ -9,8 +14,8 @@
 }
 
 #account > div > ul > li > div input.upload {
-  border: 2px solid rgba(0,140,186,0.2);
-  background-color: rgba(0,140,186,0.08);
+  border: 1px solid $grey;
+  background-color: transparent;
   height: 35px;
 }
 
@@ -23,8 +28,8 @@ input[type=checkbox] {
 }
 
 [type=checkbox] + label {
-  border: 2px solid rgba(0,140,186,0.2);
-  background-color: rgba(0,140,186,0.08);
+  border: 1px solid $grey;
+  background-color: rgba(70, 79, 113, 0.4);
   height: 17px;
   width: 17px;
   display: inline-block;
@@ -32,29 +37,80 @@ input[type=checkbox] {
 
 [type=checkbox]:checked + label {
   display: inline-block;
-  background-color: rgba(188, 0, 0, 0.2);
-  border: 2px solid rgba(188, 0, 0, 0.6);
+  background-color: rgba(188, 0, 0, 0.3);
+  border: 1px solid $grey;
 }
 
 #flash-success {
   background-color: rgba(0, 188, 2, 0.08);
-  border: 2px solid rgba(0, 188, 2, 0.2);
+  border: 2px solid rgba(0, 188, 2, 0.4);
   border-radius: 5px;
 }
 
+#admin-access {
+  background-color: rgba(70, 79, 113, 0.4);
+  border: 2px solid $burgandy;
+  border-radius: 5px;
+  text-align: center;
+}
+
 #admin {
-  background-color: rgba(188, 0, 0, 0.1);
-  border: 2px solid rgba(188, 0, 0, 0.4);
+  background-color: rgba(70, 79, 113, 0.4);
+  border: 2px solid $burgandy;
   border-radius: 5px;
 }
 
 #admin > ul > li > h6 > a,
-#admin > ul > li > h6 > a:hover {
+#admin > ul > li > h6 > a:active,
+#admin > ul > li > h6 > a:visited,
+#admin-access > ul > li > h6 > a,
+#admin-access > ul > li > h6 > a:visited,
+#admin-access > ul > li > h6 > a:active,
+#admin-access > div > h3 > a,
+#admin-access > div > h3 > a:visited,
+#admin-access > div > h3 > a:active {
   color: $grey;
+}
+
+#admin > ul > li > h6 > a:hover,
+#admin-access > ul > li > h6 > a:hover,
+#admin-access > div > h3 > a:hover {
+  color: $silver;
+}
+
+div .admin-stats {
+  background-color: rgba(70, 79, 113, 0.4);
+  border: 2px solid $burgandy;
+  border-radius: 5px;
+  color: $grey;
+}
+
+.admin-stats > div > ul > li > h6 > a,
+.admin-stats > div > ul > li > h6 > a:active,
+.admin-stats > div > ul > li > h6 > a:visited {
+  color: $grey;
+}
+
+.admin-stats > div > ul > li > h6 > a:hover {
+  color: $silver;
 }
 
 aside {
   color: $grey;
+}
+
+aside a,
+aside a:active,
+aside a:visited,
+#account a,
+#account a:active,
+#account a:visited {
+  color: $grey
+}
+
+aside a:hover,
+#account a:hover {
+  color: $silver
 }
 
 .avatar {
@@ -62,19 +118,107 @@ aside {
   height: 9.375em;
   width: 9.375em;
   border-radius: 0;
+  list-style: none;
 }
 
 body > div:nth-child(2) > ul > li:not(:last-child) > a:hover {
   color: $silver;
 }
 
+.category-gradient {
+  background-image: -ms-linear-gradient(top, #3f4c73 0%, #353D61 100%);
+  background-image: -moz-linear-gradient(top, #3f4c73 0%, #353D61 100%);
+  background-image: -o-linear-gradient(top, #3f4c73 0%, #353D61 100%);
+  background-image: -webkit-gradient(linear, left top, left bottom,
+    color-stop(0, #3f4c73),
+    color-stop(1, #353D61));
+  background-image: -webkit-linear-gradient(top, #3f4c73 0%, #353D61 100%);
+  background-image: linear-gradient(to bottom, #3f4c73 0%, #353D61 100%);
+}
+
+.categories-admin > ul > li {
+  border: 2px solid $burgandy;
+  border-radius: 5px;
+  margin: 0.5em;
+  padding: 0 0.2em 0 0.2em;
+  ul > li {
+    border: 2px solid $burgandy;
+    border-radius: 5px;
+    margin: 0.5em 0 0.5em 0;
+    padding: 0 0.2em 0 0.2em;
+  }
+}
+
+.articles-admin > ul > li {
+  border: 2px solid $burgandy;
+  border-radius: 5px;
+  margin: 0.5em;
+  padding: 0 0.2em 0 0.2em;
+}
+
+.articles-admin > h5 > span,
+.categories-admin > h5 > span {
+  float: right;
+  display: inline-block;
+  font-size: 1em;
+  color: $grey;
+}
+
+.articles-admin > ul > li > h5 > span {
+  float: right;
+  display: inline-block;
+  font-size: 1.2em;
+  color: $grey;
+}
+
+#cat-buttons {
+  float: right;
+  display: inline-block;
+  font-size: 1em;
+  color: $grey;
+}
+
+.bip-text-field {
+  max-width: 30em;
+}
+
+.categories-admin > div > ul > li > h6 {
+  display: inline-block;
+  float: left;
+  font-size: 1em;
+  color: $grey;
+}
+
+.article-admin > ul > li > h5 {
+  display: inline-block;
+}
+
+.article-admin > ul > li {
+  font-size: 1em;
+  color: $grey;
+}
+
+.articles-admin * a,
+.articles-admin * a:visited,
+.articles-admin * a:active,
+.categories-admin * a,
+.categories-admin * a:visited,
+.categories-admin * a:active {
+  color: $grey;
+}
+
+.articles-admin * a:hover,
+.categories-admin * a:hover {
+  color: $silver;
+}
+
 .button-override {
   font-size: 0.9em;
   font-family: $font-family-title;
-  color: $primary-color;
+  color: $grey;
   margin-bottom: 1em;
-  border: 2px solid rgba(0,140,186,0.2);
-  background-color: rgba(0,140,186,0.08);
+  background-color: rgba(70, 79, 113, 0.4);
+  border: 1px solid $grey;
 }
 
 .cinzel {
@@ -105,6 +249,19 @@ h1, h2, h3, h4,h5, h6 {
   background-size: contain, 70em, auto;
 }
 
+.header-logo-admin {
+  height: 15em;
+  overflow: hidden;
+  vertical-align: bottom;
+  background: $royal-blue;
+  background-image: url("Lafiel-Gothlauth.png"),
+                    url("planet.png"),
+                    url("header.jpg");
+  background-repeat: no-repeat;
+  background-position: right bottom, -30em -6em, center;
+  background-size: contain, 70em, auto;
+}
+
 .header-logo-text {
   text-indent:-1em;
   position: relative;
@@ -121,6 +278,28 @@ h1, h2, h3, h4,h5, h6 {
                 0em -0.013em 0em #686868,
                 0.013em 0.050em 0.063em #aeaeae;
 
+}
+
+.header-logo-text-admin {
+  text-indent:5em;
+  position: relative;
+  top: -0.5em;
+  font-family: $font-family-title;
+  color: #410502;
+  font-size: 2em;
+  font-weight: bold;
+  line-height: 105%;
+  margin: -1em 0 0 1.5em;
+  text-shadow: 0.013em 0em 0em #686868,
+                0em 0.013em 0em #686868,
+                -0.013em 0em 0em #686868,
+                0em -0.013em 0em #686868,
+                0.013em 0.050em 0.063em #aeaeae;
+
+}
+
+body > div:nth-child(3) > div > div > div * {
+  background-color: transparent;
 }
 
 #personal-image {

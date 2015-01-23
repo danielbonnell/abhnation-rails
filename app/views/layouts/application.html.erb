@@ -24,7 +24,7 @@
 
       <!-- Right Side Nav Links -->
       <section class="top-bar-section">
-        <%= render partial: '/layouts/navbar', locals: {categories: Category.cat_parents } %>
+        <%= render partial: '/layouts/navbar', locals: {categories: Category.cat_parents.order("display_index ASC") } %>
       </section>
     </nav>
 
@@ -69,11 +69,11 @@
 
       <br />
       <div class="row">
-        <div class="large-22 large-offset-2 columns" id="admin">
+        <div class="large-22 large-offset-2 columns" id="admin-access">
           <ul class="side-bar">
-            <%- if current_user -%>
+            <%- if current_user && current_user.admin? -%>
             <li>
-              <h6><%= link_to 'Admin Panel', '/' %></h6>
+              <h6><%= link_to 'Control Center', admin_root_path %></h6>
             </li>
             <%- end -%>
           </ul>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= csrf_meta_tags %>
+  <title>The Abh Nation > Bridge</title></title></title>
+</head>
+<body>
+
+  <!-- Header Image and Left Side Nav Links -->
+
+  <div class="row collapse">
+    <nav class="top-bar large-24 medium-24 small-24 columns" data-topbar role="navigation" data-options="is_hover:true">
+      <ul class="title-area">
+        <li class="name">
+          <h1>
+            <a href="/admin">The Abh Nation > Bridge</a></a>
+          </h1>
+        </li>
+        <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
+      </ul>
+
+      <!-- Right Side Nav Links -->
+      <section class="top-bar-section">
+        <%= render partial: '/admin/layouts/navbar', locals: {categories: Category.cat_parents } %>
+      </section>
+    </nav>
+
+    <!-- Header Foreground Image -->
+    <div class="large-24 medium-24 small-24 columns header-logo-admin">
+      <div class="header-logo-text">The Abh <br />Nation</div>
+      <div class="header-logo-text-admin">Command Center</div>
+    </div>
+  </div>
+
+  <!-- Breadcrumbs -->
+  <div class="row">
+    <%= breadcrumbs style: :foundation5, style: :ul, link_current: true, display_single_fragment: true %>
+  </div>
+
+  <!-- Body -->
+  <div class="row">
+    <!-- Side Bar -->
+    <aside class="large-5 medium-5 small-5 columns">
+      <br />
+      <div class="row">
+        <div class="large-22 large-offset-2 columns" id="admin">
+          <ul class="side-bar">
+            <li>
+              <h5><%= current_user.username %></h5>
+            </li>
+            <li class="avatar"><%= avatar(current_user || User.find(params[:id])) %></li>
+            <li>
+              <br />
+              <h6>User Controls</h6>
+            </li>
+            <li><%= link_to 'Log Out', destroy_user_session_path, method: :delete %></li>
+            <li>
+              <br />
+              <h6>Current Session</h6>
+            </li>
+            <li><%= current_user.current_sign_in_at.strftime("%b %e, %l:%M %p") %></li>
+            <li>Current IP: <%= current_user.current_sign_in_ip.to_s %></li>
+            <li>
+              <br />
+              <h6>Last Session</h6>
+            </li>
+            <li><%= current_user.last_sign_in_at.strftime("%b %e, %l:%M %p") %></li>
+            <li>IP: <%= current_user.last_sign_in_ip.to_s %></li>
+          </ul>
+        </div>
+      </div>
+      <br />
+      <div class="row">
+        <div class="large-22 large-offset-2 columns" id="admin-access">
+          <ul class="side-bar">
+            <li>
+              <h6><%= link_to 'Exit', root_path %></h6>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="large-17 large-offset-1 medium-17 medium-offset-1 small-17 small-offset-1 columns" role="content">
+      <br />
+      <% if !flash.empty? %>
+        <div class="row">
+          <div class="large-24 medium-24 small-24 columns" id="flash-success">
+            <%- flash.each do |key, value| -%>
+              <%= value %>
+            <%- end -%>
+          </div>
+        </div>
+      <% end %>
+
+      <%= yield %>
+
+      <%= javascript_include_tag 'application' %>
+      <%= javascript_tag do %>
+        $(function(){
+        $(document).foundation();
+        });
+        $(document).ready(function() {
+          /* Activating Best In Place */
+          jQuery(".best_in_place").best_in_place();
+        });
+      <% end %>
+
+    </div>
+    <div class="large-1 medium-1 small-1 columns" role="content">
+      <div class="row">
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="row">
+    <div class="large-24 medium-24 small-24 columns"><hr/>
+      <div class="row">
+        <div class="large-12 medium-12 small-12 columns">
+          <p>© Copyright 2014 Daniel Bonnell</p>
+        </div>
+        <div class="large-12 medium-12 small-12 columns">
+          <ul class="inline-list right">
+            <li><a href="#">Link 1</a></li>
+            <li><a href="#">Link 2</a></li>
+            <li><a href="#">Link 3</a></li>
+            <li><a href="#">Link 4</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

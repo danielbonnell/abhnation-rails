@@ -6,7 +6,7 @@
       <% if @category.parent.nil? %>
         <h6>Knowledge Base Listings</h6>
         <ul class="small-block-grid-4">
-          <% @subcategories.order("name ASC").each do |subcategory| %>
+          <% @category.subcategories.order("name ASC").each do |subcategory| %>
             <li>
               <h6><%= link_to subcategory.name, subcategory %></h5>
                 <ul>

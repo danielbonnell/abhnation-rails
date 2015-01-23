@@ -1,0 +1,87 @@
+<% breadcrumb :article, @article %>
+<div class="row admin-stats">
+  <div class="large-24 medium-24 small-24 columns article-admin">
+    <ul>
+      <li>
+        <h5>Title: </h5>
+        <%= best_in_place @article,
+          :title,
+          url: admin_article_path(@article),
+          as: :input,
+          inner_class: "bip-text-field",
+          place_holder: "Click me to add content!",
+          data: { title: @article.title },
+          confirm: true
+        %>
+      </li>
+      <li>
+        <h5>Slug: </h5>
+        <%= best_in_place @article,
+          :slug,
+          url: admin_article_path(@article),
+          as: :input,
+          inner_class: "bip-text-field",
+          place_holder: "Click me to add content!",
+          data: { slug: @article.slug },
+          confirm: true
+        %>
+      </li>
+      <li>
+        <h5>Category: </h5>
+        <%= best_in_place @article,
+          :category_id,
+          url: admin_article_path(@article),
+          as: :select,
+          inner_class: "bip-text-field",
+          place_holder: Category.find(1).name,
+          data: { category: @article.category_id },
+          ok_button: "Save",
+          ok_button_class: "button-override",
+          cancel_button: "Cancel",
+          cancel_button_class: "button-override",
+          confirm: true,
+          collection: Category.cat_names_dropdown
+        %>
+      </li>
+    </ul>
+    <span>
+      Written by <%= link_to @article.user.username, user_path(@article.user) %> on
+      <%= @article.created_at.strftime("%b %d, %Y") %>.
+    </span>
+    <h5>Text: </h5>
+    <div class="large-24 medium-24 small-24 columns">
+      <%= best_in_place @article,
+        :text,
+        url: admin_article_path(@article),
+        as: :textarea,
+        place_holder: "Click me to add content!",
+        data: { text: @article.text },
+        ok_button: "Save",
+        ok_button_class: "button-override",
+        cancel_button: "Cancel",
+        cancel_button_class: "button-override",
+        sanitize: false,
+        confirm: true,
+        display_with: lambda { |v| v.html_safe }
+      %>
+    </div>
+  </div>
+</div>
+
+<%= javascript_tag do %>
+  $('.best_in_place').bind("ajax:success", function () {
+    $(this).closest('h3').effect('highlight');
+  });
+
+  $('.best_in_place').bind("ajax:success", function(){
+    alert('Title updated for '+$(this).data('title'));
+  });
+
+  $('.best_in_place').bind("ajax:success", function(){
+    alert('Title updated for '+$(this).data('slug'));
+  });
+
+  $('.best_in_place').bind("ajax:success", function(){
+    alert('Title updated for '+$(this).data('text'));
+  });
+<% end %>

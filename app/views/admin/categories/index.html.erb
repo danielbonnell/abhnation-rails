@@ -1,0 +1,82 @@
+<% breadcrumb :categories, @categories %>
+<article>
+  <div class="row admin-stats">
+    <div class="large-24 medium-24 small-24 columns categories-admin">
+      <h5>Categories
+        <span>
+          <%= paginate @categories, window: 2 %>
+        </span>
+      </h5>
+      <ul>
+        <% @categories.cat_parents.order("display_index ASC").each_with_index do |category, index| %>
+          <li class="category-gradient">
+            <h6>
+              ID: <%= category.id %>
+              Index: <%= category.display_index %>
+              <%= best_in_place category,
+                :name,
+                url: admin_category_path(category),
+                as: :input,
+                inner_class: "bip-text-field",
+                place_holder: "Click me to add content!",
+                data: { name: category.name },
+                confirm: true
+              %>
+              <span id="cat-buttons">
+                <% if index != 0 %>
+                  <%= link_to "<i class=\"fa fa-arrow-up\"></i>".html_safe, admin_category_path(category, category: { reorder_categories: -1 }), method: :patch %>
+                <% end %>
+                <% if index != category.articles.length - 1 %>
+                  <%= link_to "<i class=\"fa fa-arrow-down\"></i>".html_safe, admin_category_path(category, category: { reorder_categories: 1 }), method: :patch %>
+                <% end %>
+                <% if category.subcategories.empty? && category.articles.empty? %>
+                  <%= link_to "<i class=\"fa fa-remove\"></i>".html_safe, admin_category_path(category), method: :delete %>
+                <% end %>
+              </span>
+            </h6>
+            <ul>
+              <% category.subcategories.order("display_index ASC").each_with_index do |subcategory, index2| %>
+                <li class="category-gradient">
+                  <h6>
+                    ID: <%= subcategory.id %>
+                    Index: <%= subcategory.display_index %>
+                    <%= best_in_place subcategory,
+                      :name,
+                      url: admin_category_path(subcategory),
+                      as: :input,
+                      inner_class: "bip-text-field",
+                      place_holder: "Click me to add content!",
+                      data: { name: subcategory.name },
+                      confirm: true
+                    %>
+                    <span id="cat-buttons">
+                      <% if index2 > 0 %>
+                        <%= link_to "<i class=\"fa fa-arrow-up\"></i>".html_safe, admin_category_path(subcategory, category: { reorder_categories: -1 }), method: :patch %>
+                      <% end %>
+                      <% if index2 < category.subcategories.length - 1 %>
+                        <%= link_to "<i class=\"fa fa-arrow-down\"></i>".html_safe, admin_category_path(subcategory, category: { reorder_categories: 1 }), method: :patch %>
+                      <% end %>
+                      <% if subcategory.articles.empty? %>
+                        <%= link_to "<i class=\"fa fa-remove\"></i>".html_safe, admin_category_path(subcategory), method: :delete %>
+                      <% end %>
+                    </span>
+                  </h6>
+                </li>
+              <% end %>
+            </ul>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</article>
+
+<%= javascript_tag do %>
+  $('.best_in_place').bind("ajax:success", function () {
+    $(this).closest('h3').effect('highlight');
+  });
+
+  $('.best_in_place').bind("ajax:success", function(){
+    alert('Name updated for '+$(this).data('name'));
+  });
+<% end %>

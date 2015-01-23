@@ -1,10 +1,11 @@
 <% breadcrumb :article, @article %>
 <article>
   <h3><%= link_to @article.title, [@article.category, @article] %></h3>
-  <h6>Written by <%= link_to @article.user.username, user_path(@article.user) %> on <%= @article.created_at.strftime("%b %d, %Y") %>.</h6>
+  Written by <%= link_to @article.user.username, user_path(@article.user) %> on <%= @article.created_at.strftime("%b %d, %Y") %>.
   <div class="row">
     <div class="large-24 medium-24 small-24 columns">
-      <%= @article.text %>
+      <br />
+      <%= @article.text.html_safe %>
     </div>
   </div>
 </article>
