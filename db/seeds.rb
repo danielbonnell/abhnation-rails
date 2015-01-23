@@ -23,11 +23,20 @@ def new_category(name, parent_cat = nil)
   )
 
   if Category.last.parent
-    puts "Created category '#{Category.last.name}' under category '#{Category.last.parent}'."
-    Category.last.update(display_index: Category.children.last.id || 1)
+    parent_cat = Category.last.parent
+    subcats = parent_cat.subcategories.order("display_index ASC")
+
+    if subcats.size == 1
+      display_index = 1
+    else
+      display_index = subcats.last.display_index + 1
+    end
+
+    Category.last.update(display_index: display_index)
+    puts "Created category '#{Category.last.name}' under category '#{Category.last.parent.name}'."
   else
-    puts "Created category '#{Category.last.name}'."
     Category.last.update(display_index: Category.cat_parents.size || 1)
+    puts "Created category '#{Category.last.name}'."
   end
 end
 
