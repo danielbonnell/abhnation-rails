@@ -15,19 +15,19 @@
               <li class="title back js-generated">
                 <h5><a href="javascript:void(0)">Back</a></h5>
               </li>
-              <%- subcategory.articles.each do |article| -%>
+              <%- subcategory.articles.each do |sub_article| -%>
                 <li>
-                  <%= link_to article.slug, [subcategory,article] %>
+                  <%= link_to sub_article.slug, category_article_path(category, sub_article) %>
                 </li>
               <%- end -%>
             </ul>
           </li>
+        <%- end -%>
           <%- category.articles.each do |article| -%>
             <li>
-              <%= link_to article.slug, [category,article] %>
+              <%= link_to article.slug, category_article_path(category, article) %>
             </li>
           <%- end -%>
-        <%- end -%>
       </ul>
     </li>
   <%- end -%>

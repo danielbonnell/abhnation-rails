@@ -1,3 +1,4 @@
+<% breadcrumb :articles, @articles %>
 <article>
   <div class="row admin-stats">
     <div class="large-24 medium-24 small-24 columns articles-admin">
@@ -6,20 +7,17 @@
           <%= paginate @articles, window: 2 %>
         </span>
       </h5>
+      <span>
+        <%= link_to "New Article", new_admin_article_path, class: "button-override" %>
+      </span>
       <ul>
         <% @articles.each_with_index do |article, index| %>
           <li class="category-gradient">
             <h5>
-              <%= link_to article.title, edit_admin_article_path(article) %>
+              <%= "#{article.title}\t - <i>#{article.category.name}</i>".html_safe %>
               <span>
-                <a href="#"><i class="fa fa-edit"></i></a>
-                <a href="#"><i class="fa fa-remove"></i></a>
-                <% if index != 0 %>
-                  <a href="#"><i class="fa fa-arrow-up"></i></a>
-                <% end %>
-                <% if index != @articles.length - 1 %>
-                  <a href="#"><i class="fa fa-arrow-down"></i></a>
-                <% end %>
+                <%= link_to "<i class=\"fa fa-edit\"></i>".html_safe, edit_admin_article_path(article) %>
+                <%= link_to "<i class=\"fa fa-remove\"></i>".html_safe, admin_article_path(article), method: :delete %>
               </span>
             </h5>
           </li>

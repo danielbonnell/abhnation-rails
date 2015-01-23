@@ -1,0 +1,41 @@
+<% breadcrumb :article, @article %>
+<div class="row">
+  <div class="large-24 medium-24 small-24 columns">
+    <%= form_for [:admin, @article] do |f| %>
+      <div class="row" id="account">
+        <h5>New Article</h5>
+
+        <br />
+        <div class="large-24 medium-24 small-24 columns">
+          <ul>
+            <li>
+              <div class="field">
+                <%= f.label :category %><br />
+                <%= f.collection_select :category_id, Category.cat_parents, :id, :name %>
+              </div>
+              <br />
+              <div class="field">
+                <%= f.label :title %>(3 to 100 characters)<br />
+                <%= f.text_field :title %>
+              </div>
+              <br />
+              <div class="field">
+                <%= f.label :slug %>(3 to 16 characters)<br />
+                <%= f.text_field :slug %>
+              </div>
+              <br />
+              <div class="field">
+                <%= f.label :text %>(HTML will not render inline until saved)<br />
+                <%= f.text_area :text %>
+              </div>
+              <br />
+              <div class="actions">
+                <%= f.submit "Create", class: "button-override" %>
+              </div>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

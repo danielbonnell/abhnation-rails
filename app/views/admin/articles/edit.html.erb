@@ -45,8 +45,9 @@
       </li>
     </ul>
     <span>
-      Written by <%= link_to @article.user.username, user_path(@article.user) %> on
-      <%= @article.created_at.strftime("%b %d, %Y") %>.
+      Created by: <%= link_to @article.user.username, admin_user_path(@article.user) %>
+      <br />
+      Created on: <%= @article.created_at.strftime("%b %d, %Y") %>
     </span>
     <h5>Text: </h5>
     <div class="large-24 medium-24 small-24 columns">

@@ -1,5 +1,34 @@
 module Admin
   class CategoriesController < ApplicationController
+    def new
+      @category = Category.new
+    end
+
+    def create
+      if category_params[:parent_id] != ""
+        display_index = Category.where(parent_id: category_params[:parent_id].to_i).last.display_index + 1
+      else
+        display_index = Category.cat_parents.order("display_index ASC").last.display_index + 1
+      end
+
+      @category = Category.new(
+        user_id: current_user.id,
+        display_index: display_index
+      )
+
+      @category.attributes = category_params
+
+      respond_to do |format|
+        if @category.save
+          format.html { redirect_to admin_categories_path, notice: "Success" }
+          format.json { respond_with_bip(@category) }
+        else
+          format.html { redirect_to admin_categories_path, notice: "Failed" }
+          format.json { respond_with_bip(@category) }
+        end
+      end
+    end
+
     def show
       @category = Category.find(params[:id])
     end
@@ -39,7 +68,7 @@ module Admin
     def destroy
       @category = Category.find(params[:id])
 
-      unless @category.dependents?
+      unless @category.is_parent? || (@category.is_parent? && @category.dependents?)
         respond_to do |format|
           if @category.destroy
             format.html { redirect_to(admin_categories_path(@categories), notice: 'Category was successfully deleted.') }

@@ -1,5 +1,24 @@
 module Admin
   class ArticlesController < ApplicationController
+    def new
+      @article = Article.new
+    end
+
+    def create
+      @article = Article.new(user: current_user)
+      @article.attributes = article_params
+
+      respond_to do |format|
+        if @article.save
+          format.html { redirect_to admin_articles_path, notice: "Success" }
+          format.json { respond_with_bip(@category) }
+        else
+          format.html { redirect_to admin_articles_path, notice: "Failed" }
+          format.json { respond_with_bip(@category) }
+        end
+      end
+    end
+
     def index
       @articles = Article.all.order("title ASC").page params[:page]
     end
@@ -10,12 +29,6 @@ module Admin
 
     def update
       @article = Article.find(params[:id])
-
-      # if @article.update(article_params)
-      #   redirect_to admin_article_path(@article), notice: "Article Updated Successfully"
-      # else
-      #   render edit_admin_article_path(@article)
-      # end
 
       respond_to do |format|
         if @article.update_attributes(article_params)

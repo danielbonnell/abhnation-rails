@@ -1,0 +1,31 @@
+<% breadcrumb :category, @category %>
+<div class="row">
+  <div class="large-24 medium-24 small-24 columns">
+    <%= form_for [:admin, @category] do |f| %>
+      <div class="row" id="account">
+        <h5>New Category</h5>
+
+        <br />
+        <div class="large-24 medium-24 small-24 columns">
+          <ul>
+            <li>
+              <div class="field">
+                <%= f.label :parent %><br />
+                <%= f.collection_select :parent_id, Category.cat_parents, :id, :name, include_blank: true %>
+              </div>
+              <br />
+              <div class="field">
+                <%= f.label :name %><br />
+                <%= f.text_field :name %>
+              </div>
+              <br />
+              <div class="actions">
+                <%= f.submit "Create", class: "button-override" %>
+              </div>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

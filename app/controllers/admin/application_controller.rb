@@ -1,6 +1,6 @@
 module Admin
   class ApplicationController < ActionController::Base
-    before_action :reject_unless_admin, :authenticate_user!
+    before_action :authenticate_user!, :reject_unless_admin
     before_action :configure_permitted_parameters, if: :devise_controller?
     layout 'admin/layouts/application'
 

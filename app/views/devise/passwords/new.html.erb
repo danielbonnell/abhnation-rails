@@ -1,16 +1,36 @@
-<h2>Forgot your password?</h2>
+<% breadcrumb :log_in, @user %>
+<div class="row">
+  <div class="large-24 medium-24 small-24 columns">
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+      <% if devise_error_messages! != "" %>
+        <div class="row" id="admin">
+          <div class="large-24 columns">
+            <%= devise_error_messages! %>
+          </div>
+        </div>
+      <br />
+      <% end %>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= devise_error_messages! %>
+      <div class="row" id="account">
+        <h5>Forgot your password?</h5>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+        <br />
+        <div class="large-24 medium-24 small-24 columns">
+          <ul>
+            <li>
+              <div class="field">
+                <%= f.label :email %><br />
+                <%= f.email_field :email, autofocus: true %>
+              </div>
+              <br />
+              <div class="actions">
+                <%= f.submit "Send Reset", class: "button-override" %>
+              </div>
+            <% end %>
+            <%= render "devise/shared/links" %>
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
-
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>

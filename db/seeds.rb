@@ -2,15 +2,15 @@ def purge_database
   User.delete_all
   Article.delete_all
   Category.delete_all
-  puts "Purged old records!"
 end
 
-def new_admin(username, email, password = "password")
+def new_admin(username, email, password = "password", admin = false)
   User.create!(
     email: email,
     username: username,
     password: password,
-    password_confirmation: password
+    password_confirmation: password,
+    admin: admin
   )
   puts "Created user '#{User.last.username}' with email '#{User.last.email}'."
 end
@@ -21,17 +21,32 @@ def new_category(name, parent_cat = nil)
     user_id: User.first.id,
     parent_id: parent_cat
   )
+
   if Category.last.parent
-    puts "Created category '#{Category.last.name}' under category '#{Category.last.parent}'."
+    parent_cat = Category.last.parent
+    subcats = parent_cat.subcategories.order("display_index ASC")
+
+    if subcats.size == 1
+      display_index = 1
+    else
+      display_index = subcats.last.display_index + 1
+    end
+
+    Category.last.update(display_index: display_index)
+    puts "Created category '#{Category.last.name}' under category '#{Category.last.parent.name}'."
   else
+    Category.last.update(display_index: Category.cat_parents.size || 1)
     puts "Created category '#{Category.last.name}'."
   end
 end
 
 
-def new_article(title, slug, category_id, user_id = User.first.id)
-  text = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore"
+def new_article(title, slug, category_id, filename = nil, user_id = User.first.id)
+  if filename
+    text = File.open("#{Rails.public_path}/html_content/#{filename}.html", "r").readlines.join('').gsub("\n",'')
+  else
+    text = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore"
+  end
   Article.create!(
     title: title,
     slug: slug,
@@ -39,12 +54,13 @@ def new_article(title, slug, category_id, user_id = User.first.id)
     text: text,
     user_id: user_id
   )
+
   puts "Created article '#{Article.last.title}' under category '#{Article.last.category}'."
 end
 
-purge_database
+puts "Purged old records!" if purge_database
 
-new_admin("ACIDSTEALTH", "acidstealth@gmail.com")
+new_admin("ACIDSTEALTH", "acidstealth@gmail.com", "password", true)
 
 new_category("Articles")
   new_category("The Abh", Category.where(name: "Articles").first.id)
@@ -52,7 +68,7 @@ new_category("Articles")
     new_article("Culture", "Culture", Category.where(name: "The Abh").first.id)
     new_article("Names", "Names", Category.where(name: "The Abh").first.id)
     new_article("Clans", "Clans", Category.where(name: "The Abh").first.id)
-    new_article("Abh Profiles", "Abh Profiles", Category.where(name: "The Abh").first.id)
+    new_article("Abh Profiles", "Abh Profiles", Category.where(name: "The Abh").first.id, "Abh_Profiles")
     new_article("Human Profiles", "Human Profiles", Category.where(name: "The Abh").first.id)
 
   new_category("The Empire", Category.where(name: "Articles").first.id)
@@ -101,6 +117,7 @@ new_category("Forum")
 
 new_category("About")
   new_category("About Us", Category.where(name: "About").first.id)
+    new_article("Blog: Lacmhacarh", "Blog: Lacmhacarh", Category.where(name: "About").first.id)
+    new_article("National Archive", "National Archive", Category.where(name: "About").first.id)
+
   new_category("Government", Category.where(name: "About").first.id)
-  new_article("Blog: Lacmhacarh", "Blog: Lacmhacarh", Category.where(name: "About").first.id)
-  new_article("National Archive", "National Archive", Category.where(name: "About").first.id)
