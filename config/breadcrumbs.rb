@@ -14,9 +14,12 @@ crumb :category do |category|
   if params[:category_id]
     # If params[:category_id] is present, category is a child
     category = Category.find(params[:category_id])
-  else
+  elsif params[:id]
     # If params[:category_id] is not present, category is a parent
     category = Category.find(params[:id])
+  else
+    # If there are no params, then the page must be the new_admin_category_path
+    category = "Create"
   end
 
   # Set parent category is category is a child
@@ -24,7 +27,11 @@ crumb :category do |category|
     link category.parent.name, category_path(category.parent)
   end
 
-  link category.name, category
+  if params[:id] || params[:category_id]
+    link category.name, category
+  else
+    link "Create", category
+  end
 end
 
 crumb :articles do

@@ -1,12 +1,15 @@
 <% breadcrumb :categories, @categories %>
 <article>
-  <div class="row admin-stats">
+  <div class="row" id="admin">
     <div class="large-24 medium-24 small-24 columns categories-admin">
       <h5>Categories
         <span>
           <%= paginate @categories, window: 2 %>
         </span>
       </h5>
+      <span>
+        <%= link_to "New Category", new_admin_category_path, class: "button-override" %>
+      </span>
       <ul>
         <% @categories.cat_parents.order("display_index ASC").each_with_index do |category, index| %>
           <li class="category-gradient">
@@ -37,7 +40,7 @@
               <% category.subcategories.order("display_index ASC").each_with_index do |subcategory, index2| %>
                 <li class="category-gradient">
                   <h6>
-                    <%= subcategory.display_index %>: 
+                    <%= subcategory.display_index %>:
                     <%= best_in_place subcategory,
                       :name,
                       url: admin_category_path(subcategory),

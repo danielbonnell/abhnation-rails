@@ -22,6 +22,10 @@ class Category < ActiveRecord::Base
     presence: true,
     numericality: { only_integer: true }
 
+  def is_parent?
+    false if self.parent
+  end
+
   def reorder(index_param)
     if self.parent.nil?
       if index_param == -1
