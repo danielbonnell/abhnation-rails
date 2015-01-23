@@ -1,27 +1,48 @@
 <% breadcrumb :log_in, @user %>
-<h2>Log in</h2>
+<div class="row">
+  <div class="large-24 medium-24 small-24 columns">
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <% if devise_error_messages! != "" %>
+        <div class="row" id="admin">
+          <div class="large-24 columns">
+            <%= devise_error_messages! %>
+          </div>
+        </div>
+      <br />
+      <% end %>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+      <div class="row" id="account">
+        <h5>Log in</h5>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+        <br />
+        <div class="large-24 medium-24 small-24 columns">
+          <ul>
+            <li>
+              <div class="field">
+                <%= f.label :email %><br />
+                <%= f.email_field :email, autofocus: true %>
+              </div>
+              <br />
+              <div class="field">
+                <%= f.label :password %><br />
+                <%= f.password_field :password, autocomplete: "off" %>
+              </div>
+              <br />
+              <% if devise_mapping.rememberable? -%>
+                <div class="field">
+                  <%= f.check_box :remember_me %>
+                  <%= f.label :remember_me, "<span></span>".html_safe %> <span class="cinzel">Remember me?</span>
+                </div>
+              <% end -%>
+              <br />
+              <div class="actions">
+                <%= f.submit "Log in", class: "button-override" %>
+              </div>
+            <% end %>
+            <%= render "devise/shared/links" %>
+          </li>
+        </ul>
+      </div>
     </div>
-  <% end -%>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
   </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>

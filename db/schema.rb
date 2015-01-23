@@ -30,8 +30,8 @@ ActiveRecord::Schema.define(version: 20150121031249) do
     t.string   "name",                                          null: false
     t.integer  "user_id",                                       null: false
     t.integer  "parent_id"
-    t.datetime "created_at",    default: '2015-01-19 16:21:46', null: false
-    t.datetime "updated_at",    default: '2015-01-19 16:21:46', null: false
+    t.datetime "created_at",    default: '2015-01-23 02:17:49', null: false
+    t.datetime "updated_at",    default: '2015-01-23 02:17:49', null: false
     t.integer  "display_index", default: 1,                     null: false
   end
 

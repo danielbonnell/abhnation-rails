@@ -32,7 +32,7 @@
                 <li>
                   <ul>
                     <li class="cinzel">
-                      <%= article.text.split[0..20].join(' ') %>
+                      <%= article.text.split[0..20].join(' ').html_safe %>
                     </li>
                   </ul>
                 </li>
