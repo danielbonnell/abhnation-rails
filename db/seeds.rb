@@ -24,10 +24,10 @@ def new_category(name, parent_cat = nil)
 
   if Category.last.parent
     puts "Created category '#{Category.last.name}' under category '#{Category.last.parent}'."
-    Category.last.update(display_index: Category.last.parent.id || 1)
+    Category.last.update(display_index: Category.children.last.id || 1)
   else
     puts "Created category '#{Category.last.name}'."
-    Category.last.update(display_index: Category.cat_parents.last.id || 1)
+    Category.last.update(display_index: Category.cat_parents.size || 1)
   end
 end
 
