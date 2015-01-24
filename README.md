@@ -47,4 +47,4 @@ Additional features will include (as time permits):
 * 1. The ability to integrate the site with a forum software package such as Invision Power Board in the future, or;
 * 2. A custom forum system built on rails.
 
-![The Abh Nation](https://github.com/danielbonnell/abhnation/blob/master/Abh_Flag.jpg)
+![The Abh Nation](https://github.com/danielbonnell/abhnation-rails/blob/master/Abh_Flag.jpg)
