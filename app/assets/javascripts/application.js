@@ -14,11 +14,16 @@
 //= require jquery_ujs
 //= require foundation
 //= require_tree
-//= require jquery-ui
-//= require best_in_place
-//= require best_in_place.jquery-ui
 
 $(function(){ $(document).foundation(); });
 
 //= require foundation
 $(document).foundation();
+
+//= require jquery-ui
+//= require best_in_place.jquery-ui
+//= require best_in_place
+
+$(document).ready(function() {
+  $('.best_in_place').best_in_place();
+})
