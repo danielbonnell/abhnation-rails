@@ -117,11 +117,13 @@
       <%= javascript_include_tag 'application' %>
       <%= javascript_tag do %>
         $(function(){
-        $(document).foundation();
+          $(document).foundation();
         });
+
+
         $(document).ready(function() {
           /* Activating Best In Place */
-          jQuery(".best_in_place").best_in_place();
+          $('.best_in_place').best_in_place();
         });
       <% end %>
 
