@@ -43,7 +43,7 @@ class Category < ActiveRecord::Base
       end
     else
       if index_param == -1
-        swap_cat = Category.children.where("display_index < ?", self.display_index).last
+        swap_cat = Category.where(parent_id: self.parent_id).where("display_index < ?", self.display_index).last
         swap_cat_index = swap_cat.display_index
         cat_index = self.display_index
         self.update(display_index: swap_cat_index)
