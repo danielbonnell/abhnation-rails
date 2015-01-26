@@ -335,7 +335,6 @@ body > div:nth-child(3) > div > div > div * {
     }
   }
 
-
   aside {
     .avatar {
       font-size: 9px;
@@ -345,15 +344,7 @@ body > div:nth-child(3) > div > div > div * {
     }
     ul .side-bar li {
       font-size: 10px;
-    }
-    div {
-      .panel {
-        font-size: 10px;
-      }
-      h5 {
-        font-size: 11px;
-      }
-      p {
+      a {
         font-size: 10px;
       }
     }
@@ -365,9 +356,16 @@ body > div:nth-child(3) > div > div > div * {
   .header-logo {
     height: 10em;
   }
+  .header-logo-admin {
+    height: 10em;
+  }
   .header-logo-text {
     top: -0.4em;
     font-size: 3.4em;
+  }
+  .header-logo-text-admin {
+    top: -0.4em;
+    font-size: 1.5em;
   }
   .top-bar-section ul li > a,
   .top-bar-section ul li ul.dropdown li > a,
@@ -377,6 +375,74 @@ body > div:nth-child(3) > div > div > div * {
     color: $jet;
     padding: 0 0 0 0.1em;
     font-size: 1em;
+  }
+}
+
+@media only screen and (max-width: lower-bound($small-range)) {
+  @import "navbar-small";
+
+  body {
+    font-size: 10px;
+  }
+
+  article {
+    h3 {
+      font-size: 10px;
+      a {
+        font-size: 10px;
+      }
+    }
+    h6 {
+      font-size: 8px;
+      a {
+        font-size: 7px;
+      }
+    }
+    p {
+      font-size: 7px;
+    }
+  }
+
+  aside > div > div {
+    .avatar {
+      font-size: 7px;
+    }
+    h5 {
+      font-size: 9px;
+    }
+    ul .side-bar li {
+      font-size: 7px;
+      a {
+        font-size: 7px;
+      }
+    }
+  }
+  .breadcrumbs > * {
+    font-size: 0.3em;
+  }
+
+  .header-logo {
+    height: 7em;
+  }
+  .header-logo-admin {
+    height: 7em;
+  }
+  .header-logo-text {
+    top: -0.2em;
+    font-size: 2.3em;
+  }
+  .header-logo-text-admin {
+    top: -0.4em;
+    font-size: 1em;
+  }
+  .top-bar-section ul li > a,
+  .top-bar-section ul li ul.dropdown li > a,
+  .top-bar-section .dropdown ul li > a,
+  .top-bar-section .dropdown li.parent-link a,
+  .top-bar-section .dropdown li.back h5 a {
+    color: $jet;
+    padding: 0 0 0 0.1em;
+    font-size: 0.8em;
   }
 }
 
