@@ -71,9 +71,3 @@
     </div>
   </div>
 </article>
-
-<%= javascript_tag do %>
-  $('.best_in_place').bind("ajax:success", function(){
-    alert('Name updated for '+$(this).data('name'));
-  });
-<% end %>

@@ -68,17 +68,3 @@
     </div>
   </div>
 </div>
-
-<%= javascript_tag do %>
-  $('.best_in_place').bind("ajax:success", function(){
-    alert('Title updated for '+$(this).data('title'));
-  });
-
-  $('.best_in_place').bind("ajax:success", function(){
-    alert('Title updated for '+$(this).data('slug'));
-  });
-
-  $('.best_in_place').bind("ajax:success", function(){
-    alert('Title updated for '+$(this).data('text'));
-  });
-<% end %>
