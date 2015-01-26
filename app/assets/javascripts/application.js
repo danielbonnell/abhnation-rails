@@ -14,9 +14,9 @@
 //= require jquery_ujs
 //= require foundation
 //= require_tree
+//= require best_in_place
 //= require jquery-ui
 //= require best_in_place.jquery-ui
-//= require best_in_place
 
 $(function(){ $(document).foundation(); });
 

@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/bernat/best_in_place.git
+  revision: 072e60b700bef718907ac6f3c43897fd43fef559
+  specs:
+    best_in_place (3.0.2)
+      actionpack (>= 3.2)
+      railties (>= 3.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -39,9 +47,6 @@ GEM
     addressable (2.3.6)
     arel (6.0.0)
     bcrypt (3.1.9)
-    best_in_place (3.0.2)
-      actionpack (>= 3.2)
-      railties (>= 3.2)
     better_errors (2.1.0)
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
@@ -243,7 +248,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  best_in_place (~> 3.0.1)
+  best_in_place!
   better_errors
   capybara
   carrierwave
