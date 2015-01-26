@@ -70,10 +70,6 @@
 </div>
 
 <%= javascript_tag do %>
-  $('.best_in_place').bind("ajax:success", function () {
-    $(this).closest('h3').effect('highlight');
-  });
-
   $('.best_in_place').bind("ajax:success", function(){
     alert('Title updated for '+$(this).data('title'));
   });
