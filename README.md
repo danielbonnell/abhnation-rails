@@ -5,7 +5,7 @@
 
 
 ## The Abh Nation (refreshed version)
-This project is a refreshed version of [The Abh Nation (new version)](http://abhnation.herokuapp.com/) built on Ruby on Rails with a modern responsive design. It features all the functionality that one would expect from a content management system, including the ability to create new content, organize content categorically, and manage users from a dedicated administrative panel. I will be continuing development into the foreseeable future. I plan to continue adding content to the site, as well as to develop my own forum system.
+This project is a refreshed version of [The Abh Nation (new version)](http://abhnation.herokuapp.com/) built on Ruby on Rails with a modern responsive design. It features all the functionality that one would expect from a content management system, including the ability to create new content, organize content categorically, and manage users from a dedicated administrative panel. I will be continuing development into the foreseeable future. I plan to continue adding content to the site, as well as to develop my own forum system. Most of the content on the site is lorem right now, however everything under "Articles > The Abh" has been transfered from the original site.
 ![The Abh Nation](https://github.com/danielbonnell/abhnation-rails/blob/master/new_site.png)
 
 ## About The Abh Nation (original)
