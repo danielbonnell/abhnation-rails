@@ -125,7 +125,12 @@ aside a:hover,
   list-style: none;
 }
 
-body > div:nth-child(2) > ul > li:not(:last-child) > a:hover {
+body > div > div:nth-child(2) > ul > li:not(:last-child) > a:active,
+body > div > div:nth-child(2) > ul > li:not(:last-child) > a:visited {
+  color: $grey;
+}
+
+body > div > div:nth-child(2) > ul > li:not(:last-child) > a:hover {
   color: $silver;
 }
 
