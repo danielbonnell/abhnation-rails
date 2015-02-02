@@ -28,122 +28,124 @@
 
   <!-- Header Image and Left Side Nav Links -->
 
-  <div class="row collapse">
-    <nav class="top-bar large-24 medium-24 small-24 columns" data-topbar role="navigation" data-options="is_hover:true">
-      <ul class="title-area">
-        <li class="name">
-          <h1>
-            <a href="/">The Abh Nation</a>
-          </h1>
-        </li>
-        <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
-      </ul>
+  <div class="row collapse box-shadow">
+    <div class="row collapse">
+      <nav class="top-bar large-24 medium-24 small-24 columns" data-topbar role="navigation" data-options="is_hover:true">
+        <ul class="title-area">
+          <li class="name">
+            <h1>
+              <a href="/">The Abh Nation</a>
+            </h1>
+          </li>
+          <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
+        </ul>
 
-      <!-- Right Side Nav Links -->
-      <section class="top-bar-section">
-        <%= render partial: '/layouts/navbar', locals: {categories: Category.cat_parents.order("display_index ASC") } %>
-      </section>
-    </nav>
+        <!-- Right Side Nav Links -->
+        <section class="top-bar-section">
+          <%= render partial: '/layouts/navbar', locals: {categories: Category.cat_parents.order("display_index ASC") } %>
+        </section>
+      </nav>
 
-    <!-- Header Foreground Image -->
-    <div class="large-24 medium-24 small-24 columns header-logo">
-      <div class="header-logo-text">The Abh <br />Nation</div>
-    </div>
-  </div>
-
-  <!-- Breadcrumbs -->
-  <div class="row">
-    <%= breadcrumbs style: :foundation5, style: :ul, link_current: true, display_single_fragment: true %>
-  </div>
-
-  <!-- Body -->
-  <div class="row">
-    <!-- Side Bar -->
-    <aside class="large-5 medium-5 small-5 columns">
-      <br />
-      <div class="row">
-        <div class="large-22 large-offset-2 columns" id="account">
-          <ul class="side-bar">
-            <%- if current_user -%>
-            <li>
-              <h5><%= current_user.username %></h5>
-            </li>
-            <li class="avatar"><%= avatar(current_user || User.find(params[:id])) %></li>
-            <li>
-              <br />
-              <h6>User Controls</h6>
-            </li>
-            <li><%= link_to "View Account", user_path(current_user) %></li>
-            <li><%= link_to 'Edit Account', edit_user_registration_path %></li>
-            <li><%= link_to 'Log Out', destroy_user_session_path, method: :delete %></li>
-            <%- else -%>
-            <li><%= link_to 'Log In', new_user_session_path %></li>
-            <li><%= link_to 'Register', new_user_registration_path %></li>
-            <%- end -%>
-          </ul>
-        </div>
+      <!-- Header Foreground Image -->
+      <div class="large-24 medium-24 small-24 columns header-logo">
+        <div class="header-logo-text">The Abh <br />Nation</div>
       </div>
+    </div>
 
-      <%- if current_user && current_user.admin? -%>
+    <!-- Breadcrumbs -->
+    <div class="row collapse">
+      <%= breadcrumbs style: :foundation5, style: :ul, link_current: true, display_single_fragment: true %>
+    </div>
+
+    <!-- Body -->
+    <div class="row collapse">
+      <!-- Side Bar -->
+      <aside class="large-5 medium-5 small-5 columns">
         <br />
         <div class="row">
-          <div class="large-22 large-offset-2 medium-22 medium-offset-2 small-22 small-offset-2 columns" id="admin-access">
+          <div class="large-22 large-offset-2 columns" id="account">
             <ul class="side-bar">
+              <%- if current_user -%>
               <li>
-                <h6><%= link_to 'Control Center', admin_root_path %></h6>
+                <h5><%= current_user.username %></h5>
               </li>
+              <li class="avatar"><%= avatar(current_user || User.find(params[:id])) %></li>
+              <li>
+                <br />
+                <h6>User Controls</h6>
+              </li>
+              <li><%= link_to "View Account", user_path(current_user) %></li>
+              <li><%= link_to 'Edit Account', edit_user_registration_path %></li>
+              <li><%= link_to 'Log Out', destroy_user_session_path, method: :delete %></li>
+              <%- else -%>
+              <li><%= link_to 'Log In', new_user_session_path %></li>
+              <li><%= link_to 'Register', new_user_registration_path %></li>
+              <%- end -%>
             </ul>
           </div>
         </div>
-      <%- end -%>
-    </aside>
 
-    <!-- Main Content -->
-    <div class="large-17 large-offset-1 medium-17 medium-offset-1 small-17 small-offset-1 columns full-height" role="content">
-      <br />
-      <% if !flash.empty? %>
+        <%- if current_user && current_user.admin? -%>
+          <br />
+          <div class="row collapse">
+            <div class="large-22 large-offset-2 medium-22 medium-offset-2 small-22 small-offset-2 columns" id="admin-access">
+              <ul class="side-bar">
+                <li>
+                  <h6><%= link_to 'Control Center', admin_root_path %></h6>
+                </li>
+              </ul>
+            </div>
+          </div>
+        <%- end -%>
+      </aside>
+
+      <!-- Main Content -->
+      <div class="large-17 large-offset-1 medium-17 medium-offset-1 small-17 small-offset-1 columns full-height" role="content">
+        <br />
+        <% if !flash.empty? %>
+          <div class="row collapse">
+            <div class="large-24 medium-24 small-24 columns" id="flash-success">
+              <%- flash.each do |key, value| -%>
+                <%= value %>
+              <%- end -%>
+            </div>
+          </div>
+        <% end %>
+
+        <%= yield %>
+
+        <%= javascript_include_tag 'application' %>
+        <%= javascript_tag do %>
+          $(function(){
+          $(document).foundation();
+          });
+        <% end %>
+
+      </div>
+      <div class="large-1 medium-1 small-1 columns" role="content">
+        <div class="row collapse">
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="row collapse">
+      <div class="large-24 medium-24 small-24 columns"><hr/>
         <div class="row">
-          <div class="large-24 medium-24 small-24 columns" id="flash-success">
-            <%- flash.each do |key, value| -%>
-              <%= value %>
-            <%- end -%>
+          <div class="large-12 medium-12 small-12 columns">
+            <p>Copyright © The Abh Nation.</p>
+          </div>
+          <div class="large-12 medium-12 small-12 columns">
+            <ul class="inline-list right">
+              <li><a href="http://www.abhnation.com/">The Abh Nation (original)</a></li>
+              <li><a href="http://archives.abhnation.com/">National Archives</a></li>
+              <li><a href="http://danielbonnell.io">About Me</a></li>
+              <li><a href="http://lacmhacarh.io/">Blog</a></li>
+            </ul>
           </div>
         </div>
-      <% end %>
-
-      <%= yield %>
-
-      <%= javascript_include_tag 'application' %>
-      <%= javascript_tag do %>
-        $(function(){
-        $(document).foundation();
-        });
-      <% end %>
-
-    </div>
-    <div class="large-1 medium-1 small-1 columns" role="content">
-      <div class="row">
       </div>
-    </div>
+    </footer>
   </div>
-
-  <!-- Footer -->
-  <footer class="row">
-    <div class="large-24 medium-24 small-24 columns"><hr/>
-      <div class="row">
-        <div class="large-12 medium-12 small-12 columns">
-          <p>Copyright © The Abh Nation.</p>
-        </div>
-        <div class="large-12 medium-12 small-12 columns">
-          <ul class="inline-list right">
-            <li><a href="http://www.abhnation.com/">The Abh Nation (original)</a></li>
-            <li><a href="http://archives.abhnation.com/">National Archives</a></li>
-            <li><a href="http://danielbonnell.io">About Me</a></li>
-            <li><a href="http://lacmhacarh.io/">Blog</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </footer>
 </body>
 </html>
