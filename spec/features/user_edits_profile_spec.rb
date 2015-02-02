@@ -17,7 +17,7 @@ feature 'user edits profile', %Q{
     log_in_as(user)
     visit edit_user_registration_path(user)
 
-    within(:css, "body > div:nth-child(2) > ul") do
+    within(:css, "body > div > div:nth-child(2) > ul") do
       expect(page).to have_content("Edit Profile")
     end
 
@@ -34,7 +34,7 @@ feature 'user edits profile', %Q{
     log_in_as(user)
     visit edit_user_registration_path(user)
 
-    within(:css, "body > div:nth-child(2) > ul") do
+    within(:css, "body > div > div:nth-child(2) > ul") do
       expect(page).to have_content(user.username)
     end
 

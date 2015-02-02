@@ -20,12 +20,12 @@ feature 'user views article', %Q{
     log_in_as(article.user)
     visit category_article_path(category,article)
 
-    within(:css, "body > div:nth-child(2) > ul") do
+    within(:css, "body > div > div:nth-child(2) > ul") do
       expect(page).to have_content(article.category.name)
       expect(page).to have_content(article.slug)
     end
 
-    first(:css, "body > div:nth-child(3) > div *") do
+    first(:css, "body > div > div:nth-child(3) > div *") do
       expect(page).to have_content(article.title)
       expect(page).to have_content(article.text)
       expect(page).to have_content(article.user.username)
@@ -40,7 +40,7 @@ feature 'user views article', %Q{
   # scenario 'without authenticating' do
   #   visit category_article_path(category,article)
   #
-  #   within(:css, "body > div:nth-child(2) > ul") do
+  #   within(:css, "body > div > div:nth-child(2) > ul") do
   #     expect(page).to_not have_content(article.slug)
   #   end
   #

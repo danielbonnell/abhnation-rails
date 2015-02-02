@@ -23,16 +23,16 @@ feature 'user views article', %{
   scenario 'user views subcategory' do
     visit category_path(subcategory)
 
-    within(:css, "body > div:nth-child(2) > ul") do
+    within(:css, "body > div > div:nth-child(2) > ul") do
       expect(page).to have_content(category.name)
     end
 
-    first(:css, "body > div:nth-child(3) > div *") do
+    first(:css, "body > div > div:nth-child(3) > div *") do
       expect(page).to have_content(subcat_article.slug)
       expect(page).to have_content(subcategory.name)
     end
 
-    # within(:css, "body > div:nth-child(1) > nav > section > ul") do
+    # within(:css, "body > div > div:nth-child(1) > nav > section > ul") do
     #   expect(page).to have_content(category.name)
     #   expect(page).to have_content(subcat_article.slug)
     #   expect(page).to have_content(subcategory.name)
