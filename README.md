@@ -5,13 +5,12 @@
 
 
 ## The Abh Nation (refreshed version)
-This project is a refreshed version of [The Abh Nation (new version)](http://abhnation.herokuapp.com/) built on Ruby on Rails with a modern responsive design. It features all the functionality that one would expect from a content management system, including the ability to create new content, organize content categorically, and manage users from a dedicated administrative panel. I will be continuing development into the foreseeable future. I plan to continue adding content to the site, as well as to develop my own forum system. Most of the content on the site is lorem right now, however everything under "Articles > The Abh" has been transfered from the original site.
+This project is a refreshed version of [The Abh Nation (new version)](http://abhnation.herokuapp.com/) built on Ruby on Rails with a modern responsive design. It features all the functionality that one would expect from a content management system, including the ability to create new content, organize content categorically, and manage users from a dedicated administrative panel. I will be continuing development into the foreseeable future.
 ![The Abh Nation](https://github.com/danielbonnell/abhnation-rails/blob/master/new_site.png)
 
 ## About The Abh Nation (original)
 [The Abh Nation (original version)](http://www.abhnation.com/) is the world's premier fan site for the anime series Crest of the Stars. It originally launched October 2nd, 2004, though it had it's roots as NationSufugnoff, which first launched in January, 2003. All previous iterations of NationSafugnoff are still viewable through the [National Archives](http://archives.abhnation.com/) of The Abh Nation.
 ![The Abh Nation](https://github.com/danielbonnell/abhnation-rails/blob/master/original_site.png)
-
 
 ## Current Status
 The site is currently live on [Heroku](http://abhnation.herokuapp.com/).
@@ -27,6 +26,12 @@ Currently implemented features:
 * 8. Admins can edit, restrict, or delete users.
 
 Additional features will be added to this list as they are implemented.
+
+## Content Migration
+I plan to continue adding content to the site, as well as to develop my own forum system. Most of the content on the site is lorem right now. Below is a list of categories and subcategories that have been migrated from the original site so far.
+* Articles > The Abh
+* Articles > The Empire
+* Articles > Star Forces
 
 ## Goals
 The primary goals of this project are to:
