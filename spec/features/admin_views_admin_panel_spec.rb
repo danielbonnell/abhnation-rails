@@ -11,7 +11,7 @@ feature 'admin views admin panel', %Q{
           when visiting the admin namespace.
   } do
 
-  let(:user) do
+  let(:user1) do
     FactoryGirl.create(:user)
   end
 
@@ -27,7 +27,7 @@ feature 'admin views admin panel', %Q{
   end
 
   scenario 'authenticated user who is not an admin' do
-    log_in_as(user)
+    log_in_as(user1)
     visit admin_root_path
 
     expect(page).to_not have_content('Command Information Center')
