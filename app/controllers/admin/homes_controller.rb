@@ -1,5 +1,5 @@
 module Admin
-  class HomesController < ApplicationController
+  class HomesController < Admin::ApplicationController
     def index
     end
   end

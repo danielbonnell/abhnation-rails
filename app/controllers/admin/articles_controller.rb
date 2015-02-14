@@ -1,5 +1,5 @@
 module Admin
-  class ArticlesController < ApplicationController
+  class ArticlesController < Admin::ApplicationController
     def new
       @article = Article.new
     end

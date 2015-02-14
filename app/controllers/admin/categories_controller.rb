@@ -1,5 +1,5 @@
 module Admin
-  class CategoriesController < ApplicationController
+  class CategoriesController < Admin::ApplicationController
     def new
       @category = Category.new
     end

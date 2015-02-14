@@ -1,5 +1,5 @@
 module Admin
-  class SubcategoriesController < ApplicationController
+  class SubcategoriesController < Admin::ApplicationController
     def show
       @subcategory = Subcategory.find(params[:id])
     end
