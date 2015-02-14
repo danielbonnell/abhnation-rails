@@ -114,20 +114,20 @@ Acceptance Criteria:
 
 As an admin, I want to view the admin panel, so that I can see what tools are available to me.
 Acceptance Criteria:
-* [ ] - I can view the main page of the admin panel only if I am logged in and have admin access.
-* [ ] - If I am not logged in or don’t have admin access, I can’t see a link to the admin panel in the side bar.
-* [ ] - If I am not logged in or don’t have admin access, I get a 404 error when visiting the admin namespace.
+* [X] - I can view the main page of the admin panel only if I am logged in and have admin access.
+* [X] - If I am not logged in or don’t have admin access, I can’t see a link to the admin panel in the side bar.
+* [X] - If I am not logged in or don’t have admin access, I get a 404 error when visiting the admin namespace.
 
 #### ADMIN CRUD OPS: MODIFY USERS
 
 As an admin, I want to view a list of all users, so that I can see who is using the site.
 Acceptance Criteria:
-* [ ] - I can see a paginated list of users.
+* [X] - I can see a paginated list of users.
 * [ ] - I can order the list by name, date joined, rank (admin, moderator, user, restricted, banned), or email address.
 
 As an admin, I want to view a list of all users, so that I can edit their profiles.
 Acceptance Criteria:
-* [ ] - I can edit the profile information of any user, including their username and rank.
+* [X] - I can edit the profile information of any user, including their username and rank.
 
 As an admin, I want to view a list of all users, so that I can delete their accounts.
 Acceptance Criteria:

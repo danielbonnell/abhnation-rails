@@ -10,15 +10,21 @@ feature "user sees gravatar", %{
           email address.
   } do
 
+  let(:user1) do
+    FactoryGirl.create(:user, email: "acidstealth@gmail.com")
+  end
+
+  let(:user2) do
+    FactoryGirl.create(:user)
+  end
+
   scenario "user sees their gravatar" do
-    user = FactoryGirl.create(:user, email: "acidstealth@gmail.com")
-    log_in_as(user)
-    expect(page).to have_selector("img[alt=\"#{user.username}'s Gravatar\"]")
+    log_in_as(user1)
+    expect(page).to have_selector("img[alt=\"#{user1.username}'s Gravatar\"]")
   end
 
   scenario "user sees the default gravatar" do
-    user = FactoryGirl.create(:user)
-    log_in_as(user)
-    expect(page).to have_selector("img[alt=\"#{user.username}'s Gravatar\"]")
+    log_in_as(user2)
+    expect(page).to have_selector("img[alt=\"#{user2.username}'s Gravatar\"]")
   end
 end
