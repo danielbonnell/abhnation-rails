@@ -17,7 +17,7 @@ crumb :category do |category|
       category = Category.find(params[:category_id])
     elsif params[:id]
       # If params[:category_id] is not present, category is a parent
-      category = Category.find(params[:id])
+      category = Article.find(params[:id]).category
     else
       # If there are no params, then the page must be the new_admin_category_path
       category = "Create"
