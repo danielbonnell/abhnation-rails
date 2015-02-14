@@ -3,6 +3,8 @@
 [![Code Climate](https://codeclimate.com/github/danielbonnell/abhnation-rails.png)](https://codeclimate.com/github/danielbonnell/abhnation-rails)
 [![Coverage Status](https://coveralls.io/repos/danielbonnell/abhnation-rails/badge.png)](https://coveralls.io/r/danielbonnell/abhnation-rails)
 
+## Test Coverage Note
+I am currently working on improving test coverage for the app. Some of the admin functions are still not covered as I was not sure how to write tests for them before I developed them. My goal is to reach 100% coverage of existing features before I implement additional features such as galleries and search.
 
 ## The Abh Nation (refreshed version)
 This project is a refreshed version of [The Abh Nation (new version)](http://abhnation.herokuapp.com/) built on Ruby on Rails with a modern responsive design. It features all the functionality that one would expect from a content management system, including the ability to create new content, organize content categorically, and manage users from a dedicated administrative panel. I will be continuing development into the foreseeable future.

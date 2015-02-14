@@ -4,10 +4,10 @@ module Admin
       @users = User.all.order("username ASC").page params[:page]
     end
 
-    def show
-      @user = User.find(params[:id])
-    end
-
+    # def show
+    #   @user = User.find(params[:id])
+    # end
+    #
     def edit
       @user = User.find(params[:id])
     end
