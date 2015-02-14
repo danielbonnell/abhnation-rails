@@ -1,7 +1,7 @@
 module Admin
   class ApplicationController < ActionController::Base
-    before_action :authenticate_user!, :reject_unless_admin
     before_action :configure_permitted_parameters, if: :devise_controller?
+    before_action :reject_unless_admin
     layout 'admin/layouts/application'
 
     protect_from_forgery with: :exception
@@ -10,7 +10,7 @@ module Admin
     protected
 
     def reject_unless_admin
-      unless current_user.admin?
+      unless current_user && current_user.admin?
         raise ActionController::RoutingError.new('404: Not Found')
       end
     end

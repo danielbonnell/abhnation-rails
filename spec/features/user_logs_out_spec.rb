@@ -10,9 +10,11 @@ feature 'user signs out', %Q{
   # * When I opt to sign out, I get a confirmation that my identity has been
   #   forgotten on the machine I'm using
 
-  scenario 'authenticated user signs out' do
-    user = FactoryGirl.create(:user)
+  let(:user) do
+    FactoryGirl.create(:user)
+  end
 
+  scenario 'authenticated user signs out' do
     visit new_user_session_path
 
     fill_in 'Email', with: user.email

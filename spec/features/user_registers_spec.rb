@@ -11,15 +11,12 @@ feature "user registers", %Q{
   * [X] - I see an error message if my registration credentials are invalid.
   } do
 
-
-
   scenario "provide valid registration information" do
     visit new_user_registration_path
 
     within(:css, "body > div > div:nth-child(2) > ul") do
       expect(page).to have_content("Register")
     end
-
 
     username = "Lafiel_Abriel"
     email = "lafiel.abriel@abhnation.com"
@@ -29,6 +26,8 @@ feature "user registers", %Q{
     expect(page).to have_content("You have registered successfully.")
     expect(page).to have_content(username)
     expect(page).to have_content("Log Out")
+
+    User.last.delete
   end
 
   scenario "provide invalid registration information" do
