@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'admin views admin panel', %Q{
+feature 'admin views list of users', %Q{
   As an admin, I want to view a list of all users, so that I can see who is
   using the site.
   Acceptance Criteria:
