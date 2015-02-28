@@ -131,7 +131,7 @@ Acceptance Criteria:
 
 As an admin, I want to view a list of all users, so that I can delete their accounts.
 Acceptance Criteria:
-* [ ] - I can delete a user’s account.
+* [X] - I can delete a user’s account.
 
 As an admin, I want to add new users to my site, for testing purposes.
 Acceptance Criteria:
@@ -142,9 +142,8 @@ Acceptance Criteria:
 
 As an admin, I want to view a list of all categories and subcategories, so that I can see what type of content the site has.
 Acceptance Criteria:
-* [ ] - I see a paginated list of categories ordered by name.
-* [ ] - I can expand a category to see its subcategories.
-* [ ] - I can collapse a category to hide its subcategories.
+* [X] - I see a paginated list of categories ordered by name.
+* [X] - I can see a list of subcategories belonging to a category.
 
 As an admin, I want to edit a category or subcategory, so that it better represents the content under it.
 Acceptance Criteria:
