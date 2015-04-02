@@ -1,10 +1,33 @@
 require 'rails_helper'
 
 RSpec.describe Category, :type => :model do
+  context "Create a new category" do
+    let(:category) do
+      FactoryGirl.create(
+        :category,
+        name: "Test Category",
+        parent_id: 30
+      )
+    end
 
+    it "To have a name." do
+      expect(category.name).to eq("Test Category")
+    end
+
+    it "To have a display index." do
+      expect(category.display_index).to eq(1)
+    end
+
+    it "To belong to a parent category." do
+      expect(category.parent_id).to eq(30)
+    end
+
+    it "To belong to a user." do
+      expect(category.user).to_not eq(nil)
+    end
+  end
 
   context 'moving parent category up or down once: ' do
-
     it 'UPx1: display_index decreases by 1 for category and increased by 1 for swap' do
       FactoryGirl.create(:category, name: "swap_cat", display_index: 1)
       category = FactoryGirl.create(:category, name: "cat", display_index: 2)
@@ -25,7 +48,6 @@ RSpec.describe Category, :type => :model do
   end
 
   context 'moving parent category up or down twice: ' do
-
     it 'UPx2: display_index decreases by 2 for category and increased by 2 for swap' do
       FactoryGirl.create(:category, display_index: 0)
       FactoryGirl.create(:category, name: "swap_cat", display_index: 1)
@@ -51,7 +73,6 @@ RSpec.describe Category, :type => :model do
   end
 
   context 'moving child category up or down once: ' do
-
     it 'UPx1: display_index decreases by 1 for category and increased by 1 for swap' do
       FactoryGirl.create(:category, name: "swap_cat", display_index: 1)
       category = FactoryGirl.create(:category, name: "cat", display_index: 2)
@@ -72,7 +93,6 @@ RSpec.describe Category, :type => :model do
   end
 
   context 'moving child category up or down twice: ' do
-
     it 'UPx2: display_index decreases by 2 for category and increased by 2 for swap' do
       parent = FactoryGirl.create(:category)
       FactoryGirl.create(:category, display_index: 0, parent: parent)
