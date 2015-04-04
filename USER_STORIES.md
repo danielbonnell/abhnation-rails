@@ -147,8 +147,8 @@ Acceptance Criteria:
 
 As an admin, I want to edit a category or subcategory, so that it better represents the content under it.
 Acceptance Criteria:
-* [ ] - I can edit the name of a category inline.
-* [ ] - I can edit the name of a subcategory inline.
+* [X] - I can edit the name of a category inline.
+* [X] - I can edit the name of a subcategory inline.
 
 As an admin, I want to delete a category or subcategory, so that I can remove unused categories from the site.
 Acceptance Criteria:

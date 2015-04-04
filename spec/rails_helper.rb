@@ -9,6 +9,13 @@ require File.join(File.dirname(__FILE__), 'support/factory_girl')
 require File.join(File.dirname(__FILE__), 'support/helpers/registration')
 require File.join(File.dirname(__FILE__), 'support/helpers/authentication')
 require 'capybara/rspec'
+require 'database_cleaner'
+
+DatabaseCleaner.strategy = :truncation
+
+# then, whenever you need to clean the DB
+DatabaseCleaner.clean
+
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -33,6 +40,27 @@ ActiveRecord::Migration.maintain_test_schema!
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
+
+  config.include Warden::Test::Helpers
+
+  config.before :suite do
+    Warden.test_mode!
+  end
+
+  config.after :each do
+    Warden.test_reset!
+  end
+
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.around(:each) do |example|
+    DatabaseCleaner.cleaning do
+      example.run
+    end
+  end
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false

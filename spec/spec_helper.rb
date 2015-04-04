@@ -1,3 +1,5 @@
+require 'best_in_place'
+require 'best_in_place/test_helpers'
 require 'coveralls'
 Coveralls.wear!
 
@@ -18,6 +20,8 @@ Coveralls.wear!
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
+  # Include Best in Place TestHelpers for Capybara/Rspec
+  config.include BestInPlace::TestHelpers
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.
