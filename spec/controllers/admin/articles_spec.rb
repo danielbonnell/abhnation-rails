@@ -42,7 +42,7 @@ RSpec.describe Admin::ArticlesController, type: :controller do
 
   describe "#update with valid attributes" do
     before(:each) do
-      put :update, { id: article, article: FactoryGirl.attributes_for(:article, :slug => "Test Article")}
+      put :update, id: article, article: FactoryGirl.attributes_for(:article, :slug => "Test Article")
     end
 
     it "Is successful" do
@@ -57,7 +57,7 @@ RSpec.describe Admin::ArticlesController, type: :controller do
   describe "#update with invalid attributes" do
     before(:each) do
       # binding.pry
-      xhr :patch, :update, { id: article, article: FactoryGirl.attributes_for(:article, :slug => "This Slug is Way Too Long!"), format: :json}
+      xhr :patch, :update, id: article, article: FactoryGirl.attributes_for(:article, :slug => "This Slug is Way Too Long!"), format: :json
     end
 
     it "Is unsuccessful" do

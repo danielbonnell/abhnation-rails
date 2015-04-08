@@ -40,7 +40,7 @@ RSpec.describe Admin::UsersController, type: :controller do
   describe "#update with valid attributes" do
     before(:each) do
       user = FactoryGirl.create(:user)
-      put :update, { id: user, user: FactoryGirl.attributes_for(:user, :username => "Test")}
+      put :update, id: user, user: FactoryGirl.attributes_for(:user, :username => "Test")
     end
 
     it "Is successful" do
@@ -55,7 +55,7 @@ RSpec.describe Admin::UsersController, type: :controller do
   describe "#update with invalid attributes" do
     before(:each) do
       @user = FactoryGirl.create(:user)
-      put :update, { id: @user, user: FactoryGirl.attributes_for(:user, :email => "Test")}
+      put :update, id: @user, user: FactoryGirl.attributes_for(:user, :email => "Test")
     end
 
     it "Is unsuccessful" do
