@@ -4,10 +4,6 @@ module Admin
       @users = User.all.order("username ASC").page params[:page]
     end
 
-    # def show
-    #   @user = User.find(params[:id])
-    # end
-    #
     def edit
       @user = User.find(params[:id])
     end
@@ -18,7 +14,7 @@ module Admin
       if @user.update_attributes(account_update_params)
         redirect_to admin_users_path, notice: "Success"
       else
-        redirect_to admin_users_path, notice: "Failed"
+        redirect_to edit_admin_user_path(@user), notice: "Failed"
       end
     end
 
