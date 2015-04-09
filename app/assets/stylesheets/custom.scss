@@ -46,8 +46,9 @@ input[type=checkbox] {
 }
 
 #flash-success {
-  background-color: rgba(0, 188, 2, 0.08);
-  border: 2px solid rgba(0, 188, 2, 0.4);
+  background-color: rgba(70, 79, 113, 0.4);
+  border: 2px solid $grey;
+  padding-left: 5px;
   border-radius: 5px;
 }
 
@@ -492,3 +493,7 @@ ul {
 /* .top-bar-section .has-dropdown > a:after {
   content: " ";
 } */
+
+.hidden {
+  display: collapse;
+}
