@@ -110,16 +110,10 @@
               <%- end -%>
             </div>
           </div>
+          <br />
         <% end %>
 
         <%= yield %>
-
-        <%= javascript_include_tag 'application' %>
-        <%= javascript_tag do %>
-          $(function(){
-            $(document).foundation();
-          });
-        <% end %>
 
       </div>
       <div class="large-1 medium-1 small-1 columns" role="content">
@@ -147,5 +141,19 @@
       </div>
     </footer>
   </div>
+  
+  <%= javascript_include_tag 'application' %>
+  <%= javascript_tag do %>
+    $(function(){
+    $(document).foundation();
+    });
+
+    $('#flash-success').delay(5000).fadeOut(2000,
+      function() {
+        $(this).parent().siblings('br').last().remove();
+        $(this).parent().remove();
+      }
+    );
+  <% end %>
 </body>
 </html>
