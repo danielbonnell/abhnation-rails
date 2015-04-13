@@ -5,9 +5,11 @@ module Admin
     end
 
     def create
-      if category_params[:parent_id] != ""
+      if Category.all.size == 0
+        display_index = 1
+      elsif Category.all.size != 0 && category_params[:parent_id].present?
         display_index = Category.where(parent_id: category_params[:parent_id].to_i).last.display_index + 1
-      else
+      elsif Category.all.size != 0 && !category_params[:parent_id].present?
         display_index = Category.cat_parents.order("display_index ASC").last.display_index + 1
       end
 
@@ -29,17 +31,17 @@ module Admin
       end
     end
 
-    def show
-      @category = Category.find(params[:id])
-    end
+    # def show
+    #   @category = Category.find(params[:id])
+    # end
 
     def index
       @categories = Category.all.order("display_index ASC").page params[:page]
     end
 
-    def edit
-      @category = Category.find(params[:id])
-    end
+    # def edit
+    #   @category = Category.find(params[:id])
+    # end
 
     def update
       @category = Category.find(params[:id])
